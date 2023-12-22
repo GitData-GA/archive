@@ -1,4 +1,4 @@
-name: Extract HTML Info
+name: Extract Info from HTML
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  extract-info:
+  extract_info:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,15 +14,12 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up Python
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v2
       with:
-        python-version: 3.x
+        python-version: 3.10
 
-    - name: Install Dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install requests bs4
+    - name: Install dependencies
+      run: pip install beautifulsoup4
 
-    - name: Extract Info and Create JSON
-      run: |
-        python .github/scripts/extract_info.py
+    - name: Run extraction script
+      run: python .github/scripts/extract_info.py
