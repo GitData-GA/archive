@@ -1,0 +1,28 @@
+name: Extract HTML Info
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  extract-info:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.x
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests bs4
+
+    - name: Extract Info and Create JSON
+      run: |
+        python .github/scripts/extract_info.py
