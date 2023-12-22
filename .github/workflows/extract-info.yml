@@ -23,3 +23,5 @@ jobs:
 
     - name: Run extraction script
       run: python .github/scripts/extract_info.py
+      env:
+          GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN }}
