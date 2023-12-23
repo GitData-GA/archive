@@ -25,8 +25,8 @@ def main():
                     info = extract_info_from_html(html_content)
                     output_data.append(info)
 
-    # Print the extracted information as JSON
-    print(json.dumps(output_data, indent=2))
+    with open('filename.json', 'w') as json_file:
+        json.dump(output_data, json_file, indent=2)
 
 if __name__ == '__main__':
     main()
