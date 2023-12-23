@@ -65,6 +65,8 @@
                   type: 'GET',
                   dataType: 'json',
                   success: function(jsonData) {
+                      const jsonCount = jsonData.length;
+                      document.getElementById('preprint_count').innerHTML = jsonCount;
                       function truncateAbstract(abstract) {
                           var words = abstract.split(' ');
                           if (words.length > 35) {
@@ -73,7 +75,7 @@
                           return abstract;
                       }
                       const lineBreak = `<HR>`;
-                      for (var i = Math.min(5, jsonData.length) - 1; i >= 0; i--) {
+                      for (var i = Math.min(5, jsonCount) - 1; i >= 0; i--) {
                           var paper = jsonData[i];
                           var title = paper.title;
                           var url = paper.url;
@@ -210,12 +212,13 @@
           <div class="title">
             <h1 style="font-family: Afacad_Bold; font-size: 55px">GitData <span style="color: #1b86b9;">arXiv</span></h1>
             <p style="font-family: Afacad; font-size: 20px">Unlocking the World of Data Science, Statistics, and Computer Science: Explore GitData arXiv, Your Gateway to Unreviewed Scholarly Insights and Research Archives!</p>
+            <p>As of today, there are <span style="font-family: Afacad; font-size: 20px; color: #1b86b9;" id="preprint_count"> preprints available on GitData arXiv.</span></p>
           </div>
           <div id="main-body" style="width:70%;">
             <div class="search col main-block">
               <div class="col-12 d-flex np">
                 <div class="block-head">
-                  <h2>Search<br><span style="color: #1b86b9; font-size: 15px;">Preprints</span></h2>
+                  <h2>Search <span style="color: #1b86b9;">Preprints</span></h2>
                   <br>
                 </div>
               </div>
@@ -263,7 +266,7 @@
           <div class="feed d-flex col side-block">
             <div class="feed-articles col-12 np">
               <div class="block-head">
-                <h2>Recent<br><span style="color: #1b86b9; font-size: 15px;">Preprints</span></h2>
+                <h2>Recent <span style="color: #1b86b9;">Preprints</span></h2>
                 <br>
               </div>
               <div class="feed-article col-12 np" id="researchPapersContainer">
