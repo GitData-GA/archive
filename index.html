@@ -131,8 +131,6 @@
                         try {
                             var response = await fetch('https://arxiv.gd.edu.kg/info.json');
                             var jsonData = await response.json();
-                            var preprintCount = jsonData.length;
-                            document.getElementById('preprint-count').innerHTML = preprintCount;
                         } catch (error) {
                             console.error('Error fetching JSON data:', error);
                             return;
@@ -212,7 +210,6 @@
                     <div class="title">
                         <h1 style="font-family: Afacad_Bold; font-size: 55px">GitData <span style="color: #1b86b9;">arXiv</span></h1>
                         <p style="font-family: Afacad; font-size: 20px">Unlocking the World of Data Science, Statistics, and Computer Science: Explore GitData arXiv, Your Gateway to Unreviewed Scholarly Insights and Research Archives!</p>
-                        <p>So far there are <div id="preprint-count"></div> preprints in GitData arXiv. We're still growing!</p>
                     </div>
                     <div id="main-body" style="width:70%;">
                         <div class="search col main-block">
@@ -243,7 +240,7 @@
                                     </div>
                                     <div class="form-group">
                                         <br>
-                                        <label for="date-range">Date range</label>
+                                        <label>Date range</label>
                                         <div class="date-range">
                                             <label for="startDate">From:</label>
                                             <input type="date" id="startDate">
