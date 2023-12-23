@@ -7,6 +7,8 @@ def extract_info_from_html(html_content):
     title = soup.find('meta', {'name': 'citation_title'})
     title = title['content'] if title else 'Title not found'
     authors = [meta['content'] for meta in soup.find_all('meta', {'name': 'citation_author'})]
+    version = soup.find('meta', {'name': 'version'})
+    version = version['content'] if version else 'Version not found'
     publication_date = soup.find('meta', {'name': 'citation_publication_date'})
     publication_date = publication_date['content'] if publication_date else 'Publication date not found'
     abstract = soup.find('meta', {'name': 'description'})
@@ -28,7 +30,7 @@ def extract_info_from_html(html_content):
                 break
     url = soup.find('meta', {'property': 'og:url'})
     url = url['content'] if url else 'URL not found'
-    return {'title': title, 'authors': authors, 'publication_date': publication_date, 'keywords': keywords, 'abstract': abstract, 'subject': subject, 'url': url}
+    return {'title': title, 'version': version, 'authors': authors, 'publication_date': publication_date, 'keywords': keywords, 'abstract': abstract, 'subject': subject, 'url': url}
 
 def main():
     output_data = []
@@ -39,7 +41,7 @@ def main():
                 with open(file_path, 'r', encoding='utf-8') as f:
                     html_content = f.read()
                     info = extract_info_from_html(html_content)
-                    if all(value != 'Title not found' and value != 'Publication date not found' and value != 'Abstract not found' and value != 'Subject not found' and value != 'URL not found' for value in info.values()):
+                    if all(version != 'Version not found' and value != 'Title not found' and value != 'Publication date not found' and value != 'Abstract not found' and value != 'Subject not found' and value != 'URL not found' for value in info.values()):
                         output_data.append(info)
     output_data = sorted(output_data, key=lambda x: x['url'])
     with open('info.json', 'w') as json_file:
