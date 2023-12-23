@@ -254,7 +254,7 @@ select, input, textarea{
 }
 
 .search  .search-panel .search-parameters select{
-    background: url('/svg/chevron-down-solid.svg')no-repeat right #fff;
+    background: url('/assets/chevron-down-solid.svg')no-repeat right #fff;
     -webkit-appearance: none;
     height: 30px;
     background-position-x: 97%;
