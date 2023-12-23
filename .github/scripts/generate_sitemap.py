@@ -1,7 +1,13 @@
 import os
+from datetime import datetime
+
+def calculate_priority(level):
+    base_priority = 1.0
+    decay_factor = 0.9
+    return base_priority * (decay_factor ** level)
 
 def generate_sitemap():
-    sitemap_header = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap_header = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sitemap_footer = '</urlset>'
 
     urls = []
@@ -10,8 +16,12 @@ def generate_sitemap():
         for file in files:
             if file.endswith('.html') or file.endswith('.pdf'):
                 file_path = os.path.join(root, file)
-                file_url = f'https://arxiv.gd.edu.kg/{file_path[2:]}'
-                urls.append(f'  <url>\n    <loc>{file_url}</loc>\n  </url>')
+                if file == "index.html":
+                    file_path = os.path.dirname(file_path)
+                file_url = f'https://arxiv.gd.edu.kg/{file_path[2:]}/'
+                file_priority = calculate_priority(file_path.count('/'))
+                last_modified = datetime.utcnow().replace(microsecond=0).isoformat() + "+00:00"
+                urls.append(f'  <url>\n    <loc>{file_url}</loc>\n    <lastmod>{last_modified}</lastmod>\n    <priority>{file_priority:.2f}</priority>\n  </url>')
 
     sitemap_content = '\n'.join(urls)
 
