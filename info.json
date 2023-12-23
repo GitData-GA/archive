@@ -1,14 +1,5 @@
 [
   {
-    "title": "Predictive Modeling of Blood Pressure Categories: Integrating Demographic and Dietary Factors for Personalized Management",
-    "authors": [
-      "Yuan, Li"
-    ],
-    "publication_date": "2023/12/22",
-    "abstract": "This study delves into predictive modeling of blood pressure categories, focusing on the United States, addressing the global health concern of hypertension. Mainly utilizing demographic and dietary data from the CDC National Health and Nutrition Examination Survey (NHANES) 2017-2018, aims to craft personalized management strategies. Drawing on research emphasizing the multifaceted determinants of hypertension, we leverage the multinomial regression model with lasso regularization as a baseline. Furthermore, the study advances to the extreme gradient boosting (XGB) algorithm, achieving a slightly better performance than multinomial regression. Evaluation metrics include accuracy and Area Under the Curve (AUC) in a 10-fold cross-validation framework. The study provides possible personal blood pressure management solution.",
-    "url": "https://arxiv.gd.edu.kg/20231222205352/"
-  },
-  {
     "title": "California 2022 Proposition 30 Feasibility Report and Recommendations",
     "authors": [
       "Cheng, Weilin",
