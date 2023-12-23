@@ -109,6 +109,84 @@
                             }
                         });
                     });
+                    function isAuthorMatch(authors, input) {
+                        const lowerInput = input.toLowerCase();
+                        return authors.some(author => {
+                            const lowerAuthor = author.toLowerCase();
+                            return lowerAuthor.includes(lowerInput) || lowerInput.includes(lowerAuthor);
+                        });
+                    }
+                    async function showInput() {
+                        // Prevent the default form submission to handle it manually
+                        event.preventDefault();
+
+                        // Get the values from the form elements
+                        var searchQuery = document.getElementById('searchQuery').value;
+                        var subject = document.getElementById('subject').value;
+                        var author = document.getElementById('author').value;
+                        var startDate = document.getElementById('startDate').value;
+                        var endDate = document.getElementById('endDate').value;
+
+                        // Fetch the JSON data from the specified URL
+                        try {
+                            var response = await fetch('https://arxiv.gd.edu.kg/info.json');
+                            var jsonData = await response.json();
+                        } catch (error) {
+                            console.error('Error fetching JSON data:', error);
+                            return;
+                        }
+
+                        var filteredData = jsonData.filter(function (paper) {
+                            if (searchQuery || subject || author || startDate || endDate) {
+                                return (
+                                    (searchQuery === '' || (paper.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                                            paper.url.includes(searchQuery) || 
+                                                            paper.abstract.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                                            paper.keywords.some(keyword => keyword.toLowerCase().includes(searchQuery.toLowerCase()))
+                                                        )) &&
+                                    (subject === '' || paper.subject === subject) &&
+                                    (author === '' || isAuthorMatch(paper.authors, author)) &&
+                                    (startDate === '' || new Date(paper.publication_date) >= new Date(startDate)) &&
+                                    (endDate === '' || new Date(paper.publication_date) <= new Date(endDate))
+                                );
+                            }
+                        });
+
+                        // Display the filtered results in the specified format
+                        var resultsContainer = document.getElementById('searchResults');
+                        resultsContainer.innerHTML = ''; // Clear previous results
+                        if (filteredData.length === 0) {
+                                // If no results were found, display a message
+                                resultsContainer.innerHTML = '<p><i>Sorry, your query produced no results.</i></p>';
+                        } else {
+                            resultsContainer.innerHTML = `<p><i>Found ${filteredData.length} result(s).</i></p>`;
+                            filteredData.forEach(function (paper) {
+                                // Truncate abstract to 100 words
+                                var truncatedAbstract = paper.abstract.split(' ').slice(0, 100).join(' ');
+                                truncatedAbstract += truncatedAbstract.length < paper.abstract.length ? '...' : '';
+                                var preprintID = paper.url.substring(8);
+                                // Create a div element for each result
+                                var resultDiv = document.createElement('div');
+                                var authorsString = paper.authors.join(', ');
+                                resultDiv.innerHTML = `
+                                    <br>
+                                    <li>
+                                        <p>
+                                        <a href="${paper.url}" target="_blank">${preprintID}</a>&nbsp;&nbsp;
+                                        <span class="article-tag">${paper.subject}</span> (${paper.version})
+                                        </p>
+                                        <b><p>${paper.title}</p></b>
+                                        <p><b>Submission date</b>: ${paper.publication_date}</p>
+                                        <p><b>Author</b>: ${authorsString}</p> 
+                                        <p><b>Abstract</b>: ${truncatedAbstract}</p>
+                                    </li>
+                                    <hr>
+                                `;
+                                // Append the result div to the container
+                                resultsContainer.appendChild(resultDiv);
+                            });
+                        }
+                    }
                 </script>
             </nav>
             <nav class="pre-navbar">
@@ -133,7 +211,7 @@
                         <h1 style="font-family: Afacad_Bold; font-size: 55px">GitData <span style="color: #1b86b9;">arXiv</span></h1>
                         <p style="font-family: Afacad; font-size: 20px">Unlocking the World of Data Science, Statistics, and Computer Science: Explore GitData arXiv, Your Gateway to Unreviewed Scholarly Insights and Research Archives!</p>
                     </div>
-                    <div id="main-body">
+                    <div id="main-body" style="width:70%;">
                         <div class="search col main-block">
                             <div class="col-12 d-flex np">
                                 <div class="block-head">
@@ -166,6 +244,7 @@
                                         <div class="date-range">
                                             <label for="startDate">From:</label>
                                             <input type="date" id="startDate">
+                                            <br>
                                             <label for="endDate">To:</label>
                                             <input type="date" id="endDate">
                                         </div>
@@ -175,19 +254,10 @@
                             </form>
                             </div>
                         </div>
-                        <script>
-                            function showInput() {
-                                var searchQuery = document.getElementById('searchQuery').value;
-                                var subject = document.getElementById('subject').value;
-                                var author = document.getElementById('author').value;
-                                var startDate = document.getElementById('startDate').value;
-                                var endDate = document.getElementById('endDate').value;
-
-                                alert('Search Query: ' + searchQuery + '\nSubject: ' + subject + '\nAuthor: ' + author + '\nStart Date: ' + startDate + '\nEnd Date: ' + endDate);
-
-                                // You can modify this part to display the input in a different way, such as updating a div on the page.
-                            }
-                        </script>
+                        <br>
+                        <ol>
+                            <div id="searchResults"></div>
+                        </ol> 
                     </div>
                     <div class="feed d-flex col side-block">
                         <div class="feed-articles col-12 np">
