@@ -41,7 +41,7 @@ def main():
                 with open(file_path, 'r', encoding='utf-8') as f:
                     html_content = f.read()
                     info = extract_info_from_html(html_content)
-                    if all(version != 'Version not found' and value != 'Title not found' and value != 'Publication date not found' and value != 'Abstract not found' and value != 'Subject not found' and value != 'URL not found' for value in info.values()):
+                    if all(value != 'Version not found' and value != 'Title not found' and value != 'Publication date not found' and value != 'Abstract not found' and value != 'Subject not found' and value != 'URL not found' for value in info.values()):
                         output_data.append(info)
     output_data = sorted(output_data, key=lambda x: x['url'])
     with open('info.json', 'w') as json_file:
