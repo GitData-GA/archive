@@ -106,7 +106,6 @@
                             type: 'GET',
                             dataType: 'json',
                             success: function(jsonData) {
-                                // Function to truncate the abstract to the first 35 words
                                 function truncateAbstract(abstract) {
                                     var words = abstract.split(' ');
                                     if (words.length > 35) {
@@ -114,8 +113,6 @@
                                     }
                                     return abstract;
                                 }
-                    
-                                // Iterate over the first 5 items in the JSON data in reversed order
                                 for (var i = Math.min(5, jsonData.length) - 1; i >= 0; i--) {
                                     var paper = jsonData[i];
                                     var title = paper.title;
