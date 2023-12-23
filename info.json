@@ -39,19 +39,6 @@
   {
     "title": "Analysis of Shot Marilyns by Andy Warhol",
     "authors": [
-      "Hengyuan Liu, 0009-0007-3162-2071",
-      "Xinhui Luo, NA",
-      "Weilin Cheng, NA",
-      "Erick S. Arenas V ., NA"
-    ],
-    "publication_date": "2023/12/23",
-    "abstract": "Abstract - This paper explores the differences and commons between five different versions of Shot Marilyns done by Andy Warhol. We conducted a comprehensive analysis of color composition and distribution in a set of art pieces. Using various methods such as relative conditional entropy, we explored the distinct color distributions and correlations within each image. By clustering the images and examining specific regions of interest (ROIs), including backgrounds, hair, eyeshadow, and face, we gained detailed insights into the construction and differences of each image. We also observed that initial expectations of uniform colors for certain elements were not met, highlighting the complexity and deceptive nature of color perception in art.",
-    "subject": "Data Science / Statistics (Applications)",
-    "url": "https://arxiv.gd.edu.kg/20231223173448/"
-  },
-  {
-    "title": "Analysis of Shot Marilyns by Andy Warhol",
-    "authors": [
       "Liu, Hengyuan",
       "Luo, Xinhui",
       "Cheng, Weilin",
