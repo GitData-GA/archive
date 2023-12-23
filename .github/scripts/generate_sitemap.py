@@ -17,9 +17,8 @@ def generate_sitemap():
             if file.endswith('.html') or file.endswith('.pdf'):
                 file_path = os.path.join(root, file)
                 if file == "index.html":
-                    file_url = f'https://arxiv.gd.edu.kg/{os.path.dirname(file_path)[2:]}/'
-                else:
-                    file_url = f'https://arxiv.gd.edu.kg/{file_path[2:]}'
+                    file_path = os.path.dirname(file_path)
+                file_url = f'https://arxiv.gd.edu.kg/{file_path[2:]}/'
                 file_priority = calculate_priority(file_path.count('/'))
                 last_modified = datetime.utcnow().replace(microsecond=0).isoformat() + "+00:00"
                 urls.append(f'  <url>\n    <loc>{file_url}</loc>\n    <lastmod>{last_modified}</lastmod>\n    <priority>{file_priority:.2f}</priority>\n  </url>')
