@@ -132,7 +132,7 @@
                             var response = await fetch('https://arxiv.gd.edu.kg/info.json');
                             var jsonData = await response.json();
                             var preprintCount = jsonData.length;
-                            document.getElementById('preprint-count').innerHTML = 'Number of elements: ' + count;
+                            document.getElementById('preprint-count').innerHTML = preprintCount;
                         } catch (error) {
                             console.error('Error fetching JSON data:', error);
                             return;
