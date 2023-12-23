@@ -86,6 +86,10 @@
                     <br><br>
                 </div>
                 <div class="article-info col side-block">
+                    <div class="block-head">
+                        <h2>Recent Preprints</h2>
+                    </div>
+                    <div class="side-block_container" id="researchPapersContainer"></div>
                 </div>
             </div>
             <div class="footer">
@@ -97,6 +101,7 @@
                 </div>
                 <script>
                   $(document).ready(function() {
+                    // Fetch JSON data from the provided URL
                     $.ajax({
                       url: 'https://arxiv.gd.edu.kg/info.json',
                       type: 'GET',
@@ -110,26 +115,23 @@
                           }
                           return abstract;
                         }
-                        var htmlContainer = $('<div class="article-info col side-block"></div>');
-                        htmlContainer.append('<div class="block-head"><h2>Recent Preprints</h2></div>');
                         for (var i = 0; i < Math.min(5, jsonData.length); i++) {
                           var paper = jsonData[i];
                           var title = paper.title;
                           var url = paper.url;
                           var subject = paper.subject;
+                          var publication_date = paper.publication_date;
                           var abstract = truncateAbstract(paper.abstract);
-                
-                          // Generate HTML code
                           var htmlCode = `
                             <div class="side-block_section">
-                              <a href="${url}"><span class="head">${title}</span></a>
-                              <p>${subject}</p>
+                              <a href="${url}">${title}</a>
+                              <p><b>${publication_date}</b> - ${subject}</p>
                               <p>${abstract}</p>
                             </div>
+                            <HR>
                           `;
-                          htmlContainer.append(htmlCode);
+                          $('#researchPapersContainer').append(htmlCode);
                         }
-                        $('body').append(htmlContainer);
                       },
                       error: function(xhr, status, error) {
                         console.error('Error fetching JSON:', status, error);
