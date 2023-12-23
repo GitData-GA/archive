@@ -259,18 +259,17 @@ select, input, textarea{
     height: 30px;
     background-position-x: 97%;
     background-size: 12px;
-    border: solid 1px #707087;
+    border: solid 1px #1b86b9;
     cursor: pointer;
 }
 
 .search-panel .search-parameters input{
-    border: 1px solid #707087;
+    border: 1px solid #1b86b9;
     height: 30px;
     padding-left: 15px;
 }
 
 .search  .search-panel .search-parameters .form-group{
-    border: 1px solid #1b86b9;
     margin: 0 15px;
     width: 50%;
 }
