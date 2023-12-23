@@ -14,7 +14,7 @@ def generate_sitemap():
 
     for root, dirs, files in os.walk('.'):
         for file in files:
-            if file.endswith('.html') or file.endswith('.pdf') and !file.endswith('404.html'):
+            if file.endswith('.html') or file.endswith('.pdf') and not file.endswith('404.html'):
                 file_path = os.path.join(root, file)
                 if file == "index.html":
                     file_path = os.path.dirname(file_path)
