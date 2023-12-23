@@ -86,17 +86,6 @@
                     <br><br>
                 </div>
                 <div class="article-info col side-block">
-                    <div class="block-head">
-                        <h2>Recent Publishment</h2>
-                    </div>
-                    <div class="side-block_container">
-                        <div class="side-block_section">
-                            
-                        </div>
-                        <div class="side-block_section">
-                            
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="footer">
@@ -106,6 +95,48 @@
                 <div class="col-5 np">
                     &copy; <script type="text/JavaScript"> document.write(new Date().getFullYear()) </script> GitData arXiv
                 </div>
+                <script>
+                  $(document).ready(function() {
+                    $.ajax({
+                      url: 'https://arxiv.gd.edu.kg/info.json',
+                      type: 'GET',
+                      dataType: 'json',
+                      success: function(jsonData) {
+                        // Function to truncate the abstract to the first 35 words
+                        function truncateAbstract(abstract) {
+                          var words = abstract.split(' ');
+                          if (words.length > 35) {
+                            return words.slice(0, 35).join(' ') + '...';
+                          }
+                          return abstract;
+                        }
+                        var htmlContainer = $('<div class="article-info col side-block"></div>');
+                        htmlContainer.append('<div class="block-head"><h2>Recent Publishment</h2></div>');
+                        for (var i = 0; i < Math.min(5, jsonData.length); i++) {
+                          var paper = jsonData[i];
+                          var title = paper.title;
+                          var url = paper.url;
+                          var subject = paper.subject;
+                          var abstract = truncateAbstract(paper.abstract);
+                
+                          // Generate HTML code
+                          var htmlCode = `
+                            <div class="side-block_section">
+                              <a href="${url}"><span class="head">${title}</span></a>
+                              <p>${subject}</p>
+                              <p>${abstract}</p>
+                            </div>
+                          `;
+                          htmlContainer.append(htmlCode);
+                        }
+                        $('body').append(htmlContainer);
+                      },
+                      error: function(xhr, status, error) {
+                        console.error('Error fetching JSON:', status, error);
+                      }
+                    });
+                  });
+                </script>
             </div>
         </div>
     </body>
