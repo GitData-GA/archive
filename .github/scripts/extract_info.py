@@ -6,13 +6,16 @@ def extract_info_from_html(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
 
     title = soup.find('meta', {'name': 'citation_title'})['content'] if soup.find('meta', {'name': 'citation_title'}) else 'Title not found'
-    
-    # Extracting multiple authors
     authors = [meta['content'] for meta in soup.find_all('meta', {'name': 'citation_author'})]
-    
     publication_date = soup.find('meta', {'name': 'citation_publication_date'})['content'] if soup.find('meta', {'name': 'citation_publication_date'}) else 'Publication date not found'
     abstract = soup.find('meta', {'name': 'description'})['content'] if soup.find('meta', {'name': 'description'}) else 'Abstract not found'
     url = soup.find('meta', {'property': 'og:url'})['content'] if soup.find('meta', {'property': 'og:url'}) else 'URL not found'
+
+    print(f'Title: {title}')
+    print(f'Authors: {authors}')
+    print(f'Publication Date: {publication_date}')
+    print(f'Abstract: {abstract}')
+    print(f'URL: {url}')
 
     return {'title': title, 'authors': authors, 'publication_date': publication_date, 'abstract': abstract, 'url': url}
 
