@@ -141,14 +141,15 @@
                                 </div>
                             </div>
                             <div class="search-panel">
-                            <form class="search-form">
+                            <form id="searchForm" onsubmit="showInput()">
+                                <br>
                                 <div class="search-field">
-                                    <input type="text" placeholder="Search for a preprint" name="search_query" value="">
+                                    <input type="text" placeholder="Search for a preprint" id="searchQuery">
                                     <button type="submit">Search</button>
                                 </div>
                                 <div class="search-parameters">
                                     <div class="form-group col np">
-                                        <label>Subject</label>
+                                        <label for="subject">Subject</label>
                                         <select id="subject">
                                             <option></option>
                                             <option value="Data Science / Statistics (Applications)">Data Science / Statistics (Applications)</option>
@@ -156,7 +157,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group col np">
-                                        <label>Author</label>
+                                        <label for="author">Author</label>
                                         <input type="text" id="author">
                                     </div>
                                     <div class="form-group">
@@ -170,9 +171,23 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br>
                             </form>
                             </div>
                         </div>
+                        <script>
+                            function showInput() {
+                                var searchQuery = document.getElementById('searchQuery').value;
+                                var subject = document.getElementById('subject').value;
+                                var author = document.getElementById('author').value;
+                                var startDate = document.getElementById('startDate').value;
+                                var endDate = document.getElementById('endDate').value;
+
+                                alert('Search Query: ' + searchQuery + '\nSubject: ' + subject + '\nAuthor: ' + author + '\nStart Date: ' + startDate + '\nEnd Date: ' + endDate);
+
+                                // You can modify this part to display the input in a different way, such as updating a div on the page.
+                            }
+                        </script>
                     </div>
                     <div class="feed d-flex col side-block">
                         <div class="feed-articles col-12 np">
