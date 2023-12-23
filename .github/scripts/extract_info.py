@@ -33,8 +33,7 @@ def main():
                     output_data.append(info)
 
     # Write the extracted information to a JSON file
-    output_path = 'info.json'
-    with open(output_path, 'w', encoding='utf-8') as json_file:
+    with open('info.json', 'w') as json_file:
         json.dump(output_data, json_file, indent=2)
 
 if __name__ == '__main__':
