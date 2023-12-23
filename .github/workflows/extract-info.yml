@@ -27,14 +27,4 @@ jobs:
       run: python .github/scripts/extract_info.py
       env:
           GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN }}
-          
-    - name: Commit changes
-      run: |
-        git config --global user.email "no-reply@github.com"
-        git config --global user.name "GitHub Actions"
-        git add static/blog.json
-        git commit -m "Update blog.json"
-        git remote set-url origin https://x-access-token:${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN }}
+        
