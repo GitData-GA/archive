@@ -11,7 +11,8 @@ def extract_info_from_html(html_content):
     publication_date = publication_date['content'] if publication_date else 'Publication date not found'
     abstract = soup.find('meta', {'name': 'description'})
     abstract = abstract['content'] if abstract else 'Abstract not found'
-    subject = soup.find('div', {'class': 'side-block_section'}).find('span', {'class': 'head'}, string='Subject')
+    subject_section = soup.find('div', {'class': 'side-block_section'})
+    subject = subject_section.find('span', {'class': 'head'}, string='Subject')
     subject = subject.find_next('li').get_text() if subject else 'Subject not found'
     url = soup.find('meta', {'property': 'og:url'})
     url = url['content'] if url else 'URL not found'
