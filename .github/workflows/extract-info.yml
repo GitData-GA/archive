@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+permissions: write-all
+
 jobs:
   extract_info:
     runs-on: ubuntu-latest
