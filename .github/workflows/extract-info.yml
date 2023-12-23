@@ -27,6 +27,7 @@ jobs:
       run: python .github/scripts/extract_info.py
       env:
           GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN }}
+          
     - name: Commit changes
       run: |
         git config --global user.email "no-reply@github.com"
