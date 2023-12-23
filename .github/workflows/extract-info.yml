@@ -23,13 +23,24 @@ jobs:
     - name: Install dependencies
       run: pip install beautifulsoup4
 
-    - name: Write JSON to Repo
+    - name: Write info json to Repo
       run: |
         python .github/scripts/extract_info.py > info.json
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add info.json
-        git commit -m "Write JSON to Repo"
+        git commit -m "Info updated with Github Action"
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN }}
+
+    - name: Write sitemap xml to Repo
+      run: |
+        python .github/scripts/generate_sitemap.py > sitemap.xml
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add sitemap.xml
+        git commit -m "Sitemap updated with Github Action"
         git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN }}
