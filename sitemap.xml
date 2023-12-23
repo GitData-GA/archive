@@ -1,30 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://arxiv.gd.edu.kg/index.html</loc>
+    <loc>https://arxiv.gd.edu.kg//</loc>
+    <lastmod>2023-12-23T00:58:34+00:00</lastmod>
+    <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://arxiv.gd.edu.kg/test.html</loc>
+    <loc>https://arxiv.gd.edu.kg/test.html/</loc>
+    <lastmod>2023-12-23T00:58:34+00:00</lastmod>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://arxiv.gd.edu.kg/20231222205352/index.html</loc>
+    <loc>https://arxiv.gd.edu.kg/20231222205352/</loc>
+    <lastmod>2023-12-23T00:58:34+00:00</lastmod>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://arxiv.gd.edu.kg/20231222205352/v1.pdf</loc>
+    <loc>https://arxiv.gd.edu.kg/20231222205352/v1.pdf/</loc>
+    <lastmod>2023-12-23T00:58:34+00:00</lastmod>
+    <priority>0.81</priority>
   </url>
   <url>
-    <loc>https://arxiv.gd.edu.kg/submit/index.html</loc>
+    <loc>https://arxiv.gd.edu.kg/submit/</loc>
+    <lastmod>2023-12-23T00:58:34+00:00</lastmod>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://arxiv.gd.edu.kg/submit/update/index.html</loc>
+    <loc>https://arxiv.gd.edu.kg/submit/update/</loc>
+    <lastmod>2023-12-23T00:58:34+00:00</lastmod>
+    <priority>0.81</priority>
   </url>
   <url>
-    <loc>https://arxiv.gd.edu.kg/submit/new/index.html</loc>
+    <loc>https://arxiv.gd.edu.kg/submit/new/</loc>
+    <lastmod>2023-12-23T00:58:34+00:00</lastmod>
+    <priority>0.81</priority>
   </url>
   <url>
-    <loc>https://arxiv.gd.edu.kg/20231222211910/index.html</loc>
+    <loc>https://arxiv.gd.edu.kg/20231222211910/</loc>
+    <lastmod>2023-12-23T00:58:34+00:00</lastmod>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://arxiv.gd.edu.kg/20231222211910/v1.pdf</loc>
+    <loc>https://arxiv.gd.edu.kg/20231222211910/v1.pdf/</loc>
+    <lastmod>2023-12-23T00:58:34+00:00</lastmod>
+    <priority>0.81</priority>
   </url>
 </urlset>
