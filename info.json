@@ -81,5 +81,28 @@
     "abstract": "Proposition 30 is a plan in California to increase taxes on high-income earners in order to fund programs that promote the use of zero-emission vehicles and prevent wildfires. The tax is expected to start in 2023 and end by 2043, or earlier if the state is able to maintain its greenhouse gas emissions at expected levels for three consecutive years. Proposition 30 plans to use 80% of the tax revenue to fund the Zero Emission Vehicle program, with 45% dedicated to helping people buy electric vehicles and 35% to installing charging stations. The remaining 20% will be used for Wildfire Response and Prevention Programs. The goal is to help California reduce its greenhouse gas emissions and meet its target of reducing emissions to 80% below 1990 levels by 2050. The authors conducted a study that evaluates whether the proposition can help California achieve its goal.",
     "subject": "Data Science / Statistics (Applications)",
     "url": "https://archive.gd.edu.kg/20231224041118/"
+  },
+  {
+    "title": "2022 - 2023 H5N1 Bird Flu Modeling and Prediction in the United States",
+    "version": "Version 1",
+    "authors": [
+      "Weilin Cheng",
+      "Hengyuan Liu",
+      "Kathy Mo",
+      "Sida Tian",
+      "Li Yuan"
+    ],
+    "publication_date": "2023/12/24",
+    "keywords": [
+      "H5N1",
+      "logistic regression",
+      "ridge regression",
+      "lasso regression",
+      "glmnet",
+      "R"
+    ],
+    "abstract": "This report presents an analysis of the likelihood of H5N1 outbreaks in different counties of the United States in January 2023 using logistic regression, ridge regression, and lasso regression models. The models were trained using historical data from 2022, and the accuracy of the models in predicting H5N1 outbreaks in January 2023 is about 98.4%. The lasso regression model performed the best among the three models, with an AUC of 0.8015. The map generated based on the lasso regression model indicated that counties in the north and west were at a higher risk of having H5N1 outbreaks in January 2023, which matched the actual result. The report concludes that there are limitations to the models, including the consideration of only a limited set of factors affecting the spread of the virus and the use of historical data. Future work could incorporate additional data sources and use more sophisticated machine learning techniques to improve the accuracy of the models. The report also proposes some possible remedies to help control the spread of H5N1.",
+    "subject": "Data Science / Statistics (Applications)",
+    "url": "https://archive.gd.edu.kg/20231224042259/"
   }
 ]
