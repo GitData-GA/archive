@@ -8,11 +8,13 @@
 </head>
 <body>
 
+<div id="fetchedHtmlContainer"></div>
+
 <script>
   $(document).ready(function() {
     $.get('https://archive.gd.edu.kg/20231224043044/', function(html) {
-      // Instead of alert, write out the HTML to the body of the current document
-      $('body').html(html);
+      // Write out the HTML to a specific div with id "fetchedHtmlContainer"
+      $('#fetchedHtmlContainer').html(html);
     });
   });
 </script>
