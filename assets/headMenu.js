@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <a class="nav-menu" href="https://archive.gd.edu.kg/about/">About</a>
                         <a class="nav-menu" href="https://archive.gd.edu.kg/terms/">Terms</a>
                         <a class="nav-menu" href="https://archive.gd.edu.kg/submit/">Submit</a>
+                        <a class="nav-menu" href="https://archive.gd.edu.kg/submit/">Submit</a>
                     </div>
         `;
         normal.innerHTML = content;
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <ul>
                         <li><a href="https://archive.gd.edu.kg/about/">About</a></li>
                         <li><a href="https://archive.gd.edu.kg/terms/">Terms</a></li>
+                        <li><a href="https://archive.gd.edu.kg/submit/">Submit</a></li>
                         <li><a href="https://archive.gd.edu.kg/submit/">Submit</a></li>
                     </ul>
         `;
