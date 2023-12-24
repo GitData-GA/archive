@@ -169,7 +169,7 @@
                 var authors = getAuthors();
                 var infoAuthor = '';
                 for (var i = 0; i < authors.length; i++) {
-                    if (authors[i].orcid != 'NA') {
+                    if (authors[i].orcid != 'NA' && authors[i].orcid != null && authors[i].orcid != '') {
                         infoAuthor += 
                                `<li>
                                     <a href="https://orcid.org/${authors[i].orcid}" target="_blank" class="object-link">
