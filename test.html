@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch and Show HTML</title>
+    <title>Fetch and Print HTML</title>
     <script src="https://archive.gd.edu.kg/assets/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
 
-<!-- Create a div with an id to display the fetched HTML -->
+<!-- Create a div with an id to display the fetched HTML as text -->
 <div id="crawledHTML"></div>
 
 <script>
@@ -18,8 +18,11 @@
     $.get('https://archive.gd.edu.kg/20231224043044/', function(html) {
         fetchedHtml = html;
 
-        // Write out the HTML to a specific div with id "crawledHTML"
-        document.getElementById('crawledHTML').innerHTML = fetchedHtml;
+        // Create a text node with the fetched HTML
+        var textNode = document.createTextNode(fetchedHtml);
+
+        // Append the text node to a specific div with id "crawledHTML"
+        document.getElementById('crawledHTML').appendChild(textNode);
     });
   });
 </script>
