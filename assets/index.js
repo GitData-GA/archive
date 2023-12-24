@@ -104,31 +104,33 @@ async function showInput() {
     if (filteredData.length === 0) {
             resultsContainer.innerHTML = '<p><i>Sorry, your query produced no results.</i></p>';
     } else {
-        resultsContainer.innerHTML = `<p><i>Found ${filteredData.length} result(s).</i></p>`;
+        resultsContainer.innerHTML = `
+            <p><i>Found ${filteredData.length} result(s).</i></p>
+            <br>
+            <ol>
+        `;
         filteredData.forEach(function (paper) {
             // Truncate abstract to 100 words
             var truncatedAbstract = paper.abstract.split(' ').slice(0, 75).join(' ');
             truncatedAbstract += truncatedAbstract.length < paper.abstract.length ? '...' : '';
             var preprintID = paper.url.substring(8);
-            // Create a div element for each result
-            var resultDiv = document.createElement('ol');
+            var resultDiv = document.createElement('li');
             var authorsString = paper.authors.join(', ');
             resultDiv.innerHTML = `
                 <br>
-                <li>
-                    <p>
-                    <a href="${paper.url}">${preprintID}</a>&nbsp;&nbsp;
-                    <span class="article-tag">${paper.subject}</span> (${paper.version})
-                    </p>
-                    <b><p>${paper.title}</p></b>
-                    <p><b>Submission date</b>: ${paper.publication_date}</p>
-                    <p><b>Author</b>: ${authorsString}</p> 
-                    <p><b>Abstract</b>: ${truncatedAbstract}</p>
-                </li>
+                <p>
+                <a href="${paper.url}">${preprintID}</a>&nbsp;&nbsp;
+                <span class="article-tag">${paper.subject}</span> (${paper.version})
+                </p>
+                <b><p>${paper.title}</p></b>
+                <p><b>Submission date</b>: ${paper.publication_date}</p>
+                <p><b>Author</b>: ${authorsString}</p> 
+                <p><b>Abstract</b>: ${truncatedAbstract}</p>
                 <hr>
             `;
             // Append the result div to the container
             resultsContainer.appendChild(resultDiv);
         });
+        resultsContainer.innerHTML += `<br></ol>`;
     }
 }
