@@ -1,26 +1,5 @@
 [
   {
-    "title": "California 2022 Proposition 30 Feasibility Report and Recommendations",
-    "version": "Version 1",
-    "authors": [
-      "Weilin Cheng",
-      "Hengyuan Liu",
-      "Kathy Mo",
-      "Li Yuan"
-    ],
-    "publication_date": "2023/12/22",
-    "keywords": [
-      "politics",
-      "public policy",
-      "wildfire",
-      "electric car",
-      "R"
-    ],
-    "abstract": "Proposition 30 is a plan in California to increase taxes on high-income earners in order to fund programs that promote the use of zero-emission vehicles and prevent wildfires. The tax is expected to start in 2023 and end by 2043, or earlier if the state is able to maintain its greenhouse gas emissions at expected levels for three consecutive years. Proposition 30 plans to use 80% of the tax revenue to fund the Zero Emission Vehicle program, with 45% dedicated to helping people buy electric vehicles and 35% to installing charging stations. The remaining 20% will be used for Wildfire Response and Prevention Programs. The goal is to help California reduce its greenhouse gas emissions and meet its target of reducing emissions to 80% below 1990 levels by 2050. The authors conducted a study that evaluates whether the proposition can help California achieve its goal.",
-    "subject": "Data Science / Statistics (Applications)",
-    "url": "https://archive.gd.edu.kg/20231222211910/"
-  },
-  {
     "title": "2022 - 2023 H5N1 Bird Flu Modeling and Prediction in the United States",
     "version": "Version 1",
     "authors": [
