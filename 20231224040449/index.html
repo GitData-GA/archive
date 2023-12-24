@@ -45,6 +45,8 @@
 
             <!-- JavaScript -->
             <script src="https://archive.gd.edu.kg/assets/jquery.min.js" type="text/javascript"></script>
+            <script src="https://archive.gd.edu.kg/assets/footerMenu.js" type="text/javascript"></script>
+            <script src="https://archive.gd.edu.kg/assets/headMenu.js" type="text/javascript"></script>
             <script src="https://mathjax.gd.edu.kg/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" async></script>
             <script type="text/x-mathjax-config">
                 init_mathjax = function() {
@@ -85,12 +87,13 @@
                     <div class="bar2"></div>
                     <div class="bar3"></div>
                 </div>
-                <div class="mobile-back menu_off">
+                <div id="mobileMenu" class="mobile-back menu_off">
+                    <!--
                     <ul>
                         <li><a href="https://archive.gd.edu.kg/about/">About</a></li>
                         <li><a href="https://archive.gd.edu.kg/terms/">Terms</a></li>
                         <li><a href="https://archive.gd.edu.kg/submit/">Submit</a></li>
-                    </ul>
+                    </ul>-->
                 </div>
                 <div class="logo-mobile">
                     <a href="https://archive.gd.edu.kg/">
@@ -114,11 +117,12 @@
                     </a>
                 </div>
                 <div class="items-container">
-                    <div class="menu-holder">
+                    <!--
+                    <div id="normalMenu" class="menu-holder">
                         <a class="nav-menu" href="https://archive.gd.edu.kg/about/">About</a>
                         <a class="nav-menu" href="https://archive.gd.edu.kg/terms/">Terms</a>
                         <a class="nav-menu" href="https://archive.gd.edu.kg/submit/">Submit</a>
-                    </div>
+                    </div>-->
                 </div>
             </nav>
             <nav class="post-navbar">
@@ -223,11 +227,9 @@
                 </div>
             </div>
             <div class="footer">
-                <div class="col-7 np">
-                    Unlock Data Potential
-                </div>
+                <div id="footerMenu" class="container"></div>
                 <div class="col-5 np">
-                    &copy; <script type="text/JavaScript"> document.write(new Date().getFullYear()) </script> GitData Archive
+                    &copy; <script type="text/JavaScript"> document.write(new Date().getFullYear()) </script> GitDat Archive
                 </div>
             </div>
         </div>
