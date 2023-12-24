@@ -61,7 +61,7 @@
     ],
     "abstract": "This report presents an analysis of the likelihood of H5N1 outbreaks in different counties of the United States in January 2023 using logistic regression, ridge regression, and lasso regression models. The models were trained using historical data from 2022, and the accuracy of the models in predicting H5N1 outbreaks in January 2023 is about 98.4%. The lasso regression model performed the best among the three models, with an AUC of 0.8015. The map generated based on the lasso regression model indicated that counties in the north and west were at a higher\nrisk of having H5N1 outbreaks in January 2023, which matched the actual result. The report concludes that there are limitations to the models, including the consideration of only a limited set of factors affecting the spread of the virus and the use of historical data. Future work could\nincorporate additional data sources and use more sophisticated machine learning techniques to improve the accuracy of the models. The report also proposes some possible remedies to help control the spread of H5N1.",
     "subject": "Data Science / Statistics (Applications)",
-    "url": "https://arxiv.gd.edu.kg/20231223050821/"
+    "url": "https://archive.gd.edu.kg/20231223050821/"
   },
   {
     "title": "Analysis of Shot Marilyns by Andy Warhol",
