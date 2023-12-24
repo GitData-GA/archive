@@ -32,6 +32,11 @@
         <link href="https://archive.gd.edu.kg/assets/app.css" rel="stylesheet">
         <link href="https://archive.gd.edu.kg/assets/bootstrap.min.css" rel="stylesheet">
         <link href="https://archive.gd.edu.kg/assets/custom.css" rel="stylesheet">
+        <style>
+            .imageContainer > img:hover {
+              width: 100%;;
+            }
+        </style>
 
         <!-- Javascript -->
         <script src="https://archive.gd.edu.kg/assets/jquery.min.js" type="text/javascript"></script>
@@ -676,22 +681,32 @@ ${commentFill}
                         </div>
                         <div id="s1-2">
                             <b><p style="font-size: 20px;">2. Author(s)<span style="color: red;">*</span>:</p></b>
-                            <p>
-                                -&nbsp;&nbsp;&nbsp;&nbsp;If there is <b>only 1 author</b>, please follow the format (If ORCID is unknown, please put NA there.):<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Last name, First name, ORCID</code><br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Example</i>:<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Git, Data, 0000-0000-0000-0000</code>
-                            </p>
-                            <p>
-                                -&nbsp;&nbsp;&nbsp;&nbsp;If there are <b>multiple authors</b>, please follow the format (If ORCID is unknown, please put NA there.):<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Last name 1, First name 1, ORCID</code><br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Last name 2, First name 2, ORCID</code><br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Last name 3, First name 3, ORCID</code><br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Example</i>:<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Git1, Data1, 1111-1111-1111-1111</code></i><br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Git2, Data2, NA</code></i><br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Git3, Data3, 3333-3333-3333-3333</code></i>
-                            </p>
+                            <div class="row">
+                                <div class="col" style="border-right:1px solid #000;">
+                                    If there is <b>only 1 author</b>, please follow the format:<br>
+                                    <code>Last name, First name, ORCID</code><br><br><br><br>
+                                    <i>Example</i>:<br>
+                                    - If the ORCID is <b>known</b>, type the correct ORCID:<br>
+                                    &nbsp;<code>Einstein, Albert, 0000-0000-0000-0000</code><br><br><br><br>
+                                    - If the ORCID is <b>unknown</b>, simply type <code>NA</code> there:<br>
+                                    &nbsp;<code>Mendeleev, Dmitri, NA</code><br>
+                                </div>
+                                <div class="col" style="border-left:1px solid #000;">
+                                    If there are <b>multiple authors</b>, please follow the format:<br>
+                                    <code>Last name 1, First name 1, ORCID</code><br>
+                                    <code>Last name 2, First name 2, ORCID</code><br>
+                                    <code>Last name 3, First name 3, ORCID</code><br><br>
+                                    <i>Example</i>:<br>
+                                    - If the ORCID is <b>known</b>, type the correct ORCID:<br>
+                                    &nbsp;<code>Einstein, Albert, 0000-0000-0000-0000</code><br>
+                                    &nbsp;<code>Newton, Isaac, 1111-1111-1111-1111</code><br>
+                                    &nbsp;<code>Darwin, Charles, 2222-2222-2222-2222</code><br><br>
+                                    - If the ORCID is <b>unknown</b>, simply type <code>NA</code> there:<br>
+                                    &nbsp;<code>Einstein, Albert, 0000-0000-0000-0000</code><br>
+                                    &nbsp;<code>Mendeleev, Dmitri, NA</code><br>
+                                    &nbsp;<code>Newton, Isaac, 1111-1111-1111-1111</code><br>
+                                </div>
+                            </div>
                             <textarea style="width:100%;height:200px;" type="text" id="authorToFill" required></textarea><br>
                             <p>Click the following button to see if the author information is correct.</p>
                             <button class="fulltext" type="button" onclick="printAuthorsInfo()">Verify author input</button>
@@ -708,8 +723,9 @@ ${commentFill}
                         </div>
                         <div id="s1-4">
                             <b><p style="font-size: 20px;">4. Subject<span style="color: red;">*</span>:</p></b>
-                            <p>For more information about subjects, please refer to <a href="https://archive.gd.edu.kg/terms/" target="_blank">terms page</a>.</p>
+                            <p>For more information about subjects, please refer to <a href="https://archive.gd.edu.kg/about/" target="_blank">about page</a>.</p>
                             <select id="subjectSelect" name="subject" required>
+                                <option></option>
                                 <option value="Data Science / Statistics (Applications)">Data Science / Statistics (Applications)</option>
                                 <option value="Data Science / Statistics (Computation)">Data Science / Statistics (Computation)</option>
                                 <option value="Data Science / Statistics (Machine Learning)">Data Science / Statistics (Machine Learning)</option>
@@ -754,6 +770,7 @@ ${commentFill}
                             <b><p style="font-size: 20px;">9. License<span style="color: red;">*</span>:</p></b>
                             <p>For more information about licenses, please refer to <a href="https://creativecommons.org/share-your-work/cclicenses/" target="_blank">Creative Commons</a>.</p>
                             <select id="licenseSelect" name="license" required>
+                                <option></option>
                                 <option value="CC BY">CC BY</option>
                                 <option value="CC BY-SA">CC BY-SA</option>
                                 <option value="CC BY-NC">CC BY-NC</option>
@@ -772,7 +789,7 @@ ${commentFill}
                         </div>
                         <div id="s1-11">
                             <b><p style="font-size: 20px;">11. Submit Metadata and Save Processed PDF<span style="color: red;">*</span>:</p></b>
-                            <p>Upon submitting metadata, the HTML code will be generated and the processed PDF will be downloaded. Please do not change the name of the PDF file.</p>
+                            <p>Upon submitting metadata, the HTML code will be generated and the processed PDF will be downloaded. Make sure the PDF file name is <code>v1.pdf</code>.</p>
                             <button class="fulltext" type="submit">Submit Metadata</button><br><br>
                             <p>Please proceed to step 2 after submitting metadata.</p>
                             <br><br>
@@ -788,38 +805,50 @@ ${commentFill}
 
                     <HR>
                     <b><u><h2 id="s3" style="font-size: 23px;">Step 3: Submit HTML and PDF to the Preprint Server</h2></u></b>
-                    <p>
+                    <b><p style="font-size: 20px;">
                         1. In your browser, navigate to <a href="https://github.com/GitData-GA/archive" target="_blank">https://github.com/GitData-GA/archive</a>.
-                    </p>
-                    <p>
-                        2. Click on "Add file", then select "Create new file".<br>
-                        <img src="https://archive.gd.edu.kg/assets/submit_new_1.png" width="80%" alt="guide image 1">
-                    </p>
-                    <p>
-                        3. Copy the following text to fill in "Name your file..." (the text should be different from the example in the image below, but the format should be similar).
-                        <script>document.write (`<p><code>${preprintID}/index.html</code></p>`)</script>
-                        <img src="https://archive.gd.edu.kg/assets/submit_new_2.png" width="80%" alt="guide image 2">
-                    </p>
-                    <p>
-                        4. Go back to this submssion page, scroll up to Step 2 (Get the HTML). Click on "Copy HTML". Make sure the metadata are correct before copying.<br>
-                        <img src="https://archive.gd.edu.kg/assets/submit_new_3.png" width="80%" alt="guide image 3">
-                    </p>
-                    <p>
-                        5. Paste the HTML code you just copied to Github. Then click on "Commit changee...".<br>
-                        <img src="https://archive.gd.edu.kg/assets/submit_new_4.png" width="80%" alt="guide image 4">
-                    </p>
-                    <p>
-                        6. In the Github folder you just created and modified, click on "Add file", then click on "Upload files".<br>
-                        <img src="https://archive.gd.edu.kg/assets/submit_new_5.png" width="80%" alt="guide image 5">
-                    </p>
-                    <p>
-                        7. Upload the PDF file to Github. After it is uploaded, click on "Commnit changes" at the bottom left.<br>
-                        <img src="https://archive.gd.edu.kg/assets/submit_new_6.png" width="80%" alt="guide image 6">
-                    </p>
-                    <p>
-                        8. You are all set! You should be able to see your preprint in around 10 minutes using the following url:<br>
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        2. Click on "<i>Add file</i>", then select "<i>Create new file</i>".<br>
+                        <div class="imageContainer">
+                          <img src ="https://archive.gd.edu.kg/assets/submit_new_1.png" width="250" alt="guide image 1"/>
+                        </div>
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        3. Copy the following text to the blank "<i>Name your file...</i>". The number (<script>document.write (`<code style="font-size: 20px;">${preprintID}</code>`)</script>) is your preprint ID, which is unique.
+                        <script>document.write (`<p><code style="font-size: 20px;">${preprintID}/index.html</code></p>`)</script>
+                        <div class="imageContainer">
+                          <img src ="https://archive.gd.edu.kg/assets/submit_new_2.png" width="250" alt="guide image 2"/>
+                        </div>
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        4. Go back to <a href="#s2">Step 2: Get the HTML</a>. Click on "<i>Copy HTML</i>". Make sure the metadata are correct before copying.<br>
+                        <div class="imageContainer">
+                          <img src ="https://archive.gd.edu.kg/assets/submit_new_3.png" width="250" alt="guide image 3"/>
+                        </div>
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        5. Paste the HTML code you just copied to Github. Then click on "<i>Commit changes...</i>".<br>
+                        <div class="imageContainer">
+                          <img src ="https://archive.gd.edu.kg/assets/submit_new_4.png" width="250" alt="guide image 4"/>
+                        </div>
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        6. In the Github folder you just created and modified (<script>document.write (`<a href="https://github.com/GitData-GA/archive/tree/main/${preprintID}" target="_blank">https://github.com/GitData-GA/archive/tree/main/${preprintID}</a>`)</script>), click on "<i>Add file</i>", then click on "<i>Upload files</i>".<br>
+                        <div class="imageContainer">
+                          <img src ="https://archive.gd.edu.kg/assets/submit_new_5.png" width="250" alt="guide image 5"/>
+                        </div>
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        7. Upload the PDF file to Github. After it is successfully uploaded, click on "<i>Commnit changes</i>" at the bottom left.<br>
+                        <div class="imageContainer">
+                          <img src ="https://archive.gd.edu.kg/assets/submit_new_6.png" width="250" alt="guide image 6"/>
+                        </div>
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        8. You are all set! You should be able to see your preprint in around 30 minutes using the following url.<br>
                         <script>document.write (`<a href="https://archive.gd.edu.kg/${preprintID}/" target="_blank">https://archive.gd.edu.kg/${preprintID}/</a>`)</script>
-                    </p>
+                    </p></b>
                     <br><br>
                 </div>
                 <div class="article-info col side-block">
