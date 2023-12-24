@@ -23,25 +23,18 @@ jobs:
     - name: Install dependencies
       run: pip install beautifulsoup4
 
-    - name: Check for changes
-      id: check_changes
-      run: |
-        git diff-index --quiet HEAD || echo "Files have changed"
-        
     - name: Write sitemap to Repo
-      if: steps.check_changes.outputs.result == 'Files have changed'
       run: |
         python .github/scripts/generate_sitemap.py > sitemap.xml
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add sitemap.xml
-        git commit -m "Sitemap updated with Github Action"
+        git commit -m "Info updated with Github Action"
         git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.YOUR_PERSONAL_ACCESS_TOKEN }}
 
     - name: Write info json to Repo
-      if: steps.check_changes.outputs.result == 'Files have changed'
       run: |
         python .github/scripts/extract_info.py > info.json
         git config --local user.email "action@github.com"
