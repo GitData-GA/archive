@@ -81,5 +81,25 @@
     "abstract": "This paper explores the differences and commons between five different versions of Shot Marilyns done by Andy Warhol. We conducted a comprehensive analysis of color composition and distribution in a set of art pieces. Using various methods such as relative conditional entropy, we explored the distinct color distributions and correlations within each image. By clustering the images and examining specific regions of interest (ROIs), including backgrounds, hair, eyeshadow, and face, we gained detailed insights into the construction and differences of each image. We also observed that initial expectations of uniform colors for certain elements were not met, highlighting the complexity and deceptive nature of color perception in art.",
     "subject": "Data Science / Statistics (Applications)",
     "url": "https://archive.gd.edu.kg/20231223181149/"
+  },
+  {
+    "title": "Predictive Modeling of Blood Pressure Categories: Integrating Demographic and Dietary Factors for Personalized Management",
+    "version": "Version 1",
+    "authors": [
+      "Li Yuan"
+    ],
+    "publication_date": "2023/12/24",
+    "keywords": [
+      "blood pressure",
+      "multinomial regression",
+      "lasso",
+      "tree",
+      "gradient boosting",
+      "xgboost",
+      "R"
+    ],
+    "abstract": "This study delves into predictive modeling of blood pressure categories, focusing on the United States, addressing the global health concern of hypertension. Mainly utilizing demographic and dietary data from the CDC National Health and Nutrition Examination Survey (NHANES) 2017-2018, aims to craft personalized management strategies. Drawing on research emphasizing the multifaceted determinants of hypertension, we leverage the multinomial regression model with lasso regularization as a baseline. Furthermore, the study advances to the extreme gradient boosting (XGB) algorithm, achieving a slightly better performance than multinomial regression. Evaluation metrics include accuracy and Area Under the Curve (AUC) in a 10-fold cross-validation framework. The study provides possible personal blood pressure management solution.",
+    "subject": "Data Science / Statistics (Applications)",
+    "url": "https://archive.gd.edu.kg/20231224040449/"
   }
 ]
