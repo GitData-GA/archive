@@ -94,10 +94,10 @@ async function showInput() {
         }
     });
 
-    filteredData.sort((a, b) => new Date(b.publication_date) - new Date(a.publication_date));
+    filteredData.sort((a, b) => parseInt(b.url.substring(26, 40), 10) - parseInt(a.url.substring(26, 40), 10));
     var sortOption = document.getElementById('sortOption').value;
     if (sortOption === 'asc') {
-        filteredData.sort((a, b) => new Date(a.publication_date) - new Date(b.publication_date));
+        filteredData.sort((a, b) => parseInt(a.url.substring(26, 40), 10) - parseInt(b.url.substring(26, 40), 10));
     }
     var resultsContainer = document.getElementById('searchResults');
     resultsContainer.innerHTML = ''; // Clear previous results
@@ -106,8 +106,6 @@ async function showInput() {
     } else {
         resultsContainer.innerHTML = `
             <p><i>Found ${filteredData.length} result(s).</i></p>
-            <br>
-            <ol>
         `;
         filteredData.forEach(function (paper) {
             // Truncate abstract to 100 words
@@ -117,7 +115,6 @@ async function showInput() {
             var resultDiv = document.createElement('li');
             var authorsString = paper.authors.join(', ');
             resultDiv.innerHTML = `
-                <br>
                 <p>
                 <a href="${paper.url}">${preprintID}</a>&nbsp;&nbsp;
                 <span class="article-tag">${paper.subject}</span> (${paper.version})
@@ -128,9 +125,7 @@ async function showInput() {
                 <p><b>Abstract</b>: ${truncatedAbstract}</p>
                 <hr>
             `;
-            // Append the result div to the container
             resultsContainer.appendChild(resultDiv);
         });
-        resultsContainer.innerHTML += `<br></ol>`;
     }
 }
