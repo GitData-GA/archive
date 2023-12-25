@@ -40,6 +40,15 @@ def extract_info_from_html(html_content):
     
     return {'title': title, 'version': version, 'authors': authors, 'publication_date': publication_date, 'keywords': keywords, 'abstract': abstract, 'subject': subject, 'url': url}
 
+def custom_sort(info):
+    url_match = re.search(r'\d{14}', info['url'])
+    if url_match:
+        base_url = url_match.group()
+        version_match = re.search(r'v(\d+)?', info['url'])
+        version = int(version_match.group(1)) if version_match else 0
+        return (base_url, version)
+    return ('', 0)
+
 def main():
     output_data = []
     for root, dirs, files in os.walk('.'):
@@ -51,7 +60,7 @@ def main():
                     info = extract_info_from_html(html_content)
                     if all(value != 'Version not found' and value != 'Title not found' and value != 'Publication date not found' and value != 'Abstract not found' and value != 'Subject not found' and value != 'URL not found' for value in info.values()):
                         output_data.append(info)
-    output_data = sorted(output_data, key=lambda x: x['url'])
+    output_data = sorted(output_data, key=custom_sort, reverse=True)
     with open('info.json', 'w') as json_file:
         json.dump(output_data, json_file, indent=2)
 
