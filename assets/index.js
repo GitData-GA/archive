@@ -46,7 +46,7 @@ $(document).ready(function() {
                         ${abstract}
                     </div>
                 `;
-                if (i > 0) {
+                if (i < 4) {
                     htmlCode += '<hr>';
                 }
                 $('#researchPapersContainer').append(htmlCode);
