@@ -17,6 +17,8 @@ def extract_info_from_html(html_content):
     
     version = soup.find('meta', {'name': 'version'})
     version = version['content'] if version else 'Version not found'
+    jsonID = soup.find('meta', {'name': 'jsonID'})
+    jsonID = jsonID['content'] if jsonID else 'jsonID not found'
     publication_date = soup.find('meta', {'name': 'citation_publication_date'})
     publication_date = publication_date['content'] if publication_date else 'Publication date not found'
     abstract = soup.find('meta', {'name': 'description'})
@@ -39,14 +41,7 @@ def extract_info_from_html(html_content):
     url = soup.find('meta', {'property': 'og:url'})
     url = url['content'] if url else 'URL not found'
     
-    return {'title': title, 'version': version, 'authors': authors, 'publication_date': publication_date, 'keywords': keywords, 'abstract': abstract, 'subject': subject, 'url': url}
-
-def custom_sort_key(item):
-    match = re.match(r"(\d+)/(v\d+)$", item["url"])
-    if match:
-        return (match.group(1), match.group(2))
-    else:
-        return (item["url"], "")
+    return {'title': title, 'version': version, 'authors': authors, 'publication_date': publication_date, 'jsonID': jsonID, 'keywords': keywords, 'abstract': abstract, 'subject': subject, 'url': url}
 
 def main():
     output_data = []
@@ -57,10 +52,10 @@ def main():
                 with open(file_path, 'r', encoding='utf-8') as f:
                     html_content = f.read()
                     info = extract_info_from_html(html_content)
-                    if all(value != 'Version not found' and value != 'Title not found' and value != 'Publication date not found' and value != 'Abstract not found' and value != 'Subject not found' and value != 'URL not found' for value in info.values()):
+                    if all(value != 'jsonID not found' and value != 'Version not found' and value != 'Title not found' and value != 'Publication date not found' and value != 'Abstract not found' and value != 'Subject not found' and value != 'URL not found' for value in info.values()):
                         output_data.append(info)
 
-    sorted_data = sorted(output_data, key=custom_sort_key, reverse=True)
+    sorted_data = sorted(output_data, key=lambda x: x['jsonID'], reverse=False)
 
     with open('info.json', 'w') as json_file:
         json.dump(output_data, json_file, indent=2)
