@@ -41,20 +41,12 @@ def extract_info_from_html(html_content):
     
     return {'title': title, 'version': version, 'authors': authors, 'publication_date': publication_date, 'keywords': keywords, 'abstract': abstract, 'subject': subject, 'url': url}
 
-def extract_numeric_version(version_str):
-    # Extract numeric part from version string
-    match = re.search(r'\d+', version_str)
-    return int(match.group()) if match else 0
-
-def custom_sort(entry):
-    # Extract the 14-digit part of the URL
-    url_digits = entry['url'][26:40]
-
-    # Extract the numeric part of the version
-    version = extract_numeric_version(entry['version'])
-
-    # Return a tuple to use for sorting: (url_digits, -version)
-    return (url_digits, -version)
+def custom_sort_key(item):
+    match = re.match(r"(\d+)/(v\d+)$", item["url"])
+    if match:
+        return (match.group(1), match.group(2))
+    else:
+        return (item["url"], "")
 
 def main():
     output_data = []
@@ -68,8 +60,7 @@ def main():
                     if all(value != 'Version not found' and value != 'Title not found' and value != 'Publication date not found' and value != 'Abstract not found' and value != 'Subject not found' and value != 'URL not found' for value in info.values()):
                         output_data.append(info)
 
-    # Sort using the custom_sort function
-    output_data = sorted(output_data, key=custom_sort)
+    sorted_data = sorted(data, key=custom_sort_key)
 
     with open('info.json', 'w') as json_file:
         json.dump(output_data, json_file, indent=2)
