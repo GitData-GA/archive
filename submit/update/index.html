@@ -1,1 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GitData Archive - Update a preprint on GitData Archive</title>
+        <link rel="canonical" href="https://archive.gd.edu.kg/submit/update/" />
+        <meta name="description" content="Update a preprint on GitData Archive">
 
+        <!-- Google / Search Engine Tags -->
+        <meta itemprop="name" content="GitData Archive - Submit a new preprint to GitData Archive">
+        <meta itemprop="description" content="Update a preprint on GitData Archive">
+        <meta itemprop="image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+        
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://archive.gd.edu.kg/submit/update/">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="GitData Archive - Update a preprint on GitData Archive">
+        <meta property="og:description" content="Update a preprint on GitData Archive">
+        <meta property="og:image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+        
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="GitData Archive - Update a preprint on GitData Archive">
+        <meta name="twitter:description" content="Update a preprint on GitData Archive">
+        <meta name="twitter:image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+        <link rel="icon" type="image/x-icon" href="https://www.gd.edu.kg/images/logo-100-white.png">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELSZ3SFQ2D"></script>
+        <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-ELSZ3SFQ2D")</script>
+        
+        <!-- Style -->
+        <link href="https://archive.gd.edu.kg/assets/app.css" rel="stylesheet">
+        <link href="https://archive.gd.edu.kg/assets/bootstrap.min.css" rel="stylesheet">
+        <link href="https://archive.gd.edu.kg/assets/custom.css" rel="stylesheet">
+        <style>
+            .imageContainer > img:hover {
+              width: 100%;;
+            }
+        </style>
+
+        <!-- Javascript -->
+        <script src="https://archive.gd.edu.kg/assets/jquery.min.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/footerMenu.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/headMenu.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/download.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/pdf-lib.min.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/jszip.min.js" type="text/javascript"></script>
+        <script src="https://mathjax.gd.edu.kg/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" async></script>
+        <script type="text/x-mathjax-config">
+            init_mathjax = function() {
+                if (window.MathJax) {
+                // MathJax loaded
+                    MathJax.Hub.Config({
+                        TeX: {
+                            equationNumbers: {
+                            autoNumber: "AMS",
+                            useLabelIds: true
+                            }
+                        },
+                        tex2jax: {
+                            inlineMath: [ ['$','$'] ],
+                            displayMath: [ ['$$','$$'] ],
+                            processEscapes: true,
+                            processEnvironments: true
+                        },
+                        displayAlign: 'center',
+                        CommonHTML: {
+                            linebreaks: {
+                            automatic: true
+                            }
+                        }
+                    });
+            
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                }
+            }
+            init_mathjax();
+        </script>
+        
+        <!-- JavaScript to generate HTML -->
+        <script>
+            function previewHtml() {
+                const outputCodeContent = document.getElementById('outputCode').value;
+                const previewHtmlContent = `
+                    <center>
+                        <h1 style="color:red;font-size:15px;">
+                        This preview is for visual reference only. Links, PDF, and MathJax functionality may not work as this page hasn't been published. If you spot errors, please revise and regenerate the HTML code.
+                        </h1>
+                    </center>
+                    ${outputCodeContent}
+                `;
+                const previewWindow = window.open();
+                previewWindow.document.write(previewHtmlContent);
+            }
+
+            function downloadHtml() {
+                const outputCodeContent = document.getElementById('outputCode').value;
+                const blob = new Blob([outputCodeContent], { type: 'text/html' });
+                const a = document.createElement('a');
+                a.href = window.URL.createObjectURL(blob);
+                a.download = 'index.html';
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+
+            function limitTextareaLength(textarea, maxLength) {
+                var text = textarea.value;
+                var words = text.split(/\s+/);
+
+                if (words.length > maxLength) {
+                    // Truncate the text to the specified number of words
+                    var truncatedText = words.slice(0, maxLength).join(" ");
+                    textarea.value = truncatedText;
+                }
+            }
+
+            function setID() {
+                const date = new Date();
+                const formattedTime = date.toISOString().replace(/[-T:Z.]/g, '').slice(0, 14);
+                return formattedTime;
+            }
+
+            function getAuthors() {
+                var authorsTextArea = document.getElementById('authorToFill');
+                var authorsText = authorsTextArea.value.trim();
+                var authorLines = authorsText.split('\n');
+                var authors = [];
+                for (var i = 0; i < authorLines.length; i++) {
+                    var authorDetails = authorLines[i].split(',').map(function (item) {
+                        return item.trim();
+                    });
+                    var lastName = authorDetails[0] || '';
+                    var firstName = authorDetails[1] || '';
+                    var orcid = authorDetails[2] || '';
+                    if (lastName || firstName || orcid) {
+                        authors.push({
+                            lastName: lastName,
+                            firstName: firstName,
+                            orcid: orcid
+                        });
+                    }
+                }
+                return authors;
+            }
+
+            function printAuthorsInfo() {
+                var authors = getAuthors();
+                var resultContainer = document.getElementById('resultContainer');
+                resultContainer.innerHTML = '';
+                for (var i = 0; i < authors.length; i++) {
+                    var authorInfo = 'Author ' + (i + 1) + ': ' +
+                        authors[i].firstName + ' ' + authors[i].lastName +
+                        ', ORCID: ' + authors[i].orcid;
+                    var paragraph = document.createElement('p');
+                    paragraph.textContent = authorInfo;
+                    resultContainer.appendChild(paragraph);
+                }
+            }
+
+            function generateCitationAuthor() {
+                var authors = getAuthors();
+                var citationMeta = '';
+                for (var i = 0; i < authors.length; i++) {
+                    citationMeta += `            <meta name="citation_author" content="${authors[i].lastName}, ${authors[i].firstName}">`;
+                    if (authors.length > 1 && i < authors.length - 1) {
+                        citationMeta += '\n';
+                    }
+                }
+                return citationMeta;
+            }
+
+            function generateInfoAuthor() {
+                var authors = getAuthors();
+                var infoAuthor = '';
+                for (var i = 0; i < authors.length; i++) {
+                    if (authors[i].orcid != 'NA' && authors[i].orcid != null && authors[i].orcid != '') {
+                        infoAuthor += 
+                               `<li>
+                                    <a href="https://orcid.org/${authors[i].orcid}" target="_blank" class="object-link">
+                                    <span>
+                                    <object type="image/svg+xml" data="https://archive.gd.edu.kg/assets/ID.svg" width="15px" height="15px" alt="ORCID"></object>
+                                    </span>
+                                    </a>
+                                    <span>${authors[i].firstName}&nbsp;${authors[i].lastName}</span>
+                                </li>`
+                    }
+                    else {
+                        infoAuthor += `
+                                <li>
+                                    <span>${authors[i].firstName}&nbsp;${authors[i].lastName}</span>
+                                </li>`
+                    }
+                    if (authors.length > 1 && i < authors.length - 1) {
+                        infoAuthor += '\n';
+                    }
+                }
+                return infoAuthor;
+            }
+
+            function copyToClipboard() {
+                var textarea = document.getElementById('outputCode');
+                textarea.select();
+                textarea.setSelectionRange(0, 9999999999999999999);
+                document.execCommand('copy');
+                textarea.setSelectionRange(0, 0);
+                alert('Text copied to clipboard!');
+            }
+
+            function existingJournal() {
+                var journalBookName = "";
+                var journalBookURL = "";
+                if (document.getElementById('journalBookName').value !== null && 
+                    document.getElementById('journalBookName').value !== "" && 
+                    document.getElementById('journalBookURL').value !== null &&
+                    document.getElementById('journalBookURL').value !== "") {
+                    journalBookName = document.getElementById('journalBookName').value;
+                    journalBookURL = document.getElementById('journalBookURL').value;
+                    var journalHTML = `
+                        <p>${journalBookName}: <a href="${journalBookURL}" target="_blank">${journalBookURL}</a></p>
+                    `;
+                    return journalHTML;
+                }
+                else {
+                    return ``;
+                }
+            }
+
+            function multimediaToFill() {
+                var relatedURL = "";
+                if (document.getElementById('relatedURL').value !== null && 
+                    document.getElementById('relatedURL').value !== "") {
+                    relatedURL = document.getElementById('relatedURL').value;
+                    var relatedURLHTML = `
+                        <div class="side-block_section">
+                            <span class="head">Related Link</span>
+                            <ul>
+                                <li>
+                                <a href="${relatedURL}" target="_blank">${relatedURL}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    `;
+                    return relatedURLHTML;
+                }
+                else {
+                    return ``;
+                }
+            }
+
+            function commentToFill() {
+                var comment = "";
+                if (document.getElementById('comment').value !== null && 
+                    document.getElementById('comment').value !== "") {
+                    comment = document.getElementById('comment').value;
+                    var commentHTML = `
+                        <div class="side-block_section">
+                            <span class="head">Comment</span>
+                            <ul>
+                                <li>
+                                <p>${comment}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    `;
+                    return commentHTML;
+                }
+                else {
+                    return ``;
+                }
+            }
+
+            function getLicense() {
+                var license = document.getElementById('licenseSelect').value;
+                if (license == "CC BY") {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 4.0</a>.
+                        </p>
+                    `
+                }
+                else if (license == "CC BY-SA") {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 4.0</a>.
+                        </p>
+                    `
+                }
+                else if (license == "CC BY-NC") {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 4.0</a>.
+                        </p>
+                    `
+                }
+                else if (license == "CC BY-NC-SA") {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 4.0</a>.
+                        </p>
+                    `
+                }
+                else if (license == "CC BY-ND") {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/licenses/by-nd/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 4.0</a>.
+                        </p>
+                    `
+                }
+                else if (license == "CC BY-NC-ND") {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 4.0</a>.
+                        </p>
+                    `
+                }
+                else {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 1.0</a>.
+                        </p>
+                    `
+                }
+            }
+            async function fetchHTML(url) {
+                const response = await fetch(url);
+                const html = await response.text();
+                return html;
+            }
+
+            function getCurrentVersion(html) {
+                if (!html) {
+                    console.error('HTML content is undefined or empty.');
+                    return null;
+                }
+                const versionRegex = /<meta\s+name="version"\s+content="Version (\d+)"\s*\/?>/i;
+                const match = html.match(versionRegex);
+
+                if (match && match[1]) {
+                    // Convert the matched version to an integer
+                    return parseInt(match[1], 10);
+                } else {
+                    // Handle the case where the version information is not found
+                    console.error('Unable to find version information in the HTML.');
+                    return null;
+                }
+            }
+
+            function updateVersionInfo(html, updatedVersionInfo) {
+                const updatedHTML = html.replace(
+                    /<div\s+id="versionInfo"\s+class="side-block_section">[\s\S]*?<\/div>/i,
+                    updatedVersionInfo
+                );
+                return updatedHTML;
+            }
+
+            function downloadHTMLDirect(content, fileName) {
+                const blob = new Blob([content], { type: 'text/html' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = fileName;
+                a.click();
+            }
+             
+            function generateVersionInfo(newVersion, versionInfoAll, preprintID) {
+                for (var currVersion = 1; currVersion <= newVersion; currVersion++) {
+                    var newVersionInfo = `
+                        <div id="versionInfo" class="side-block_section">
+                            <span class="head">Version</span>
+                            <ul>
+                    `;
+                    for (var listVersion = newVersion; listVersion >= 1; listVersion--) {
+                        if (currVersion != newVersion) {
+                            if (listVersion === currVersion) {
+                                newVersionInfo += `
+                                <li>
+                                    <span>Version ${listVersion}</span>
+                                </li>
+                                `;
+                            } else if (listVersion === newVersion) {
+                                newVersionInfo += `
+                                <li>
+                                    <a href="https://archive.gd.edu.kg/${preprintID}/">Version ${listVersion}</a>
+                                </li>
+                                `;
+                            } else {
+                                newVersionInfo += `
+                                <li>
+                                    <a href="https://archive.gd.edu.kg/${preprintID}/v${listVersion}">Version ${listVersion}</a>
+                                </li>
+                                `;
+                            }
+                        } else {
+                            if (listVersion === currVersion && listVersion == newVersion) {
+                                newVersionInfo += `
+                                <li>
+                                    <span>Version ${listVersion}</span>
+                                </li>
+                                `;
+                            } else {
+                                newVersionInfo += `
+                                <li>
+                                    <a href="https://archive.gd.edu.kg/${preprintID}/v${listVersion}">Version ${listVersion}</a>
+                                </li>
+                                `;
+                            }
+                        }
+                    }
+                    newVersionInfo += `
+                            </ul>
+                        </div>
+                    `;
+                    versionInfoAll.push(newVersionInfo);
+                }
+            }
+        </script>
+        <script>
+            const submissionTime = setID();
+            var preprintID;
+            var currentVersion;
+            var newVersion;
+            var currentVersionHTML;
+            var versionInfoAll = [];
+
+            async function processDownloadPrevVersions() {
+                var userInputURL = document.getElementById("urlInput").value.trim();
+
+                if (!/^https:\/\/archive\.gd\.edu\.kg\/\d{14}\/$/.test(userInputURL)) {
+                    alert("Invalid URL format. Please enter a valid URL.");
+                    return;
+                }
+
+                preprintID = userInputURL.match(/\d{14}/)[0];
+                
+                const zip = new JSZip();
+
+                currentVersionHTML = await fetchHTML(userInputURL);
+                currentVersion = getCurrentVersion(currentVersionHTML);
+                newVersion = currentVersion + 1;
+                currentVersionHTML = currentVersionHTML.replace(new RegExp(userInputURL, 'g'), 
+                    userInputURL + 'v' + currentVersion);
+                currentVersionHTML = currentVersionHTML.replace(new RegExp(userInputURL + 'v' + currentVersion + 'v' + currentVersion + '.pdf', 'g'), 
+                    userInputURL + 'v' + currentVersion + '.pdf');
+
+                generateVersionInfo(newVersion, versionInfoAll, preprintID);
+                currentVersionHTML = updateVersionInfo(currentVersionHTML, versionInfoAll[currentVersion - 1]);
+                zip.file(`v${currentVersion}.html`, currentVersionHTML);
+
+                for (var prevVersion = currentVersion - 1; prevVersion >= 1; prevVersion--) {
+                    var previousVersionHTML = await fetchHTML(`${userInputURL}v${prevVersion}`);
+                    previousVersionHTML = updateVersionInfo(previousVersionHTML, versionInfoAll[prevVersion - 1]);
+                    zip.file(`v${prevVersion}.html`, previousVersionHTML);
+                }
+
+                const content = await zip.generateAsync({ type: 'blob' });
+                const downloadLink = document.createElement('a');
+                downloadLink.href = URL.createObjectURL(content);
+                downloadLink.download = `${preprintID}_old_versions.zip`;
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            }
+            
+            // Modify PDF
+            const { degrees, PDFDocument, rgb, StandardFonts } = PDFLib;
+            async function modifyPdf() {
+                var year = preprintID.slice(0, 4);
+                var month = preprintID.slice(4, 6);
+                var day = preprintID.slice(6, 8);
+                var hours = preprintID.slice(8, 10);
+                var minutes = preprintID.slice(10, 12);
+                var seconds = preprintID.slice(12, 14);
+                var date = new Date(year, month - 1, day, hours, minutes, seconds, 0);
+                var formattedDate = date.toISOString();
+                var keywordBag = [];
+                for (var i = 1; i <= 8; i++) {
+                    var keyword = document.getElementById('keyword' + i).value;
+                    if (keyword !== null && keyword !== "") {
+                        keywordBag.push(keyword);
+                    }
+                }
+                var authorPDFMeta = [];
+                var authorRaw = getAuthors();
+                for (var i = 0; i < authorRaw.length; i++) {
+                    authorPDFMeta.push(authorRaw[i].firstName + " " + authorRaw[i].lastName);
+                }
+                var authorPDF = authorPDFMeta.join(", ")
+                const fileInput = document.getElementById('fileInput');
+                const selectedFile = fileInput.files[0];
+                if (!selectedFile) {
+                    alert('Please select a PDF file before clicking "Process PDF".');
+                    return;
+                }
+                const existingPdfBytes = await selectedFile.arrayBuffer();
+                const pdfDoc = await PDFDocument.load(existingPdfBytes);
+                const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
+                const pages = pdfDoc.getPages();
+                const firstPage = pages[0];
+                const { width, height } = firstPage.getSize();
+                firstPage.drawText(`archive.gd.edu.kg/${preprintID}/`, {
+                    x: width / 16,
+                    y: height / 3.75,
+                    size: 23,
+                    font: timesRomanFont,
+                    color: rgb(0.6, 0.6, 0.6),
+                    rotate: degrees(90),
+                });
+                pdfDoc.setTitle(document.getElementById('titleToFill').value)
+                pdfDoc.setAuthor(authorPDF)
+                pdfDoc.setSubject(document.getElementById('subjectSelect').value)
+                pdfDoc.setKeywords(keywordBag)
+                pdfDoc.setProducer('GitData Archive')
+                pdfDoc.setCreator(`GitData Archive (https://archive.gd.edu.kg/${preprintID}/)`)
+                pdfDoc.setCreationDate(new Date(formattedDate))
+                pdfDoc.setModificationDate(new Date(formattedDate))
+                const pdfBytes = await pdfDoc.save();
+                download(pdfBytes, `v${newVersion}.pdf`, "application/pdf");
+            }
+
+            // Download PDF
+            function download(data, filename, type) {
+                const file = new Blob([data], { type: type });
+                const a = document.createElement("a");
+                const url = URL.createObjectURL(file);
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                }, 0);
+            }
+
+            function generateHtmlCode() {
+                // Get user input value
+                var titleToFill = document.getElementById('titleToFill').value;
+                var abstractToFill = document.getElementById('abstractToFill').value;
+                var citationAuthor = generateCitationAuthor();
+                var subjectToFill = document.getElementById('subjectSelect').value;
+                var infoAuthor = generateInfoAuthor();
+                var keywordBag = [];
+                for (var i = 1; i <= 8; i++) {
+                    var keyword = document.getElementById('keyword' + i).value;
+                    if (keyword !== null && keyword !== "") {
+                        keywordBag.push(keyword);
+                    }
+                }
+                var keywordsString = keywordBag.join("<br>");
+                var citationFill = existingJournal();
+                var multimediaFill = multimediaToFill();
+                var commentFill = commentToFill();
+                var licenseFill = getLicense();
+
+                // Generate HTML code
+                var generatedHtml = 
+`<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>GitData Archive - ${titleToFill}</title>
+            <link rel="icon" type="image/x-icon" href="https://www.gd.edu.kg/images/logo-100-white.png">
+            <link rel="canonical" href="https://archive.gd.edu.kg/${preprintID}/" />
+            <meta name="version" content="Version ${newVersion}">
+            <meta name="keywords" content="${keywordBag}">
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELSZ3SFQ2D"><\/script>
+            <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-ELSZ3SFQ2D")<\/script>
+            
+            <!-- Citation -->
+            <meta name="citation_title" content="${titleToFill}">
+${citationAuthor}
+            <meta name="citation_publication_date" content="${submissionTime.substring(0, 4)}/${submissionTime.substring(4, 6)}/${submissionTime.substring(6, 8)}">
+            <meta name="citation_journal_title" content="GitData Archive">
+            <meta name="citation_volume" content="${submissionTime.substring(0, 4)}">
+            <meta name="citation_issue" content="${submissionTime.substring(4, 6)}">
+            <meta name="citation_pdf_url" content="https://archive.gd.edu.kg/${preprintID}/v${newVersion}.pdf">
+            
+            <!-- Google / Search Engine Tags -->
+            <meta itemprop="name" content="GitData Archive - ${titleToFill}">
+            <meta name="description" content="${abstractToFill}">
+            <meta itemprop="image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+            
+            <!-- Facebook Meta Tags -->
+            <meta property="og:url" content="https://archive.gd.edu.kg/${preprintID}/">
+            <meta property="og:type" content="website">
+            <meta property="og:title" content="GitData Archive - ${titleToFill}">
+            <meta property="og:description" content="${abstractToFill}">
+            <meta property="og:image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+            
+            <!-- Twitter Meta Tags -->
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:title" content="GitData Archive - ${titleToFill}">
+            <meta name="twitter:description" content="${abstractToFill}">
+            <meta name="twitter:image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+            
+            <!-- Style -->
+            <link href="https://archive.gd.edu.kg/assets/app.css" rel="stylesheet">
+            <link href="https://archive.gd.edu.kg/assets/bootstrap.min.css" rel="stylesheet">
+            <link href="https://archive.gd.edu.kg/assets/custom.css" rel="stylesheet">
+
+            <!-- JavaScript -->
+            <script src="https://archive.gd.edu.kg/assets/jquery.min.js" type="text/javascript"><\/script>
+            <script src="https://archive.gd.edu.kg/assets/footerMenu.js" type="text/javascript"><\/script>
+            <script src="https://archive.gd.edu.kg/assets/headMenu.js" type="text/javascript"><\/script>
+            <script src="https://mathjax.gd.edu.kg/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" async><\/script>
+            <script type="text/x-mathjax-config">
+                init_mathjax = function() {
+                    if (window.MathJax) {
+                    // MathJax loaded
+                        MathJax.Hub.Config({
+                            TeX: {
+                                equationNumbers: {
+                                autoNumber: "AMS",
+                                useLabelIds: true
+                                }
+                            },
+                            tex2jax: {
+                                inlineMath: [ ['$','$'] ],
+                                displayMath: [ ['$$','$$'] ],
+                                processEscapes: true,
+                                processEnvironments: true
+                            },
+                            displayAlign: 'center',
+                            CommonHTML: {
+                                linebreaks: {
+                                automatic: true
+                                }
+                            }
+                        });
+                
+                        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                    }
+                }
+                init_mathjax();
+            <\/script>
+        </head>
+        <body>
+        <div id="app">
+            <nav role="navigation" class="mobile-menu">
+                <div class="burger_container" id="burger">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <div id="mobileMenu" class="mobile-back menu_off">
+                </div>
+                <div class="logo-mobile">
+                    <a href="https://archive.gd.edu.kg/">
+                    <img src="https://archive.gd.edu.kg/assets/logo.svg" width="150px" alt="logo">
+                    </a>
+                </div>
+                <script>
+                    $('#burger').click(function (e) {
+                        e.preventDefault();
+                        $(this).toggleClass('change');
+                        $('.mobile-menu').toggleClass('mobile-menu-open');
+                        $('.mobile-back').toggleClass('menu_on');
+                        $('.mobile-back').toggleClass('menu_off');
+                    })
+                <\/script>
+            </nav>
+            <nav class="pre-navbar">
+                <div class="logo-background" style="display: flex; justify-content: center">
+                    <a href="https://archive.gd.edu.kg/" style="display: flex; align-items: center">
+                    <img src="https://archive.gd.edu.kg/assets/logo.svg" width="170px" alt="logo">
+                    </a>
+                </div>
+                <div id="normalMenu" class="items-container">
+                </div>
+            </nav>
+            <nav class="post-navbar">
+            </nav>
+            <div class="grid article-page d-flex">
+                <div class="article-content col main-block">
+                    <div class="title">
+                        <b><h1>${titleToFill}</h1></b>
+                    </div>
+                    <div class="notation">This article is a preprint and has not been peer-reviewed.</div>
+                    <br>
+                    <div class="doi" style="margin-bottom: 10px">
+                        <span><b>For citation: </b></span><br>
+                        <p>GitData Archive: <a href="https://archive.gd.edu.kg/${preprintID}/">https://archive.gd.edu.kg/${preprintID}/</a></p>
+${citationFill}
+                    </div>
+                    <div class="abstract">
+                        <span><b>Abstract: </b></span><br>
+                        <p>${abstractToFill}</p>
+                    </div>
+                    <div class="preview">
+                        <span><b>Preview: </b></span><br>
+                        <a href="https://pdfviewer.gd.edu.kg/web/viewer?file=https://archive.gd.edu.kg/${preprintID}/v${newVersion}.pdf" target="_blank">Preview in a new window</a></br>
+                        <iframe src="https://pdfviewer.gd.edu.kg/web/viewer?file=https://archive.gd.edu.kg/${preprintID}/v${newVersion}.pdf" loading="lazy" width="100%" height="500" frameBorder="0" alt="pdf preview"></iframe>
+                    </div>
+                    <div class="license">
+                        <span><b>License: </b></span><br>
+${licenseFill}
+                    </div>
+                    <br><br>
+                </div>
+                <div class="article-info col side-block">
+                    <div class="block-head">
+                        <h2>Information</h2>
+                    </div>
+                    <div class="side-block_container">
+                        ${versionInfoAll[newVersion - 1]}
+                        <div class="side-block_section">
+                            <span class="head">Submission Date (yyyy/mm/dd)</span>
+                            <p>${submissionTime.substring(0, 4)}/${submissionTime.substring(4, 6)}/${submissionTime.substring(6, 8)}</p>
+                        </div>
+                        <div class="side-block_section">
+                            <span class="head">Author</span>
+                            <ul>
+ ${infoAuthor}
+                            </ul>
+                        </div>
+                        <div class="side-block_section">
+                            <span class="head">Subject</span>
+                            <ul>
+                                <li>${subjectToFill}</li>
+                            </ul>
+                        </div>
+                        <div class="side-block_section">
+                            <span class="head">Keywords</span>
+                            <ul>
+                                <li>
+                                    ${keywordsString}
+                                </li>
+                            </ul>
+                        </div>
+${multimediaFill}
+${commentFill}
+                        <div class="side-block_section">
+                            <span class="head">Download</span>
+                            <ul>
+                                <li>
+                                <a href="https://archive.gd.edu.kg/${preprintID}/v${newVersion}.pdf" target="_blank">
+                                    <button class="fulltext"><span class="ext">PDF</span><span class="label">Full Text</span></button>
+                                </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div id="footerMenu" class="container"></div>
+                <div class="col-5 np">
+                    &copy; <script type="text/JavaScript"> document.write(new Date().getFullYear()) <\/script> GitDat Archive
+                </div>
+            </div>
+        </div>
+    </body>
+</html>`;
+
+                // Display generated HTML in the text area
+                document.getElementById('outputCode').value = generatedHtml;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="app">
+            <nav role="navigation" class="mobile-menu">
+                <div class="burger_container" id="burger">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <div id="mobileMenu" class="mobile-back menu_off">
+                </div>
+                <div class="logo-mobile">
+                    <a href="https://archive.gd.edu.kg/">
+                    <img src="https://archive.gd.edu.kg/assets/logo.svg" width="150px" alt="logo">
+                    </a>
+                </div>
+                <script>
+                    $('#burger').click(function (e) {
+                        e.preventDefault();
+                        $(this).toggleClass('change');
+                        $('.mobile-menu').toggleClass('mobile-menu-open');
+                        $('.mobile-back').toggleClass('menu_on');
+                        $('.mobile-back').toggleClass('menu_off');
+                    })
+                </script>
+            </nav>
+            <nav class="pre-navbar">
+                <div class="logo-background" style="display: flex; justify-content: center">
+                    <a href="https://archive.gd.edu.kg/" style="display: flex; align-items: center">
+                    <img src="https://archive.gd.edu.kg/assets/logo.svg" width="170px" alt="logo">
+                    </a>
+                </div>
+                <div id="normalMenu" class="items-container">
+                </div>
+            </nav>
+            <nav class="post-navbar">
+            </nav>
+            <div class="grid article-page d-flex">
+                <div class="article-content col main-block">
+                    <div class="title">
+                        <b><h1>Update a preprint on GitData Archive</h1></b>
+                    </div>
+                    <i><p style="font-size: 20px;">Required information are marked by (<span style="color: red;">*</span>).</p></i>
+                    <b><u><h2 id="s1" style="font-size: 23px;">Step 1: Process and Download Previous Version(s)</h2></u></b>
+                    <p>Before updating an existing preprint on GitData Archive, you need to specify the preprint you intend to update. Please enter the URL of the preprint you wish to update in the field below.</p>
+                    <label for="urlInput">Enter the URL:</label>
+                    <input type="text" id="urlInput" style="width: 100%;" placeholder="https://archive.gd.edu.kg/yyyymmddhhmmss/">
+                    <br><br>
+                    <button class="fulltext" onclick="processDownloadPrevVersions()">Download Previous Versions</button>
+                    <br><br>
+                    <hr>
+                    <b><u><h2 id="s2" style="font-size: 23px;">Step 2: Gather New Version's Metadata</h2></u></b>
+                    <form onsubmit="event.preventDefault(); modifyPdf(); generateHtmlCode();">
+                        <div id="s2-1">
+                            <b><p style="font-size: 20px;">1. Title (30 words maximum)<span style="color: red;">*</span>:</p></b>
+                            <input style="width: 100%;" type="text" id="titleToFill" required oninput="limitTextareaLength(this, 30)">
+                            <br><br>
+                        </div>
+                        <div id="s2-2">
+                            <b><p style="font-size: 20px;">2. Author(s)<span style="color: red;">*</span>:</p></b>
+                            <div class="row">
+                                <div class="col" style="border-right:1px solid #000;">
+                                    If there is <b>only 1 author</b>, please follow the format:<br>
+                                    <code>Last name, First name, ORCID</code><br><br><br><br>
+                                    <i>Example</i>:<br>
+                                    - If the ORCID is <b>known</b>, type the correct ORCID:<br>
+                                    &nbsp;<code>Einstein, Albert, 0000-0000-0000-0000</code><br><br><br><br>
+                                    - If the ORCID is <b>unknown</b>, simply type <code>NA</code> there:<br>
+                                    &nbsp;<code>Mendeleev, Dmitri, NA</code><br>
+                                </div>
+                                <div class="col" style="border-left:1px solid #000;">
+                                    If there are <b>multiple authors</b>, please follow the format:<br>
+                                    <code>Last name 1, First name 1, ORCID</code><br>
+                                    <code>Last name 2, First name 2, ORCID</code><br>
+                                    <code>Last name 3, First name 3, ORCID</code><br><br>
+                                    <i>Example</i>:<br>
+                                    - If the ORCID is <b>known</b>, type the correct ORCID:<br>
+                                    &nbsp;<code>Einstein, Albert, 0000-0000-0000-0000</code><br>
+                                    &nbsp;<code>Newton, Isaac, 1111-1111-1111-1111</code><br>
+                                    &nbsp;<code>Darwin, Charles, 2222-2222-2222-2222</code><br><br>
+                                    - If the ORCID is <b>unknown</b>, simply type <code>NA</code> there:<br>
+                                    &nbsp;<code>Einstein, Albert, 0000-0000-0000-0000</code><br>
+                                    &nbsp;<code>Mendeleev, Dmitri, NA</code><br>
+                                    &nbsp;<code>Newton, Isaac, 1111-1111-1111-1111</code><br>
+                                </div>
+                            </div>
+                            <textarea style="width:100%;height:200px;" type="text" id="authorToFill" required></textarea><br>
+                            <p>Click the following button to see if the author information is correct.</p>
+                            <button class="fulltext" type="button" onclick="printAuthorsInfo()">Verify author input</button>
+                            <div id="resultContainer"></div>
+                            <br>
+                        </div>
+                        <div id="s2-3">
+                            <b><p style="font-size: 20px;">3. Abstract (300 words maximum)<span style="color: red;">*</span>:</p></b>
+                            <p>If you want to include math notations in the abstract, please wrap them with "\$ \$" or "\$\$ \$\$". Moreover, if you want to include dollar sign (\$) in the abstract, please type "\\$" here.</p>
+                            <i>Example:</i><br>
+                            Typing "\$y = \frac{1}{x}\$" here in the abstract will lead to $y = \frac{1}{x}$ when it is published. Typing "\\$ 200" here in the abstract will lead to "\$ 200" when it is published.<br><br>
+                            <textarea style="width:100%;height:200px;" type="text" id="abstractToFill" required oninput="limitTextareaLength(this, 300)"></textarea>
+                            <br><br>
+                        </div>
+                        <div id="s2-4">
+                            <b><p style="font-size: 20px;">4. Subject<span style="color: red;">*</span>:</p></b>
+                            <p>For more information about subjects, please refer to <a href="https://archive.gd.edu.kg/about/" target="_blank">about page</a>.</p>
+                            <select id="subjectSelect" name="subject" required>
+                                <option></option>
+                                <option value="Data Science / Statistics (Applications)">Data Science / Statistics (Applications)</option>
+                                <option value="Data Science / Statistics (Computation)">Data Science / Statistics (Computation)</option>
+                                <option value="Data Science / Statistics (Machine Learning)">Data Science / Statistics (Machine Learning)</option>
+                                <option value="Data Science / Statistics (Methodology)">Data Science / Statistics (Methodology)</option>
+                                <option value="Data Science / Statistics (Theory)">Data Science / Statistics (Theory)</option>
+                                <option value="Data Science / Statistics (Other)">Data Science / Statistics (Other)</option>
+                            </select>
+                            <br><br>
+                        </div>
+                        <div id="s2-5">
+                            <b><p style="font-size: 20px;">5. Keywords (3 keywords minimum, 8 keywords maximum)<span style="color: red;">*</span>:</p></b>
+                            <p>Keyword 1<span style="color: red;">*</span>: <input style="width: 20%;" type="text" id="keyword1" required oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 2<span style="color: red;">*</span>: <input style="width: 20%;" type="text" id="keyword2" required oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 3<span style="color: red;">*</span>: <input style="width: 20%;" type="text" id="keyword3" required oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 4: <input style="width: 20%;" type="text" id="keyword4" oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 5: <input style="width: 20%;" type="text" id="keyword5" oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 6: <input style="width: 20%;" type="text" id="keyword6" oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 7: <input style="width: 20%;" type="text" id="keyword7" oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 8: <input style="width: 20%;" type="text" id="keyword8" oninput="limitTextareaLength(this, 10)"></p>
+                            <br><br>
+                        </div>
+                        <div id="s2-6">
+                            <b><p style="font-size: 20px;">6. Related Publishment (optional):</p></b>
+                            <p>If this work has been published on a journal or book, please indicate.</p>
+                            <p>Journal / Book name: <input style="width: 50%;" type="text" id="journalBookName"></p>
+                            <p>DOI / Official URL: <input style="width: 75%;" type="text" id="journalBookURL"></p>
+                            <br><br>
+                        </div>
+                        <div id="s2-7">
+                            <b><p style="font-size: 20px;">7. Related Link (optional):</p></b>
+                            <p>If this work is related to a multimedia material (e.g. code, video, showcase website), please indicate the URL:</p>
+                            <input style="width: 75%;" type="text" id="relatedURL">
+                            <br><br>
+                        </div>
+                        <div id="s2-8">
+                            <b><p style="font-size: 20px;">8. Comment (optional):</p></b>
+                            <p>Leave a short comment on your preprint information page (20 words maximum).</p>
+                            <textarea style="width:100%;height:100px;" type="text" id="comment" oninput="limitTextareaLength(this, 20)"></textarea>
+                            <br><br>
+                        </div>
+                        <div id="s2-9"> 
+                            <b><p style="font-size: 20px;">9. License<span style="color: red;">*</span>:</p></b>
+                            <p>For more information about licenses, please refer to <a href="https://creativecommons.org/share-your-work/cclicenses/" target="_blank">Creative Commons</a>.</p>
+                            <select id="licenseSelect" name="license" required>
+                                <option></option>
+                                <option value="CC BY">CC BY</option>
+                                <option value="CC BY-SA">CC BY-SA</option>
+                                <option value="CC BY-NC">CC BY-NC</option>
+                                <option value="CC BY-NC-SA">CC BY-NC-SA</option>
+                                <option value="CC BY-ND">CC BY-ND</option>
+                                <option value="CC BY-NC-ND">CC BY-NC-ND</option>
+                                <option value="CC0">CC0</option>
+                            </select>
+                            <br><br>
+                        </div>
+                        <div id="s2-10">
+                            <b><p style="font-size: 20px;">10. Process PDF<span style="color: red;">*</span>:</p></b>
+                            <p>Before publishing your work as a preprint, your PDF must be processed - adding metadata you provided above. Please select your PDF from your device.</p>
+                            <input type="file" id="fileInput" required/>
+                            <br><br>
+                        </div>
+                        <div id="s2-11">
+                            <b><p style="font-size: 20px;">11. Submit Metadata and Save Processed PDF<span style="color: red;">*</span>:</p></b>
+                            <p>Upon submitting metadata, the HTML code will be generated and the processed PDF will be downloaded. Make sure the PDF file name is <code>v1.pdf</code>.</p>
+                            <button class="fulltext" type="submit">Submit Metadata</button><br><br>
+                            <p>Please proceed to step 2 after submitting metadata.</p>
+                            <br><br>
+                        </div>
+                    </form>
+
+                    <HR>
+                    <b><u><h2 id="s3" style="font-size: 23px;">Step 3: Get the HTML</h2></u></b>
+                    <b><p style="font-size: 20px;">HTML Code Should be Shown Below. If you find any incorrect information, please go back to corresponding sections in step 1 and correct them. Remember to submit metadata after modification.</p></b>
+                    <button class="fulltext" onclick="previewHtml()">Preview the Webpage</button>&nbsp;&nbsp;<button class="fulltext" onclick="downloadHtml()">Download HTML</button><br><br>
+                    <textarea style="width:100%;height:400px;" id="outputCode" readonly></textarea>
+                    <br><br>
+
+                    <HR>
+                    <b><u><h2 id="s4" style="font-size: 23px;">Step 4: Submit HTML and PDF to the Preprint Server</h2></u></b>
+                    <b><p style="font-size: 20px;">
+                        1. In your browser, navigate to <a href="https://github.com/GitData-GA/archive" target="_blank">https://github.com/GitData-GA/archive</a>.
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        2. Click on "<i>Add file</i>", then select "<i>Create new file</i>".<br>
+                        <div class="imageContainer">
+                          <img src ="https://archive.gd.edu.kg/assets/submit_new_1.png" width="250" alt="guide image 1"/>
+                        </div>
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        3. Copy the following text to the blank "<i>Name your file...</i>". The number (<script>document.write (`<code style="font-size: 20px;">${preprintID}</code>`)</script>) is your preprint ID, which is unique.
+                        <script>document.write (`<p><code style="font-size: 20px;">${preprintID}/index.html</code></p>`)</script>
+                        <div class="imageContainer">
+                          <img src ="https://archive.gd.edu.kg/assets/submit_new_2.png" width="250" alt="guide image 2"/>
+                        </div>
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        4. Go back to <a href="#s2">Step 2: Get the HTML</a>. Click on "<i>Copy HTML</i>". Make sure the metadata are correct before copying.<br>
+                        <div class="imageContainer">
+                          <img src ="https://archive.gd.edu.kg/assets/submit_new_3.png" width="250" alt="guide image 3"/>
+                        </div>
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        5. Paste the HTML code you just copied to Github. Then click on "<i>Commit changes...</i>".<br>
+                        <div class="imageContainer">
+                          <img src ="https://archive.gd.edu.kg/assets/submit_new_4.png" width="250" alt="guide image 4"/>
+                        </div>
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        6. In the Github folder you just created and modified (<script>document.write (`<a href="https://github.com/GitData-GA/archive/tree/main/${preprintID}" target="_blank">https://github.com/GitData-GA/archive/tree/main/${preprintID}</a>`)</script>), click on "<i>Add file</i>", then click on "<i>Upload files</i>".<br>
+                        <div class="imageContainer">
+                          <img src ="https://archive.gd.edu.kg/assets/submit_new_5.png" width="250" alt="guide image 5"/>
+                        </div>
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        7. Upload the PDF file to Github. After it is successfully uploaded, click on "<i>Commnit changes</i>" at the bottom left.<br>
+                        <div class="imageContainer">
+                          <img src ="https://archive.gd.edu.kg/assets/submit_new_6.png" width="250" alt="guide image 6"/>
+                        </div>
+                    </p></b>
+                    <b><p style="font-size: 20px;">
+                        8. You are all set! You should be able to see your preprint in around 30 minutes using the following url.<br>
+                        <script>document.write (`<a href="https://archive.gd.edu.kg/${preprintID}/" target="_blank">https://archive.gd.edu.kg/${preprintID}/</a>`)</script>
+                    </p></b>
+                    <br><br>
+                </div>
+                <div class="article-info col side-block">
+                    <div class="block-head">
+                        <h2>Guide</h2>
+                    </div>
+                    <div class="side-block_container">
+                        <div class="side-block_section">
+                            <a href="#s1"><span class="head">Step 1: Gather Metadata</span></a>
+                            <ul>
+                                <li><a href="#s1-1">1. Title</a></li>
+                                <li><a href="#s1-2">2. Author(s)</a></li>
+                                <li><a href="#s1-3">3. Abstract</a></li>
+                                <li><a href="#s1-4">4. Subject</a></li>
+                                <li><a href="#s1-5">5. Keywords</a></li>
+                                <li><a href="#s1-6">6. Related Publishment</a></li>
+                                <li><a href="#s1-7">7. Related Link</a></li>
+                                <li><a href="#s1-8">8. Comment</a></li>
+                                <li><a href="#s1-9">9. License</a></li>
+                                <li><a href="#s1-10">10. Process PDF</a></li>
+                                <li><a href="#s1-11">11. Submit Metadata and Save Processed PDF</a></li>
+                            </ul>
+                        </div>
+                        <div class="side-block_section">
+                            <a href="#s2"><span class="head">Step 2: Get the HTML</span></a>
+                        </div>
+                        <div class="side-block_section">
+                            <a href="#s3"><span class="head">Step 3: Submit HTML and PDF to the Preprint Server</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div id="footerMenu" class="container"></div>
+                <div class="col-5 np">
+                    &copy; <script type="text/JavaScript"> document.write(new Date().getFullYear()) </script> GitDat Archive
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
