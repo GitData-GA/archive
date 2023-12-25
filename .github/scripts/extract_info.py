@@ -1,5 +1,6 @@
 import os
 import json
+import re
 from bs4 import BeautifulSoup
 
 def extract_info_from_html(html_content):
