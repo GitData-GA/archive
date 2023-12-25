@@ -41,8 +41,8 @@
     "url": "https://archive.gd.edu.kg/20231224041118/"
   },
   {
-    "title": "2022 - 2023 H5N1 Bird Flu Modeling and Prediction in the United States",
-    "version": "Version 2",
+    "title": "Predictive Modeling of H5N1 Bird Flu in United States of America: A 2022-2023 Analysis",
+    "version": "Version 3",
     "authors": [
       "Weilin Cheng",
       "Hengyuan Liu",
@@ -53,14 +53,15 @@
     "publication_date": "2023/12/25",
     "keywords": [
       "H5N1",
-      "logistic regression",
-      "ridge regression",
-      "lasso regression",
-      "glmnet",
+      "avian influenza",
+      "risk assessment",
+      "classification",
+      "regularization",
+      "xgboost",
       "R"
     ],
-    "abstract": "This report presents an analysis of the likelihood of H5N1 outbreaks in different counties of the United States in March 2023 using logistic regression, ridge regression, lasso regression, ridge & lasso regression models. The models were trained using historical data from January 2022 to March 2023, and the accuracy of the models in predicting H5N1 outbreaks in March 2023 is about 99.348%. The ridge & lasso regression model performed the best among the four models, with an AUC of 0.7959950. The map generated based on the ridge & lasso regression model indicated that counties in the north and west were at a higher risk of having H5N1 outbreaks in March 2023, which matched the actual result. The report concludes that there are limitations to the models, including the consideration of only a limited set of factors affecting the spread of the virus and the use of historical data. Future work could incorporate additional data sources and use more sophisticated machine learning techniques to improve the accuracy of the models. The report also proposes some possible remedies to help control the spread of H5N1.",
-    "subject": "Data Science / Statistics (Applications)",
+    "abstract": "This research uniquely focuses on predicting the likelihood of H5N1 outbreaks in the United States at the county level. Unlike previous studies, which either excluded the United States or used outdated data, we utilized diverse statistical techniques and publicly available H5N1-related data from January 2022 to March 2023. Employing logistic regression, regularization methods, cross-validation, and eXtreme Gradient Boosting (XGBoost), our models demonstrated remarkable predictive efficacy. Notably, the XGBoost model, trained with 10-fold cross-validation, outperformed others in terms of ROC-AUC. This research provides valuable epidemiological insights, proposes intervention strategies for H5N1 in the United States, and suggests future research directions.\n",
+    "subject": "Data Science / Statistics (Machine Learning)",
     "url": "https://archive.gd.edu.kg/20231224042259/"
   },
   {
@@ -85,6 +86,29 @@
     "abstract": "This report presents an analysis of the likelihood of H5N1 outbreaks in different counties of the United States in January 2023 using logistic regression, ridge regression, and lasso regression models. The models were trained using historical data from 2022, and the accuracy of the models in predicting H5N1 outbreaks in January 2023 is about 98.4%. The lasso regression model performed the best among the three models, with an AUC of 0.8015. The map generated based on the lasso regression model indicated that counties in the north and west were at a higher risk of having H5N1 outbreaks in January 2023, which matched the actual result. The report concludes that there are limitations to the models, including the consideration of only a limited set of factors affecting the spread of the virus and the use of historical data. Future work could incorporate additional data sources and use more sophisticated machine learning techniques to improve the accuracy of the models. The report also proposes some possible remedies to help control the spread of H5N1.",
     "subject": "Data Science / Statistics (Applications)",
     "url": "https://archive.gd.edu.kg/20231224042259/v1"
+  },
+  {
+    "title": "2022 - 2023 H5N1 Bird Flu Modeling and Prediction in the United States",
+    "version": "Version 2",
+    "authors": [
+      "Weilin Cheng",
+      "Hengyuan Liu",
+      "Kathy Mo",
+      "Sida Tian",
+      "Li Yuan"
+    ],
+    "publication_date": "2023/12/25",
+    "keywords": [
+      "H5N1",
+      "logistic regression",
+      "ridge regression",
+      "lasso regression",
+      "glmnet",
+      "R"
+    ],
+    "abstract": "This report presents an analysis of the likelihood of H5N1 outbreaks in different counties of the United States in March 2023 using logistic regression, ridge regression, lasso regression, ridge & lasso regression models. The models were trained using historical data from January 2022 to March 2023, and the accuracy of the models in predicting H5N1 outbreaks in March 2023 is about 99.348%. The ridge & lasso regression model performed the best among the four models, with an AUC of 0.7959950. The map generated based on the ridge & lasso regression model indicated that counties in the north and west were at a higher risk of having H5N1 outbreaks in March 2023, which matched the actual result. The report concludes that there are limitations to the models, including the consideration of only a limited set of factors affecting the spread of the virus and the use of historical data. Future work could incorporate additional data sources and use more sophisticated machine learning techniques to improve the accuracy of the models. The report also proposes some possible remedies to help control the spread of H5N1.",
+    "subject": "Data Science / Statistics (Applications)",
+    "url": "https://archive.gd.edu.kg/20231224042259/v2"
   },
   {
     "title": "Analysis of Shot Marilyns by Andy Warhol",
