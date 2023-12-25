@@ -46,7 +46,7 @@ def custom_sort(info):
     if url_match:
         base_url = url_match.group()
         version_match = re.search(r'v(\d+)?', info['url'])
-        version = int(version_match.group(1)) if version_match else 0
+        version = int(version_match.group(1)) if version_match and version_match.group(1) else float('inf')
         return (base_url, version)
     return ('', 0)
 
