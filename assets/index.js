@@ -21,7 +21,7 @@ $(document).ready(function() {
                 return abstract;
             }
             const lineBreak = `<HR>`;
-            for (var i = Math.min(5, jsonCount) - 1; i >= 0; i--) {
+            for (var i = 0; i < 5; i++) {
                 var paper = jsonData[i];
                 var title = paper.title;
                 var url = paper.url;
