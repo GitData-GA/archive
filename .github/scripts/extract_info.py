@@ -55,7 +55,7 @@ def main():
                     if all(value != 'jsonID not found' and value != 'Version not found' and value != 'Title not found' and value != 'Publication date not found' and value != 'Abstract not found' and value != 'Subject not found' and value != 'URL not found' for value in info.values()):
                         output_data.append(info)
 
-    sorted_data = sorted(output_data, key=lambda x: x['jsonID'], reverse=False)
+    sorted_data = sorted(output_data, key=lambda x: x['jsonID'], reverse=True)
 
     with open('info.json', 'w') as json_file:
         json.dump(sorted_data, json_file, indent=2)
