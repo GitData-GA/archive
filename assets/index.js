@@ -94,10 +94,10 @@ async function showInput() {
         }
     });
 
-    filteredData.sort((a, b) => parseInt(b.url.substring(26, 40), 10) - parseInt(a.url.substring(26, 40), 10));
+    filteredData.sort((a, b) => b.url.substring(26) - a.url.substring(26));
     var sortOption = document.getElementById('sortOption').value;
     if (sortOption === 'asc') {
-        filteredData.sort((a, b) => parseInt(a.url.substring(26, 40), 10) - parseInt(b.url.substring(26, 40), 10));
+        filteredData.sort((a, b) => a.url.substring(26) - b.url.substring(26));
     }
     var resultsContainer = document.getElementById('searchResults');
     resultsContainer.innerHTML = ''; // Clear previous results
