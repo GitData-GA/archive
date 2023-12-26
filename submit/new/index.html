@@ -428,7 +428,7 @@
             fetchJSON('https://archive.gd.edu.kg/info.json')
               .then(publications => {
                 if (publications && publications.length > 0) {
-                  const similarityThreshold = 50; // Adjust the threshold as needed
+                  const similarityThreshold = 65; // Adjust the threshold as needed
             
                   // Calculate similarity scores and find top two
                   const similarityScores = publications.map(publication => ({
