@@ -53,6 +53,15 @@
                     <img src="https://archive.gd.edu.kg/assets/logo.svg" width="150px" alt="logo">
                     </a>
                 </div>
+                <script>
+                    $('#burger').click(function (e) {
+                        e.preventDefault();
+                        $(this).toggleClass('change');
+                        $('.mobile-menu').toggleClass('mobile-menu-open');
+                        $('.mobile-back').toggleClass('menu_on');
+                        $('.mobile-back').toggleClass('menu_off');
+                    })
+                </script>
             </nav>
             <nav class="pre-navbar">
                 <div class="logo-background" style="display: flex; justify-content: center">
