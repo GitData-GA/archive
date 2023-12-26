@@ -1,10 +1,3 @@
-$('#burger').click(function (e) {
-    e.preventDefault();
-    $(this).toggleClass('change');
-    $('.mobile-menu').toggleClass('mobile-menu-open');
-    $('.mobile-back').toggleClass('menu_on');
-    $('.mobile-back').toggleClass('menu_off');
-})
 $(document).ready(function() {
     $.ajax({
         url: 'https://archive.gd.edu.kg/info.json',
