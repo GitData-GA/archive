@@ -16,7 +16,7 @@ def generate_sitemap():
         for file in files:
             if (file.endswith('.html') or file.endswith('.pdf')) and not file.endswith('404.html'):
                 file_path = os.path.join(root, file)
-                if file == "index.html":
+                if file.endswith('.html'):
                     file_path = os.path.dirname(file_path)
                 file_url = f'https://archive.gd.edu.kg/{file_path[2:]}/'
                 if file.endswith('.pdf'):
