@@ -1,4 +1,4 @@
-<img src="https://archive.gd.edu.kg/assets/logo.svg" width="100px">
+# GitData Archive
 
 A preprint is a scientific manuscript that authors post on an open platform (usually before or in parallel with the journal's peer review process). GitData Archive is an open access online archive and service for preprints.
 
