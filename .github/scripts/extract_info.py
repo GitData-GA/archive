@@ -41,7 +41,15 @@ def extract_info_from_html(html_content):
     url = soup.find('meta', {'property': 'og:url'})
     url = url['content'] if url else 'URL not found'
     
-    return {'title': title, 'version': version, 'authors': authors, 'publication_date': publication_date, 'jsonID': jsonID, 'keywords': keywords, 'abstract': abstract, 'subject': subject, 'url': url}
+    return {'jsonID': jsonID,
+            'url': url,
+            'title': title, 
+            'subject': subject,
+            'version': version, 
+            'publication_date': publication_date,
+            'authors': authors, 
+            'keywords': keywords, 
+            'abstract': abstract}
 
 def main():
     output_data = []
