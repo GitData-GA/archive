@@ -473,8 +473,12 @@
                 currentVersion = getCurrentVersion(currentVersionHTML);
                 newVersion = currentVersion + 1;
                 var versionElements = document.getElementsByClassName('newVersionNum');
+                var prevVersionElements = document.getElementsByClassName('prevVersionNum');
                 for (var i = 0; i < versionElements.length; i++) {
                     versionElements[i].innerText = newVersion;
+                }
+                for (var i = 0; i < prevVersionElements.length; i++) {
+                    prevVersionElements[i].innerText = currentVersion;
                 }
             
                 currentVersionHTML = currentVersionHTML.replace(new RegExp(userInputURL, 'g'), 
@@ -858,7 +862,7 @@
                     </b>
                     <b>
                         <p style="font-size: 20px;">
-                            2. Unzip the zip file you downloaded from <a href="#s1">Step 1: Process and Download Previous Version(s)</a>. There should have <span class='newVersionNum'></span> html files, named from <code>v1.html</code> to <code>v<span class='newVersionNum'></span>.html</code>.
+                            2. Unzip the zip file you downloaded from <a href="#s1">Step 1: Process and Download Previous Version(s)</a>. There should have <span class='prevVersionNum'></span> html file(s), named from <code>v1.html</code> to <code>v<span class='prevVersionNum'></span>.html</code>.
                         </p>
                     </b>
                     <b>
@@ -876,10 +880,10 @@
                     </b>
                     <b>
                         <p style="font-size: 20px;">
-                            5. Upload all the following files to Github. After it is successfully uploaded, click on "<i>Commit changes</i>" at the bottom left.
+                            5. Upload all the following files to Github. After they are successfully uploaded, click on "<i>Commit changes</i>" at the bottom left.
                         <ul>
                             <li style="font-size: 20px;"><code>index.html</code></li>
-                            <li style="font-size: 20px;"><code>v1.html</code> to <code>v<span class='newVersionNum'></span>.html</code></li>
+                            <li style="font-size: 20px;"><code>v1.html</code> to <code>v<span class='prevVersionNum'></span>.html</code></li>
                             <li style="font-size: 20px;"><code>v<span class='newVersionNum'></span>.pdf</code></li>
                         </ul>
                         <br>
