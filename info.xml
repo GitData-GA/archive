@@ -1,1 +1,134 @@
-
+<?xml version="1.0" encoding="utf-8"?>
+<documents>
+	<document>
+		<jsonID>20240105031803</jsonID>
+		<url>https://archive.gd.edu.kg/20231224040449/</url>
+		<title>Predictive Modeling of Blood Pressure Categories: Integrating Demographic and Dietary Factors for Personalized Management</title>
+		<subject>Data Science / Statistics (Applications)</subject>
+		<version>Version 2</version>
+		<publication_date>2024/01/05</publication_date>
+		<authors>Li Yuan</authors>
+		<keywords>blood pressure</keywords>
+		<keywords>multinomial regression</keywords>
+		<keywords>lasso</keywords>
+		<keywords>tree</keywords>
+		<keywords>gradient boosting</keywords>
+		<keywords>xgboost</keywords>
+		<keywords>R</keywords>
+		<abstract>This study delves into predictive modeling of blood pressure levels, focusing on the United States, addressing the global health concern of hypertension. Mainly utilizing demographic and dietary data from the Centers for Disease Control and Prevention (CDC) National Health and Nutrition Examination Survey (NHANES) 2017-2018, aims to craft personalized management strategies. Drawing on research emphasizing the multifaceted determinants of hypertension, we leverage the multinomial regression model with lasso regularization as a baseline. Furthermore, the study advances to the eXtreme Gradient Boosting (XGBoost) algorithm, achieving a better performance than multinomial regression. Evaluation metrics include accuracy and Area Under the ROC Curve (ROC-AUC) in a 10-fold cross validation framework. The study provides possible personal blood pressure management solution.</abstract>
+	</document>
+	<document>
+		<jsonID>20231225232137</jsonID>
+		<url>https://archive.gd.edu.kg/20231224042259/</url>
+		<title>Predictive Modeling of H5N1 Bird Flu in United States of America: A 2022-2023 Analysis</title>
+		<subject>Data Science / Statistics (Applications)</subject>
+		<version>Version 3</version>
+		<publication_date>2023/12/25</publication_date>
+		<authors>Weilin Cheng</authors>
+		<authors>Hengyuan Liu</authors>
+		<authors>Kathy Mo</authors>
+		<authors>Sida Tian</authors>
+		<authors>Li Yuan</authors>
+		<keywords>H5N1</keywords>
+		<keywords>avian influenza</keywords>
+		<keywords>risk assessment</keywords>
+		<keywords>classification</keywords>
+		<keywords>regularization</keywords>
+		<keywords>xgboost</keywords>
+		<keywords>R</keywords>
+		<abstract>This research uniquely focuses on predicting the likelihood of H5N1 outbreaks in the United States at the county level. Unlike previous studies, which either excluded the United States or used outdated data, we utilized diverse statistical techniques and publicly available H5N1-related data from January 2022 to March 2023. Employing logistic regression, regularization methods, cross-validation, and eXtreme Gradient Boosting (XGBoost), our models demonstrated remarkable predictive efficacy. Notably, the XGBoost model, trained with 10-fold cross-validation, outperformed others in terms of ROC-AUC. This research provides valuable epidemiological insights, proposes intervention strategies for H5N1 in the United States, and suggests future research directions.
+</abstract>
+	</document>
+	<document>
+		<jsonID>20231225232010</jsonID>
+		<url>https://archive.gd.edu.kg/20231224042259/v2</url>
+		<title>2022 - 2023 H5N1 Bird Flu Modeling and Prediction in the United States</title>
+		<subject>Data Science / Statistics (Applications)</subject>
+		<version>Version 2</version>
+		<publication_date>2023/12/25</publication_date>
+		<authors>Weilin Cheng</authors>
+		<authors>Hengyuan Liu</authors>
+		<authors>Kathy Mo</authors>
+		<authors>Sida Tian</authors>
+		<authors>Li Yuan</authors>
+		<keywords>H5N1</keywords>
+		<keywords>logistic regression</keywords>
+		<keywords>ridge regression</keywords>
+		<keywords>lasso regression</keywords>
+		<keywords>glmnet</keywords>
+		<keywords>R</keywords>
+		<abstract>This report presents an analysis of the likelihood of H5N1 outbreaks in different counties of the United States in March 2023 using logistic regression, ridge regression, lasso regression, ridge &amp; lasso regression models. The models were trained using historical data from January 2022 to March 2023, and the accuracy of the models in predicting H5N1 outbreaks in March 2023 is about 99.348%. The ridge &amp; lasso regression model performed the best among the four models, with an AUC of 0.7959950. The map generated based on the ridge &amp; lasso regression model indicated that counties in the north and west were at a higher risk of having H5N1 outbreaks in March 2023, which matched the actual result. The report concludes that there are limitations to the models, including the consideration of only a limited set of factors affecting the spread of the virus and the use of historical data. Future work could incorporate additional data sources and use more sophisticated machine learning techniques to improve the accuracy of the models. The report also proposes some possible remedies to help control the spread of H5N1.</abstract>
+	</document>
+	<document>
+		<jsonID>20231224043044</jsonID>
+		<url>https://archive.gd.edu.kg/20231224043044/</url>
+		<title>Analysis of Shot Marilyns by Andy Warhol</title>
+		<subject>Data Science / Statistics (Applications)</subject>
+		<version>Version 1</version>
+		<publication_date>2023/12/24</publication_date>
+		<authors>Hengyuan Liu</authors>
+		<authors>Xinhui Luo</authors>
+		<authors>Weilin Cheng</authors>
+		<authors>Erick S. Arenas V.</authors>
+		<keywords>shot marilyns</keywords>
+		<keywords>marilyn monroe</keywords>
+		<keywords>andy warhol</keywords>
+		<keywords>python</keywords>
+		<abstract>This paper explores the differences and commons between five different versions of Shot Marilyns done by  Andy Warhol. We conducted a comprehensive analysis of color composition and distribution in a set of art pieces. Using various methods such as relative conditional entropy, we explored the distinct color distributions and correlations within each image. By clustering the images and examining specific regions of interest (ROIs), including backgrounds, hair, eyeshadow, and face, we gained detailed insights into the construction and differences of each image. We also observed that initial expectations of uniform colors for certain elements were not met, highlighting the complexity and deceptive nature of color perception in art. </abstract>
+	</document>
+	<document>
+		<jsonID>20231224042259</jsonID>
+		<url>https://archive.gd.edu.kg/20231224042259/v1</url>
+		<title>2022 - 2023 H5N1 Bird Flu Modeling and Prediction in the United States</title>
+		<subject>Data Science / Statistics (Applications)</subject>
+		<version>Version 1</version>
+		<publication_date>2023/12/24</publication_date>
+		<authors>Weilin Cheng</authors>
+		<authors>Hengyuan Liu</authors>
+		<authors>Kathy Mo</authors>
+		<authors>Sida Tian</authors>
+		<authors>Li Yuan</authors>
+		<keywords>H5N1</keywords>
+		<keywords>logistic regression</keywords>
+		<keywords>ridge regression</keywords>
+		<keywords>lasso regression</keywords>
+		<keywords>glmnet</keywords>
+		<keywords>R</keywords>
+		<abstract>This report presents an analysis of the likelihood of H5N1 outbreaks in different counties of the United States in January 2023 using logistic regression, ridge regression, and lasso regression models. The models were trained using historical data from 2022, and the accuracy of the models in predicting H5N1 outbreaks in January 2023 is about 98.4%. The lasso regression model performed the best among the three models, with an AUC of 0.8015. The map generated based on the lasso regression model indicated that counties in the north and west were at a higher risk of having H5N1 outbreaks in January 2023, which matched the actual result. The report concludes that there are limitations to the models, including the consideration of only a limited set of factors affecting the spread of the virus and the use of historical data. Future work could incorporate additional data sources and use more sophisticated machine learning techniques to improve the accuracy of the models. The report also proposes some possible remedies to help control the spread of H5N1.</abstract>
+	</document>
+	<document>
+		<jsonID>20231224041118</jsonID>
+		<url>https://archive.gd.edu.kg/20231224041118/</url>
+		<title>California 2022 Proposition 30 Feasibility Report and Recommendations</title>
+		<subject>Data Science / Statistics (Applications)</subject>
+		<version>Version 1</version>
+		<publication_date>2023/12/24</publication_date>
+		<authors>Weilin Cheng</authors>
+		<authors>Hengyuan Liu</authors>
+		<authors>Kathy Mo</authors>
+		<authors>Li Yuan</authors>
+		<keywords>politics</keywords>
+		<keywords>public policy</keywords>
+		<keywords>wildfire</keywords>
+		<keywords>electric car</keywords>
+		<keywords>R</keywords>
+		<abstract>Proposition 30 is a plan in California to increase taxes on high-income earners in order to fund programs that promote the use of zero-emission vehicles and prevent wildfires. The tax is expected to start in 2023 and end by 2043, or earlier if the state is able to maintain its greenhouse gas emissions at expected levels for three consecutive years. Proposition 30 plans to use 80% of the tax revenue to fund the Zero Emission Vehicle program, with 45% dedicated to helping people buy electric vehicles and 35% to installing charging stations. The remaining 20% will be used for Wildfire Response and Prevention Programs. The goal is to help California reduce its greenhouse gas emissions and meet its target of reducing emissions to 80% below 1990 levels by 2050. The authors conducted a study that evaluates whether the proposition can help California achieve its goal.</abstract>
+	</document>
+	<document>
+		<jsonID>20231224040449</jsonID>
+		<url>https://archive.gd.edu.kg/20231224040449/v1</url>
+		<title>Predictive Modeling of Blood Pressure Categories: Integrating Demographic and Dietary Factors for Personalized Management</title>
+		<subject>Data Science / Statistics (Applications)</subject>
+		<version>Version 1</version>
+		<publication_date>2023/12/24</publication_date>
+		<authors>Li Yuan</authors>
+		<keywords>blood pressure</keywords>
+		<keywords>multinomial regression</keywords>
+		<keywords>lasso</keywords>
+		<keywords>tree</keywords>
+		<keywords>gradient boosting</keywords>
+		<keywords>xgboost</keywords>
+		<keywords>R</keywords>
+		<abstract>This study delves into predictive modeling of blood pressure categories, focusing on the United States, addressing the global health concern of hypertension. Mainly utilizing demographic and dietary data from the CDC National Health and Nutrition Examination Survey (NHANES) 2017-2018, aims to craft personalized management strategies. Drawing on research emphasizing the multifaceted determinants of hypertension, we leverage the multinomial regression model with lasso regularization as a baseline. Furthermore, the study advances to the extreme gradient boosting (XGB) algorithm, achieving a slightly better performance than multinomial regression. Evaluation metrics include accuracy and Area Under the Curve (AUC) in a 10-fold cross-validation framework. The study provides possible personal blood pressure management solution.</abstract>
+	</document>
+</documents>
