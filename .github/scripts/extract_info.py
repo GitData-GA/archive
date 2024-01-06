@@ -1,6 +1,7 @@
 import os
 import json
 import re
+import xmltodict
 from bs4 import BeautifulSoup
 
 def extract_info_from_html(html_content):
@@ -65,8 +66,10 @@ def main():
 
     sorted_data = sorted(output_data, key=lambda x: x['jsonID'], reverse=True)
 
-    with open('info.json', 'w') as json_file:
-        json.dump(sorted_data, json_file, indent=2)
+    xml_data = {'documents': {'document': sorted_data}}
+
+    with open('info.xml', 'w') as xml_file:
+        xml_file.write(xmltodict.unparse(xml_data, pretty=True))
 
 if __name__ == '__main__':
     main()
