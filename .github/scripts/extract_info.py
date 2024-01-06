@@ -71,5 +71,8 @@ def main():
     with open('info.xml', 'w') as xml_file:
         xml_file.write(xmltodict.unparse(xml_data, pretty=True))
 
+    with open('info.json', 'w') as json_file:
+        json.dump(sorted_data, json_file, indent=2)
+
 if __name__ == '__main__':
     main()
