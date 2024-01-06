@@ -508,12 +508,12 @@
             // Modify PDF
             const { degrees, PDFDocument, rgb, StandardFonts } = PDFLib;
             async function modifyPdf() {
-                var year = parseInt(preprintID.slice(0, 4), 10);
-                var month = parseInt(preprintID.slice(4, 6), 10) - 1; 
-                var day = parseInt(preprintID.slice(6, 8), 10);
-                var hours = parseInt(preprintID.slice(8, 10), 10);
-                var minutes = parseInt(preprintID.slice(10, 12), 10);
-                var seconds = parseInt(preprintID.slice(12, 14), 10);
+                var year = parseInt(submissionTime.slice(0, 4), 10);
+                var month = parseInt(submissionTime.slice(4, 6), 10) - 1; 
+                var day = parseInt(submissionTime.slice(6, 8), 10);
+                var hours = parseInt(submissionTime.slice(8, 10), 10);
+                var minutes = parseInt(submissionTime.slice(10, 12), 10);
+                var seconds = parseInt(submissionTime.slice(12, 14), 10);
                 var date = new Date(Date.UTC(year, month, day, hours, minutes, seconds));
                 var formattedDate = date.toISOString();
                 var keywordBag = [];
