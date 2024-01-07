@@ -75,6 +75,7 @@ select, input, textarea{
     justify-content: space-between;
     height: 85px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .post-navbar{
@@ -82,6 +83,7 @@ select, input, textarea{
     width: 100%;
     background: #1b86b9;
     margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 .pre-navbar .logo-background{
