@@ -16,6 +16,11 @@ html {
     max-width: 2000px;
 }
 
+nav {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 body {
     margin: auto;
     max-width: 100%;
