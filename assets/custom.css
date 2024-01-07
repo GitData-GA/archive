@@ -74,10 +74,12 @@ select, input, textarea{
     display: flex;
     justify-content: space-between;
     height: 85px;
+    width: 100%;
 }
 
 .post-navbar{
     height: 5px;
+    width: 100%;
     background: #1b86b9;
     margin-bottom: 20px;
 }
