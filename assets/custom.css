@@ -453,6 +453,7 @@ label{
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .footer .col-7{
