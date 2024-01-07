@@ -99,64 +99,66 @@
                                 <div class="search-panel">
                                     <form id="searchForm" onsubmit="showInput(); return false;">
                                         <br>
-                                        <div class="search-field">
-                                            <input type="text" placeholder="Search for a preprint (e.g. title, ID, keyword, etc.)" id="searchQuery">
-                                            <button type="submit">Search</button>
-                                        </div>
-                                        <div class="search-parameters">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="form-group col np">
-                                                        <label for="subject">Subject</label>
-                                                        <select id="subject">
-                                                            <option></option>
-                                                            <optgroup label="Data Science / Statistics">
-                                                                <option value="Data Science / Statistics (Applications)">Applications</option>
-                                                                <option value="Data Science / Statistics (Computation)">Computation</option>
-                                                                <option value="Data Science / Statistics (Machine Learning)">Machine Learning</option>
-                                                                <option value="Data Science / Statistics (Methodology)">Methodology</option>
-                                                                <option value="Data Science / Statistics (Other Statistics)">Other Statistics</option>
-                                                                <option value="Data Science / Statistics (Statistics Theory)">Statistics Theory</option>
-                                                            </optgroup>
-                                                            <optgroup label="Electrical Engineering / Computer Science">
-                                                                <option value="Electrical Engineering / Computer Science (Artificial Intelligence)">Artificial Intelligence</option>
-                                                                <option value="Electrical Engineering / Computer Science (Audio and Speech Processing)">Audio and Speech Processing</option>
-                                                                <option value="Electrical Engineering / Computer Science (Computation and Language)">Computation and Language</option>
-                                                                <option value="Electrical Engineering / Computer Science (Computational Complexity)">Computational Complexity</option>
-                                                                <option value="Electrical Engineering / Computer Science (Computational Engineering, Finance, and Science)">Computational Engineering, Finance, and Science</option>
-                                                                <option value="Electrical Engineering / Computer Science (Computational Geometry)">Computational Geometry</option>
-                                                                <option value="Electrical Engineering / Computer Science (Computer Science and Game Theory)">Computer Science and Game Theory</option>
-                                                                <option value="Electrical Engineering / Computer Science (Computer Vision and Pattern Recognition)">Computer Vision and Pattern Recognition</option>
-                                                                <option value="Electrical Engineering / Computer Science (Computers and Society)">Computers and Society</option>
-                                                                <option value="Electrical Engineering / Computer Science (Cryptography and Security)">Cryptography and Security</option>
-                                                                <option value="Electrical Engineering / Computer Science (Data Structures and Algorithms)">Data Structures and Algorithms</option>
-                                                                <option value="Electrical Engineering / Computer Science (Image and Video Processing)">Image and Video Processing</option>
-                                                                <option value="Electrical Engineering / Computer Science (Signal Processing)">Signal Processing</option>
-                                                                <option value="Electrical Engineering / Computer Science (Systems and Control)">Systems and Control</option>
-                                                            </optgroup>
-                                                        </select>
+                                        <div class="container">
+                                            <div class="search-field">
+                                                <input type="text" placeholder="Search for a preprint (e.g. title, ID, keyword, etc.)" id="searchQuery">
+                                                <button type="submit">Search</button>
+                                            </div>
+                                            <div class="search-parameters">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="form-group col np">
+                                                            <label for="subject">Subject</label>
+                                                            <select id="subject">
+                                                                <option></option>
+                                                                <optgroup label="Data Science / Statistics">
+                                                                    <option value="Data Science / Statistics (Applications)">Applications</option>
+                                                                    <option value="Data Science / Statistics (Computation)">Computation</option>
+                                                                    <option value="Data Science / Statistics (Machine Learning)">Machine Learning</option>
+                                                                    <option value="Data Science / Statistics (Methodology)">Methodology</option>
+                                                                    <option value="Data Science / Statistics (Other Statistics)">Other Statistics</option>
+                                                                    <option value="Data Science / Statistics (Statistics Theory)">Statistics Theory</option>
+                                                                </optgroup>
+                                                                <optgroup label="Electrical Engineering / Computer Science">
+                                                                    <option value="Electrical Engineering / Computer Science (Artificial Intelligence)">Artificial Intelligence</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Audio and Speech Processing)">Audio and Speech Processing</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computation and Language)">Computation and Language</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computational Complexity)">Computational Complexity</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computational Engineering, Finance, and Science)">Computational Engineering, Finance, and Science</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computational Geometry)">Computational Geometry</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computer Science and Game Theory)">Computer Science and Game Theory</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computer Vision and Pattern Recognition)">Computer Vision and Pattern Recognition</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computers and Society)">Computers and Society</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Cryptography and Security)">Cryptography and Security</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Data Structures and Algorithms)">Data Structures and Algorithms</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Image and Video Processing)">Image and Video Processing</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Signal Processing)">Signal Processing</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Systems and Control)">Systems and Control</option>
+                                                                </optgroup>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col np">
+                                                            <label for="author">Author</label>
+                                                            <input type="text" id="author">
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group col np">
-                                                        <label for="author">Author</label>
-                                                        <input type="text" id="author">
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="form-group col np">
-                                                        <label for="startDate">Date from:</label>
-                                                        <input type="date" id="startDate">
-                                                    </div>
-                                                    <div class="form-group col np">
-                                                        <label for="endDate">Date to:</label>
-                                                        <input type="date" id="endDate">
-                                                    </div>
-                                                    <div class="form-group col np">
-                                                        <label for="sortOption">Sort by date:</label>
-                                                        <select id="sortOption" name="sortOption">
-                                                            <option value="desc">Newest first</option>
-                                                            <option value="asc">Oldest first</option>
-                                                        </select>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="form-group col np">
+                                                            <label for="startDate">Date from:</label>
+                                                            <input type="date" id="startDate">
+                                                        </div>
+                                                        <div class="form-group col np">
+                                                            <label for="endDate">Date to:</label>
+                                                            <input type="date" id="endDate">
+                                                        </div>
+                                                        <div class="form-group col np">
+                                                            <label for="sortOption">Sort by date:</label>
+                                                            <select id="sortOption" name="sortOption">
+                                                                <option value="desc">Newest first</option>
+                                                                <option value="asc">Oldest first</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
