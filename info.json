@@ -1,5 +1,30 @@
 [
   {
+    "jsonID": "20240130135607",
+    "url": "https://archive.gd.edu.kg/20231224042259/",
+    "title": "Predictive Modeling of H5N1 Bird Flu in United States of America: A 2022-2023 Analysis",
+    "subject": "Data Science / Statistics (Applications)",
+    "version": "Version 4",
+    "publication_date": "2024/01/30",
+    "authors": [
+      "Weilin Cheng",
+      "Hengyuan Liu",
+      "Kathy Mo",
+      "Sida Tian",
+      "Li Yuan"
+    ],
+    "keywords": [
+      "H5N1",
+      "avian influenza",
+      "risk assessment",
+      "classification",
+      "regularization",
+      "xgboost",
+      "R"
+    ],
+    "abstract": "This research uniquely focuses on predicting the likelihood of H5N1 outbreaks in the United States at the county level. Unlike previous studies, which either excluded the United States or used outdated data, we utilized diverse statistical techniques and publicly available H5N1-related data from January 2022 to March 2023. Employing logistic regression, regularization methods, cross-validation, and eXtreme Gradient Boosting (XGBoost), our models demonstrated remarkable predictive efficacy. Notably, the XGBoost model, trained with 10-fold cross-validation, outperformed others in terms of ROC-AUC. This research provides valuable epidemiological insights, proposes intervention strategies for H5N1 in the United States, and suggests future research directions."
+  },
+  {
     "jsonID": "20240105031803",
     "url": "https://archive.gd.edu.kg/20231224040449/",
     "title": "Predictive Modeling of Blood Pressure Categories: Integrating Demographic and Dietary Factors for Personalized Management",
@@ -22,7 +47,7 @@
   },
   {
     "jsonID": "20231225232137",
-    "url": "https://archive.gd.edu.kg/20231224042259/",
+    "url": "https://archive.gd.edu.kg/20231224042259/v3",
     "title": "Predictive Modeling of H5N1 Bird Flu in United States of America: A 2022-2023 Analysis",
     "subject": "Data Science / Statistics (Applications)",
     "version": "Version 3",
