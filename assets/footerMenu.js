@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
                   <a href="https://archive.gd.edu.kg/sitemap.xml">Sitemap</a><br>
                   <a href="https://archive.gd.edu.kg/info.json">Feed</a><br>
               </div>
+              <div class="col" style="text-align: left; font-size:12px;">
+                  <p>Policy</p>
+                  <a href="https://www.gd.edu.kg/privacy-policy/" target="_blank">Privacy Policy</a><br>
+                  <a href="https://www.gd.edu.kg/cookie-policy/" target="_blank">Cookie Policy</a><br>
+              </div>
           </div>
         `;
         container.innerHTML = content;
