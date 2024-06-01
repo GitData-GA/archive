@@ -32,8 +32,7 @@
             document.getElementById('current-user').textContent = 'Current User: ' + user.name;
         } else {
             // 用户未登录，执行登录流程
-            // 用户未登录，执行登录流程
-            msalApplication.ssoSilent()
+            msalApplication.loginRedirect()
                 .then(function (response) {
                     // 登录成功，获取用户信息
                     var user = msalApplication.getAccount();
