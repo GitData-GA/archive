@@ -27,7 +27,7 @@
         if (msalApplication.getAccount()) {
             // 获取当前用户信息
             var user = msalApplication.getAccount();
-
+            console.log(user);
             // 更新HTML元素的内容
             document.getElementById('current-user').textContent = 'Current User: ' + user.name;
         } else {
@@ -37,7 +37,7 @@
                 .then(function (response) {
                     // 登录成功，获取用户信息
                     var user = msalApplication.getAccount();
-
+                    console.log(user);
                     // 更新 HTML 元素的内容
                     document.getElementById('current-user').textContent = 'Current User: ' + user.name;
                 })
