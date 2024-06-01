@@ -67,8 +67,8 @@
                     var userName = msalApplication.getAccount().name;
                     document.getElementById('loginMobile').innerHTML = `<a><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${userName}</a>`;
                     document.getElementById('loginDesktop').innerHTML = `<a class="nav-menu"><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${userName}</a>`;
-                    document.getElementById('logoutMobileLink').style.display = 'inline-block';
-                    document.getElementById('logoutDesktopLink').style.display = 'inline-block';
+                    document.getElementById('logoutMobile').style.display = 'inline-block';
+                    document.getElementById('logoutDesktop').style.display = 'inline-block';
                 }
             });
         </script>
@@ -127,7 +127,9 @@
                         <a class="nav-menu" href="#" id="loginDesktopLink">
                             <img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login
                         </a>
-                        <a class="nav-menu" href="#" id="logoutDesktopLink" style="display: none;">
+                    </div>
+                    <div id="logoutDesktop" style="display: none; align-items: center;">
+                        <a class="nav-menu" href="#" id="logoutDesktopLink">
                             <img src="https://archive.gd.edu.kg/assets/logout.svg" alt="logout_img" height="16px" />&nbsp;Logout
                         </a>
                     </div>
