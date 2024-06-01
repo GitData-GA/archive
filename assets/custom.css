@@ -99,6 +99,7 @@ select, input, textarea{
 .pre-navbar .menu-holder{
     padding-right: 40px;
     display: flex;
+    align-items: center;
 }
 
 .pre-navbar .items-container{
