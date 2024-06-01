@@ -42,8 +42,8 @@
             var msalApplication = new Msal.UserAgentApplication(msalConfig);
             if (msalApplication.getAccount()) {
                 console.log(msalApplication.getAccount());
-                document.getElementById('loginMobile').innerHTML = `<p>${msalApplication.getAccount().name}</p>`;
-                document.getElementById('loginDesktop').innerHTML = `<p>${msalApplication.getAccount().name}</p>`;
+                document.getElementById('loginMobile').value = `<p>${msalApplication.getAccount().name}</p>`;
+                document.getElementById('loginDesktop').value = `<p>${msalApplication.getAccount().name}</p>`;
             }
         </script>
     </head>
