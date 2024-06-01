@@ -42,7 +42,8 @@
             var msalApplication = new Msal.UserAgentApplication(msalConfig);
             if (msalApplication.getAccount()) {
                 console.log(msalApplication.getAccount());
-                document.getElementById('login').innerHTML = `<p>${msalApplication.getAccount().name}</p>`;
+                document.getElementById('loginMobile').innerHTML = `<p>${msalApplication.getAccount().name}</p>`;
+                document.getElementById('loginDesktop').innerHTML = `<p>${msalApplication.getAccount().name}</p>`;
             }
         </script>
     </head>
@@ -58,7 +59,7 @@
                     <li><a href="https://archive.gd.edu.kg/about/">About</a></li>
                     <li><a href="https://archive.gd.edu.kg/terms/">Terms</a></li>
                     <li><a href="https://archive.gd.edu.kg/submit/">Submit</a></li>
-                    <li id="login"><a href="https://archive.gd.edu.kg/entraID_test.html">Login</a></li>
+                    <li id="loginMobile"><a href="https://archive.gd.edu.kg/entraID_test.html">Login</a></li>
                 </ul>
             </div>
             <div class="logo-mobile">
@@ -87,6 +88,9 @@
                     <a class="nav-menu" href="https://archive.gd.edu.kg/about/">About</a>
                     <a class="nav-menu" href="https://archive.gd.edu.kg/terms/">Terms</a>
                     <a class="nav-menu" href="https://archive.gd.edu.kg/submit/">Submit</a>
+                    <div id="loginDesktop">
+                        <a class="nav-menu" href="https://archive.gd.edu.kg/entraID_test.html">Login</a>
+                    </div>
                 </div>
             </div>
         </nav>
