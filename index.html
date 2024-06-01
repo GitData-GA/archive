@@ -36,7 +36,8 @@
             var msalConfig = {
                 auth: {
                     clientId: '27d422a7-0f89-4144-b84b-4e9fdf354c7b',                    
-                    authority: 'https://login.microsoftonline.com/gd.edu.kg'
+                    authority: 'https://login.microsoftonline.com/gd.edu.kg',
+                    redirectUri: window.location.origin
                 }
             };
             var msalApplication = new Msal.UserAgentApplication(msalConfig);
