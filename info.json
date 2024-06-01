@@ -1,7 +1,26 @@
 [
   {
-    "jsonID": "20240601205821",
+    "jsonID": "20240601211046",
     "url": "https://archive.gd.edu.kg/20240601205821/",
+    "title": "fsfasdf",
+    "subject": "Electrical Engineering / Computer Science (Artificial Intelligence)",
+    "version": "Version 2",
+    "publication_date": "2024/06/01",
+    "authors": [
+      "Albert Einstein",
+      "Isaac Newton",
+      "Charles Darwin"
+    ],
+    "keywords": [
+      "sdaf",
+      "adsf",
+      "sdaf"
+    ],
+    "abstract": "sdfadsfasdfasd"
+  },
+  {
+    "jsonID": "20240601205821",
+    "url": "https://archive.gd.edu.kg/20240601205821/v1",
     "title": "sfsagfgfdsg",
     "subject": "Data Science / Statistics (Machine Learning)",
     "version": "Version 1",
