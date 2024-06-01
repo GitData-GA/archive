@@ -19,7 +19,7 @@
             auth: {
                 clientId: clientId,                    
                 authority: 'https://login.microsoftonline.com/' + tenantId,
-                redirectUri: 'https://archive.gd.edu.kg/'
+                redirectUri: window.location.origin
             }
         };
         var msalApplication = new Msal.UserAgentApplication(msalConfig);
