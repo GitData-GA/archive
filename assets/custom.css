@@ -98,6 +98,7 @@ select, input, textarea{
 
 .pre-navbar .menu-holder{
     padding-right: 40px;
+    display: flex;
 }
 
 .pre-navbar .items-container{
@@ -1078,7 +1079,7 @@ label{
     }
 
     .pre-navbar .menu-holder{
-        display: none;
+        display: flex;
     }
 
     .pre-navbar .logo-background{
