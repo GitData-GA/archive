@@ -34,7 +34,7 @@
         <script src="https://alcdn.msauth.net/lib/1.4.18/js/msal.min.js" type="text/javascript"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                var msalConfig = {
+                const msalConfig = {
                     auth: {
                         clientId: '27d422a7-0f89-4144-b84b-4e9fdf354c7b',                    
                         authority: 'https://login.microsoftonline.com/gd.edu.kg',
@@ -43,7 +43,6 @@
                 };
                 var msalApplication = new Msal.UserAgentApplication(msalConfig);
                 if (msalApplication.getAccount()) {
-                    console.log(msalApplication.getAccount());
                     document.getElementById('loginMobile').innerHTML = `<p><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${msalApplication.getAccount().name}</p>`;
                     document.getElementById('loginDesktop').innerHTML = `<a class="nav-menu"><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${msalApplication.getAccount().name}</a>`;
                 }
@@ -62,7 +61,7 @@
                     <li><a href="https://archive.gd.edu.kg/about/">About</a></li>
                     <li><a href="https://archive.gd.edu.kg/terms/">Terms</a></li>
                     <li><a href="https://archive.gd.edu.kg/submit/">Submit</a></li>
-                    <li id="loginMobile"><a href="https://archive.gd.edu.kg/entraID_test.html"><img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login</a></li>
+                    <li id="loginMobile"><a onclick="msalApplication.loginRedirect()"><img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login</a></li>
                 </ul>
             </div>
             <div class="logo-mobile">
@@ -92,7 +91,7 @@
                     <a class="nav-menu" href="https://archive.gd.edu.kg/terms/">Terms</a>
                     <a class="nav-menu" href="https://archive.gd.edu.kg/submit/">Submit</a>
                     <div id="loginDesktop" style="display: inline-block; align-items: center;">
-                        <a class="nav-menu" href="https://archive.gd.edu.kg/entraID_test.html">
+                        <a class="nav-menu" onclick="msalApplication.loginRedirect()">
                             <img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login
                         </a>
                     </div>
