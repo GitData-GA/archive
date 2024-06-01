@@ -52,11 +52,23 @@
                     event.preventDefault();
                     msalApplication.loginRedirect();
                 });
+
+                document.getElementById('logoutMobileLink').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    msalApplication.logout();
+                });
+
+                document.getElementById('logoutDesktopLink').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    msalApplication.logout();
+                });
         
                 if (msalApplication.getAccount()) {
                     var userName = msalApplication.getAccount().name;
                     document.getElementById('loginMobile').innerHTML = `<a><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${userName}</a>`;
-                    document.getElementById('loginDesktop').innerHTML = `<a><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${userName}</a>`;
+                    document.getElementById('loginDesktop').innerHTML = `<a class="nav-menu"><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${userName}</a>`;
+                    document.getElementById('logoutMobileLink').style.display = 'inline-block';
+                    document.getElementById('logoutDesktopLink').style.display = 'inline-block';
                 }
             });
         </script>
@@ -73,7 +85,16 @@
                     <li><a href="https://archive.gd.edu.kg/about/">About</a></li>
                     <li><a href="https://archive.gd.edu.kg/terms/">Terms</a></li>
                     <li><a href="https://archive.gd.edu.kg/submit/">Submit</a></li>
-                    <li id="loginMobile"><a href="#" id="loginMobileLink"><img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login</a></li>
+                    <li id="loginMobile">
+                        <a href="#" id="loginMobileLink">
+                            <img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login
+                        </a>
+                    </li>
+                    <li id="logoutMobile" style="display: none;">
+                        <a href="#" id="logoutMobileLink">
+                            <img src="https://archive.gd.edu.kg/assets/logout.svg" alt="logout_img" height="16px" />&nbsp;Logout
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="logo-mobile">
@@ -105,6 +126,9 @@
                     <div id="loginDesktop" style="display: inline-block; align-items: center;">
                         <a class="nav-menu" href="#" id="loginDesktopLink">
                             <img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login
+                        </a>
+                        <a class="nav-menu" href="#" id="logoutDesktopLink" style="display: none;">
+                            <img src="https://archive.gd.edu.kg/assets/logout.svg" alt="logout_img" height="16px" />&nbsp;Logout
                         </a>
                     </div>
                 </div>
