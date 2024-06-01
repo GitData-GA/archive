@@ -44,8 +44,8 @@
                 var msalApplication = new Msal.UserAgentApplication(msalConfig);
                 if (msalApplication.getAccount()) {
                     console.log(msalApplication.getAccount());
-                    document.getElementById('loginMobile').innerHTML = `<p><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" width="16px" />&nbsp;${msalApplication.getAccount().name}</p>`;
-                    document.getElementById('loginDesktop').innerHTML = `<p><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" width="16px" />&nbsp;${msalApplication.getAccount().name}</p>`;
+                    document.getElementById('loginMobile').innerHTML = `<p><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${msalApplication.getAccount().name}</p>`;
+                    document.getElementById('loginDesktop').innerHTML = `<p><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${msalApplication.getAccount().name}</p>`;
                 }
             });
         </script>
@@ -62,7 +62,7 @@
                     <li><a href="https://archive.gd.edu.kg/about/">About</a></li>
                     <li><a href="https://archive.gd.edu.kg/terms/">Terms</a></li>
                     <li><a href="https://archive.gd.edu.kg/submit/">Submit</a></li>
-                    <li id="loginMobile"><a href="https://archive.gd.edu.kg/entraID_test.html"><img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" width="16px" />&nbsp;Login</a></li>
+                    <li id="loginMobile"><a href="https://archive.gd.edu.kg/entraID_test.html"><img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login</a></li>
                 </ul>
             </div>
             <div class="logo-mobile">
@@ -92,7 +92,7 @@
                     <a class="nav-menu" href="https://archive.gd.edu.kg/terms/">Terms</a>
                     <a class="nav-menu" href="https://archive.gd.edu.kg/submit/">Submit</a>
                     <div id="loginDesktop">
-                        <a class="nav-menu" href="https://archive.gd.edu.kg/entraID_test.html"><img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" width="16px" />&nbsp;Login</a>
+                        <a class="nav-menu" href="https://archive.gd.edu.kg/entraID_test.html"><img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login</a>
                     </div>
                 </div>
             </div>
