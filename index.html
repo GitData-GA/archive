@@ -34,7 +34,7 @@
         <script src="https://alcdn.msauth.net/lib/1.4.18/js/msal.min.js" type="text/javascript"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                const msalConfig = {
+                var msalConfig = {
                     auth: {
                         clientId: '27d422a7-0f89-4144-b84b-4e9fdf354c7b',                    
                         authority: 'https://login.microsoftonline.com/gd.edu.kg',
@@ -42,9 +42,21 @@
                     }
                 };
                 var msalApplication = new Msal.UserAgentApplication(msalConfig);
+        
+                document.getElementById('loginMobileLink').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    msalApplication.loginRedirect();
+                });
+        
+                document.getElementById('loginDesktopLink').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    msalApplication.loginRedirect();
+                });
+        
                 if (msalApplication.getAccount()) {
-                    document.getElementById('loginMobile').innerHTML = `<p><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${msalApplication.getAccount().name}</p>`;
-                    document.getElementById('loginDesktop').innerHTML = `<a class="nav-menu"><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${msalApplication.getAccount().name}</a>`;
+                    var userName = msalApplication.getAccount().name;
+                    document.getElementById('loginMobile').innerHTML = `<a>${userName}</a>`;
+                    document.getElementById('loginDesktop').innerHTML = `<a>${userName}</a>`;
                 }
             });
         </script>
@@ -61,7 +73,7 @@
                     <li><a href="https://archive.gd.edu.kg/about/">About</a></li>
                     <li><a href="https://archive.gd.edu.kg/terms/">Terms</a></li>
                     <li><a href="https://archive.gd.edu.kg/submit/">Submit</a></li>
-                    <li id="loginMobile"><a onclick="msalApplication.loginRedirect()"><img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login</a></li>
+                    <li id="loginMobile"><a href="#" id="loginMobileLink"><img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login</a></li>
                 </ul>
             </div>
             <div class="logo-mobile">
@@ -91,7 +103,7 @@
                     <a class="nav-menu" href="https://archive.gd.edu.kg/terms/">Terms</a>
                     <a class="nav-menu" href="https://archive.gd.edu.kg/submit/">Submit</a>
                     <div id="loginDesktop" style="display: inline-block; align-items: center;">
-                        <a class="nav-menu" onclick="msalApplication.loginRedirect()">
+                        <a class="nav-menu" href="#" id="loginDesktopLink">
                             <img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login
                         </a>
                     </div>
