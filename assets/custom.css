@@ -105,7 +105,6 @@ select, input, textarea{
     display: flex;
     align-items: center;
     justify-items: flex-end;
-    max-width: 50%;
 }
 
 .pre-navbar .items-container a{
