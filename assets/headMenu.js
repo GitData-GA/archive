@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var mobile = document.getElementById('mobileMenu');
     if (mobile) {
         var content = `
+                <ul>
                     <li><a href="https://archive.gd.edu.kg/about/">About</a></li>
                     <li><a href="https://archive.gd.edu.kg/terms/">Terms</a></li>
                     <li><a href="https://archive.gd.edu.kg/submit/">Submit</a></li>
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <img src="https://archive.gd.edu.kg/assets/logout.svg" alt="logout_img" height="16px" />&nbsp;Logout
                         </a>
                     </li>
+                </ul>
         `;
         mobile.innerHTML = content;
     } else {
