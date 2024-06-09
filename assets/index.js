@@ -111,7 +111,6 @@ async function showInput() {
     }
     if (document.getElementById('versionOption').value == 'latest') {
         filteredData = getLatestVersions(filteredData);
-        console.log(filteredData);
     }
     var resultsContainer = document.getElementById('searchResults');
     resultsContainer.innerHTML = ''; 
