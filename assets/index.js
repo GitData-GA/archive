@@ -109,13 +109,13 @@ async function showInput() {
     if (filteredData.length === 0) {
             resultsContainer.innerHTML = '<p><i>Sorry, your query produced no results.</i></p>';
     } else {
-        resultsContainer.innerHTML = `
-            <p><i>Found ${filteredData.length} result(s).</i></p>
-        `;
         var versionOption = document.getElementById('versionOption').value;
         if (versionOption == 'latest') {
             filteredData = getLatestVersions(filteredData);
         }
+        resultsContainer.innerHTML = `
+            <p><i>Found ${filteredData.length} result(s).</i></p>
+        `;
         filteredData.forEach(function (paper) {
             var truncatedAbstract = paper.abstract.split(' ').slice(0, 75).join(' ');
             truncatedAbstract += truncatedAbstract.length < paper.abstract.length ? '...' : '';
