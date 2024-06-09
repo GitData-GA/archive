@@ -57,6 +57,18 @@ function isAuthorMatch(authors, input) {
         return lowerAuthor.includes(lowerInput) || lowerInput.includes(lowerAuthor);
     });
 }
+
+function getLatestVersions(filteredData) {
+    var latestVersions = {};
+    filteredData.forEach(function(paper) {
+        var preprintID = paper.url.substring(1);
+        if (!latestVersions[preprintID] || latestVersions[preprintID].version < paper.version) {
+            latestVersions[preprintID] = paper;
+        }
+    });
+    return Object.values(latestVersions);
+}
+
 async function showInput() {
     event.preventDefault();
     var searchQuery = document.getElementById('searchQuery').value;
@@ -100,8 +112,11 @@ async function showInput() {
         resultsContainer.innerHTML = `
             <p><i>Found ${filteredData.length} result(s).</i></p>
         `;
+        var versionOption = document.getElementById('versionOption').value;
+        if (versionOption == 'latest') {
+            filteredData = getLatestVersions(filteredData);
+        }
         filteredData.forEach(function (paper) {
-            // Truncate abstract to 100 words
             var truncatedAbstract = paper.abstract.split(' ').slice(0, 75).join(' ');
             truncatedAbstract += truncatedAbstract.length < paper.abstract.length ? '...' : '';
             var preprintID = paper.url.substring(8);
