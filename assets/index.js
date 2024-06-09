@@ -104,15 +104,16 @@ async function showInput() {
     if (sortOption === 'asc') {
         filteredData.sort((a, b) => a.jsonID - b.jsonID);
     }
+    var versionOption = document.getElementById('versionOption').value;
+    if (versionOption == 'latest') {
+        filteredData = getLatestVersions(filteredData);
+        console.log(filteredData);
+    }
     var resultsContainer = document.getElementById('searchResults');
-    resultsContainer.innerHTML = ''; // Clear previous results
+    resultsContainer.innerHTML = ''; 
     if (filteredData.length === 0) {
             resultsContainer.innerHTML = '<p><i>Sorry, your query produced no results.</i></p>';
     } else {
-        var versionOption = document.getElementById('versionOption').value;
-        if (versionOption == 'latest') {
-            filteredData = getLatestVersions(filteredData);
-        }
         resultsContainer.innerHTML = `
             <p><i>Found ${filteredData.length} result(s).</i></p>
         `;
