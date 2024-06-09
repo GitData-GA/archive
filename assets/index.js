@@ -50,6 +50,7 @@ $(document).ready(function() {
         }
     });
 });
+
 function isAuthorMatch(authors, input) {
     const lowerInput = input.toLowerCase();
     return authors.some(author => {
@@ -58,11 +59,16 @@ function isAuthorMatch(authors, input) {
     });
 }
 
+function getPreprintID(url) {
+    var match = url.match(/https:\/\/archive\.gd\.edu\.kg\/(\d+)/);
+    return match ? match[1] : null;
+}
+
 function getLatestVersions(filteredData) {
     var latestVersions = {};
     filteredData.forEach(function(paper) {
-        var preprintID = paper.url.substring(1);
-        if (!latestVersions[preprintID] || latestVersions[preprintID].version < paper.version) {
+        var preprintID = getPreprintID(paper.url);
+        if (preprintID && (!latestVersions[preprintID] || latestVersions[preprintID].version < paper.version)) {
             latestVersions[preprintID] = paper;
         }
     });
@@ -100,12 +106,10 @@ async function showInput() {
     });
 
     filteredData.sort((a, b) => b.jsonID - b.jsonID);
-    var sortOption = document.getElementById('sortOption').value;
-    if (sortOption === 'asc') {
+    if (document.getElementById('sortOption').value === 'asc') {
         filteredData.sort((a, b) => a.jsonID - b.jsonID);
     }
-    var versionOption = document.getElementById('versionOption').value;
-    if (versionOption == 'latest') {
+    if (document.getElementById('versionOption').value == 'latest') {
         filteredData = getLatestVersions(filteredData);
         console.log(filteredData);
     }
