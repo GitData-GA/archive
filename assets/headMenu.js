@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         <a class="nav-menu" href="https://archive.gd.edu.kg/about/">About</a>
                         <a class="nav-menu" href="https://archive.gd.edu.kg/terms/">Terms</a>
                         <a class="nav-menu" href="https://archive.gd.edu.kg/submit/">Submit</a>
-                        <div id="loginDesktop" style="display: inline-block; align-items: center;">
-                            <a class="nav-menu" href="#" id="loginDesktopLink">
+                        <div id="loginDesktop" style="display: inline-block;">
+                            <a class="nav-menu" href="#" id="loginDesktopLink" style="display: flex; align-items: center;">
                                 <img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login
                             </a>
                         </div>
-                        <div id="logoutDesktop" style="display: none; align-items: center;">
-                            <a class="nav-menu" href="#" id="logoutDesktopLink">
+                        <div id="logoutDesktop" style="display: none;">
+                            <a class="nav-menu" href="#" id="logoutDesktopLink" style="display: flex; align-items: center;">
                                 <img src="https://archive.gd.edu.kg/assets/logout.svg" alt="logout_img" height="16px" />&nbsp;Logout
                             </a>
                         </div>
