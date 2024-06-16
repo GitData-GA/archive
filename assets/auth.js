@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (msalApplication.getAccount()) {
         var userName = msalApplication.getAccount().name;
         document.getElementById('loginMobile').innerHTML = `<a><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${userName}</a>`;
-        document.getElementById('loginDesktop').innerHTML = `<a class="nav-menu"><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${userName}</a>`;
+        document.getElementById('loginDesktop').innerHTML = `<a class="nav-menu" style="display: flex; align-items: center;"><img src="https://archive.gd.edu.kg/assets/user.svg" alt="user_img" height="16px" />&nbsp;${userName}</a>`;
         document.getElementById('logoutMobile').style.display = 'inline-block';
         document.getElementById('logoutDesktop').style.display = 'inline-block';
     }
