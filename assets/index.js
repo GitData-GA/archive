@@ -116,7 +116,7 @@ async function showInput() {
     var resultsContainer = document.getElementById('searchResults');
     resultsContainer.innerHTML = ''; 
     if (filteredData.length === 0) {
-            resultsContainer.innerHTML = '<p><i>Sorry, your query produced no results.</i></p>';
+            resultsContainer.innerHTML = '<p><i>Sorry, your query produced no result.</i></p>';
     } else {
         resultsContainer.innerHTML = `
             <p><i>Found ${filteredData.length} result(s).</i></p>
