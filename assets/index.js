@@ -19,6 +19,7 @@ $(document).ready(function() {
                 var title = paper.title;
                 var url = paper.url;
                 var subject = paper.subject;
+                var version = paper.version;
                 var publication_date = paper.publication_date;
                 var abstract = truncateAbstract(paper.abstract);
                 var htmlCode = `
@@ -27,7 +28,7 @@ $(document).ready(function() {
                             ${subject}
                         </div>
                         <div class="article-date">
-                            ${publication_date}
+                            ${publication_date} (${version})
                         </div>
                     </div>
                     <div class="article-title col-12 np">
