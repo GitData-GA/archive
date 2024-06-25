@@ -31,7 +31,7 @@ def generate_sitemap():
                 if file_url == "https://archive.gd.edu.kg":
                     file_url = "https://archive.gd.edu.kg/"
 
-                if file.endswith('index.html'):
+                if file.endswith('index.html') and file_url != 'https://archive.gd.edu.kg/':
                     file_url += '/'
 
                 parent_dir = os.path.dirname(file_path)
