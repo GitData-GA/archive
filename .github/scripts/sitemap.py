@@ -39,15 +39,20 @@ def generate_sitemap():
                 level = file_path.count(os.sep)
                 file_priority = calculate_priority(level)
                 last_modified = datetime.utcnow().replace(microsecond=0).isoformat() + "+00:00"
-                urls.append(f'  <url>\n    <loc>{file_url}</loc>\n    <lastmod>{last_modified}</lastmod>\n    <priority>{file_priority:.2f}</priority>\n  </url>')
+                urls.append((file_url, file_priority, last_modified, parent_dir, file))
 
     # Adjust priority for latest PDFs
-    for i, url in enumerate(urls):
-        for parent_dir, latest_pdf in latest_pdfs.items():
-            if url.find(latest_pdf) != -1:
-                urls[i] = urls[i].replace(f'<priority>{calculate_priority(os.path.dirname(latest_pdf).count(os.sep)):.2f}</priority>', f'<priority>{calculate_priority(os.path.dirname(latest_pdf).count(os.sep), is_latest_pdf=True):.2f}</priority>')
+    sitemap_entries = []
+    for file_url, file_priority, last_modified, parent_dir, file in urls:
+        if file == latest_pdfs.get(parent_dir, ''):
+            file_priority = calculate_priority(parent_dir.count(os.sep) + 1, is_latest_pdf=True)
+        if not file_url.endswith('/'):
+            file_url += '/'
+        sitemap_entries.append(
+            f'  <url>\n    <loc>{file_url}</loc>\n    <lastmod>{last_modified}</lastmod>\n    <priority>{file_priority:.2f}</priority>\n  </url>'
+        )
 
-    sitemap_content = '\n'.join(urls)
+    sitemap_content = '\n'.join(sitemap_entries)
 
     with open('sitemap.xml', 'w') as sitemap_file:
         sitemap_file.write(f'{sitemap_header}{sitemap_content}\n{sitemap_footer}')
