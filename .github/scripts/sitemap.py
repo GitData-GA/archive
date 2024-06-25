@@ -1,73 +1,56 @@
 import os
 from datetime import datetime
 
-sitemap_header = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-sitemap_footer = '</urlset>'
+def calculate_priority(level, is_latest_pdf=False):
+    base_priority = 1.0
+    decay_factor = 0.9
+    if is_latest_pdf:
+        return base_priority * (decay_factor ** (level - 1))
+    return base_priority * (decay_factor ** level)
 
-def get_priority(level, is_latest_pdf=False):
-    if level == 1:
-        return 1.0
-    elif is_latest_pdf:
-        return get_priority(level - 1)
-    else:
-        return 0.9 ** (level - 1)
+def generate_sitemap():
+    sitemap_header = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    sitemap_footer = '</urlset>'
 
-def crawl(root_dir, level=1):
     urls = []
     latest_pdfs = {}
 
-    for root, _, files in os.walk(root_dir):
+    for root, dirs, files in os.walk('.'):
         for file in files:
-            full_path = os.path.join(root, file)
-            relative_path = os.path.relpath(full_path, root_dir)
-            url = f"https://archive.gd.edu.kg/{relative_path.replace(os.sep, '/')}"
-            
-            # Normalize URL if it ends with "index.html"
-            if url.endswith("index.html"):
-                url = url.replace("index.html", "")
-
-            if url.endswith(".html") or url.endswith(".pdf"):
-                urls.append((url, level))
-                if url.endswith(".pdf"):
-                    parent_dir = os.path.dirname(relative_path)
+            if (file.endswith('.html') or file.endswith('.pdf')) and not file.endswith('404.html'):
+                file_path = os.path.join(root, file)
+                
+                # Normalize URL if it ends with "index.html"
+                if file.endswith('index.html'):
+                    file_path = os.path.dirname(file_path)
+                
+                file_url = f'https://archive.gd.edu.kg/{file_path[2:]}/'.replace('\\', '/')
+                if file.endswith('.pdf') or file.endswith('.html'):
+                    file_url = file_url.rstrip('/')
+                
+                if file_url == "https://archive.gd.edu.kg//":
+                    file_url = "https://archive.gd.edu.kg/"
+                
+                parent_dir = os.path.dirname(file_path)
+                if file.endswith('.pdf'):
                     if parent_dir not in latest_pdfs or file > latest_pdfs[parent_dir]:
                         latest_pdfs[parent_dir] = file
 
-    # Assign priorities
-    result = []
-    for url, lvl in urls:
-        relative_path = os.path.relpath(url, "https://archive.gd.edu.kg/").replace('/', os.sep)
-        parent_dir = os.path.dirname(relative_path)
-        is_latest_pdf = url.endswith(latest_pdfs.get(parent_dir, ""))
-        priority = get_priority(lvl, is_latest_pdf)
-        result.append((url, priority))
+                level = file_path.count(os.sep)
+                file_priority = calculate_priority(level)
+                last_modified = datetime.utcnow().replace(microsecond=0).isoformat() + "+00:00"
+                urls.append(f'  <url>\n    <loc>{file_url}</loc>\n    <lastmod>{last_modified}</lastmod>\n    <priority>{file_priority:.2f}</priority>\n  </url>')
 
-    return result
+    # Adjust priority for latest PDFs
+    for i, url in enumerate(urls):
+        for parent_dir, latest_pdf in latest_pdfs.items():
+            if url.find(latest_pdf) != -1:
+                urls[i] = urls[i].replace(f'<priority>{calculate_priority(os.path.dirname(latest_pdf).count(os.sep)):.2f}</priority>', f'<priority>{calculate_priority(os.path.dirname(latest_pdf).count(os.sep), is_latest_pdf=True):.2f}</priority>')
 
-def generate_sitemap(urls):
-    sitemap_content = ""
-    lastmod = datetime.utcnow().isoformat() + "+00:00"
-    
-    for url, priority in urls:
-        sitemap_content += (
-            "  <url>\n"
-            f"    <loc>{url}</loc>\n"
-            f"    <lastmod>{lastmod}</lastmod>\n"
-            f"    <priority>{priority:.2f}</priority>\n"
-            "  </url>\n"
-        )
+    sitemap_content = '\n'.join(urls)
 
-    return f"{sitemap_header}{sitemap_content}{sitemap_footer}"
-
-def main():
-    root_dir = os.path.dirname(os.path.abspath(__file__))
-    urls = crawl(root_dir)
-    sitemap_content = generate_sitemap(urls)
-    
     with open('sitemap.xml', 'w') as sitemap_file:
-        sitemap_file.write(sitemap_content)
-    
-    print("Sitemap generated successfully.")
+        sitemap_file.write(f'{sitemap_header}{sitemap_content}\n{sitemap_footer}')
 
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    generate_sitemap()
