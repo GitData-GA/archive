@@ -3,7 +3,7 @@ from datetime import datetime
 
 def calculate_priority(level, is_latest_pdf=False):
     base_priority = 1.0
-    decay_factor = 0.9
+    decay_factor = 0.8
     if is_latest_pdf:
         return base_priority * (decay_factor ** (level - 1))
     return base_priority * (decay_factor ** level)
@@ -52,9 +52,6 @@ def generate_sitemap():
         sitemap_entries.append(
             f'  <url>\n    <loc>{file_url}</loc>\n    <lastmod>{last_modified}</lastmod>\n    <priority>{file_priority:.2f}</priority>\n  </url>'
         )
-
-    # Sort entries by priority (descending) and then by URL (reverse alphabetical order)
-    sitemap_entries.sort(key=lambda entry: (-float(entry.split('<priority>')[1].split('</priority>')[0]), entry.split('<loc>')[1].split('</loc>')[0]))
 
     sitemap_content = '\n'.join(sitemap_entries)
 
