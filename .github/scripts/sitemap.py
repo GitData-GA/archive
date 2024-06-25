@@ -54,7 +54,7 @@ def generate_sitemap():
         )
 
     # Sort entries by priority (descending) and then by URL (reverse alphabetical order)
-    sitemap_entries.sort(key=lambda entry: (-float(entry.split('<priority>')[1].split('</priority>')[0]), entry.split('<loc>')[1].split('</loc>')[0]), reverse=True)
+    sitemap_entries.sort(key=lambda entry: (-float(entry.split('<priority>')[1].split('</priority>')[0]), entry.split('<loc>')[1].split('</loc>')[0]))
 
     sitemap_content = '\n'.join(sitemap_entries)
 
