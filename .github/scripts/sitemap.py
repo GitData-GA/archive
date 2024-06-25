@@ -24,13 +24,13 @@ def generate_sitemap():
                 if file.endswith('index.html'):
                     file_path = os.path.dirname(file_path)
                 
-                file_url = f'https://archive.gd.edu.kg/{file_path[2:]}/'.replace('\\', '/')
-                if file.endswith('.pdf') or file.endswith('.html'):
+                file_url = f'https://archive.gd.edu.kg/{file_path[2:]}'.replace('\\', '/')
+                if file.endswith('.html') or file.endswith('.pdf'):
                     file_url = file_url.rstrip('/')
                 
-                if file_url == "https://archive.gd.edu.kg//":
+                if file_url == "https://archive.gd.edu.kg":
                     file_url = "https://archive.gd.edu.kg/"
-                
+
                 parent_dir = os.path.dirname(file_path)
                 if file.endswith('.pdf'):
                     if parent_dir not in latest_pdfs or file > latest_pdfs[parent_dir]:
@@ -46,11 +46,12 @@ def generate_sitemap():
     for file_url, file_priority, last_modified, parent_dir, file in urls:
         if file == latest_pdfs.get(parent_dir, ''):
             file_priority = calculate_priority(parent_dir.count(os.sep) + 1, is_latest_pdf=True)
-        if not file_url.endswith('/'):
-            file_url += '/'
         sitemap_entries.append(
             f'  <url>\n    <loc>{file_url}</loc>\n    <lastmod>{last_modified}</lastmod>\n    <priority>{file_priority:.2f}</priority>\n  </url>'
         )
+
+    # Sort entries by priority (descending) and then by URL (ascending)
+    sitemap_entries.sort(key=lambda entry: (-float(entry.split('<priority>')[1].split('</priority>')[0]), entry.split('<loc>')[1].split('</loc>')[0]))
 
     sitemap_content = '\n'.join(sitemap_entries)
 
