@@ -66,7 +66,7 @@ def main():
     sorted_data = sorted(output_data, key=lambda x: x['jsonID'], reverse=True)
 
     with open('info.json', 'w') as json_file:
-        json.dump(sorted_data, json_file, indent=2)
+        json.dump(sorted_data, json_file)
 
 if __name__ == '__main__':
     main()
