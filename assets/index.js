@@ -115,13 +115,12 @@ async function showInput() {
             );
         }
     });
-
+    if (document.getElementById('versionOption').value == 'latest') {
+        filteredData = getLatestVersions(filteredData);
+    }
     filteredData.sort((a, b) => parseDateString(b.jsonID) - parseDateString(a.jsonID));
     if (document.getElementById('sortOption').value === 'asc') {
         filteredData.sort((a, b) => parseDateString(a.jsonID) - parseDateString(b.jsonID));
-    }
-    if (document.getElementById('versionOption').value == 'latest') {
-        filteredData = getLatestVersions(filteredData);
     }
     var resultsContainer = document.getElementById('searchResults');
     resultsContainer.innerHTML = ''; 
