@@ -106,9 +106,9 @@ async function showInput() {
         }
     });
 
-    filteredData.sort((a, b) => b.jsonID - b.jsonID);
+    filteredData.sort((a, b) => BigInt(b.jsonID) - BigInt(a.jsonID));
     if (document.getElementById('sortOption').value === 'asc') {
-        filteredData.sort((a, b) => a.jsonID - b.jsonID);
+        filteredData.sort((a, b) => BigInt(a.jsonID) - BigInt(b.jsonID));
     }
     if (document.getElementById('versionOption').value == 'latest') {
         filteredData = getLatestVersions(filteredData);
