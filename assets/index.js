@@ -52,6 +52,16 @@ $(document).ready(function() {
     });
 });
 
+function parseDateString(dateString) {
+    const year = parseInt(dateString.substring(0, 4), 10);
+    const month = parseInt(dateString.substring(4, 6), 10) - 1;
+    const day = parseInt(dateString.substring(6, 8), 10);
+    const hour = parseInt(dateString.substring(8, 10), 10);
+    const minute = parseInt(dateString.substring(10, 12), 10);
+    const second = parseInt(dateString.substring(12, 14), 10);
+    return new Date(year, month, day, hour, minute, second);
+}
+
 function isAuthorMatch(authors, input) {
     const lowerInput = input.toLowerCase();
     return authors.some(author => {
@@ -106,9 +116,9 @@ async function showInput() {
         }
     });
 
-    filteredData.sort((a, b) => Number(b.jsonID) - Number(a.jsonID));
+    filteredData.sort((a, b) => parseDateString(b.jsonID) - parseDateString(a.jsonID));
     if (document.getElementById('sortOption').value === 'asc') {
-        filteredData.sort((a, b) => Number(a.jsonID) - Number(b.jsonID));
+        filteredData.sort((a, b) => parseDateString(a.jsonID) - parseDateString(b.jsonID));
     }
     if (document.getElementById('versionOption').value == 'latest') {
         filteredData = getLatestVersions(filteredData);
