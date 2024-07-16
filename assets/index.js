@@ -107,7 +107,6 @@ async function showInput() {
     });
     if (document.getElementById('versionOption').value == 'latest') {
         filteredData = getLatestVersions(filteredData);
-        console.log(filteredData);
     }
     filteredData.sort((a, b) => b.jsonID - a.jsonID);
     if (document.getElementById('sortOption').value === 'asc') {
