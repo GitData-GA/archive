@@ -21,7 +21,7 @@
         <meta name="citation_author" content="Liu, Hengyuan">
         <meta name="citation_author" content="Luo, Xinhui">
         <meta name="citation_author" content="Cheng, Weilin">
-        <meta name="citation_author" content="Arenas V., Erick S.">
+        <meta name="citation_author" content="Arenas, Erick">
         <meta name="citation_publication_date" content="2023/12/24">
         <meta name="citation_journal_title" content="GitData Archive">
         <meta name="citation_volume" content="2023">
@@ -54,6 +54,7 @@
         <script src="https://archive.gd.edu.kg/assets/auth.js" type="text/javascript"></script>
         <script src="https://archive.gd.edu.kg/assets/pdf-lib.min.js" async></script>
         <script src="https://archive.gd.edu.kg/assets/pdfDownload.js" async></script>
+        <script src="https://archive.gd.edu.kg/assets/showBibtex.js" async></script>
         <script src="https://mathjax.gd.edu.kg/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" async></script>
         <script type="text/x-mathjax-config"> init_mathjax = function() {
                     if (window.MathJax) {
@@ -132,6 +133,20 @@
                             <b>For citation: </b>
                         </span>
                         <br>
+                        <a href="javascript:void(0);" id="show-bibtex" onclick="openBibTex()">Show BibTeX format</a>
+                        <div id="bibtexDiv" style="background-color: #C6E6F5; padding: 15px; position: relative; display: none;">
+                            <pre id="codeBlock">
+@article{gd_archive_20231224043044,
+  author = {Liu, Hengyuan and Luo, Xinhui and Cheng, Weilin and Arenas, Erick},
+  month = {12},
+  title = {Analysis of Shot Marilyns by Andy Warhol},
+  url = {https://archive.gd.edu.kg/20231224043044/},
+  volume = {2023},
+  year = {2023},
+  journal = {GitData Archive}
+}</pre>
+                            <button onclick="copyCode()" class="fulltext" style="position: absolute; top: 15px; right: 15px;">Copy</button>
+                        </div>
                         <p>Liu, H. et al. "Analysis of Shot Marilyns by Andy Warhol." <i>GitData Archive</i>, vol. 2023, no. 12, Dec. 2023, <a href="https://archive.gd.edu.kg/20231224043044/">https://archive.gd.edu.kg/20231224043044/</a>
                         </p>
                     </div>
@@ -196,7 +211,7 @@
                                     <span>Weilin&nbsp;Cheng</span>
                                 </li>
                                 <li>
-                                    <span>Erick S.&nbsp;Arenas V.</span>
+                                    <span>Erick &nbsp;Arenas</span>
                                 </li>
                             </ul>
                         </div>
