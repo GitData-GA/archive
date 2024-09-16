@@ -52,6 +52,7 @@
         <script src="https://archive.gd.edu.kg/assets/auth.js" type="text/javascript"></script>
         <script src="https://archive.gd.edu.kg/assets/pdf-lib.min.js" async></script>
         <script src="https://archive.gd.edu.kg/assets/pdfDownload.js" async></script>
+        <script src="https://archive.gd.edu.kg/assets/showBibtex.js" async></script>
         <script src="https://mathjax.gd.edu.kg/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" async></script>
         <script type="text/x-mathjax-config"> init_mathjax = function() {
                     if (window.MathJax) {
@@ -130,6 +131,20 @@
                             <b>For citation: </b>
                         </span>
                         <br>
+                        <a href="javascript:void(0);" id="show-bibtex" onclick="openBibTex()">Show BibTeX format</a>
+                        <div id="bibtexDiv" style="background-color: #C6E6F5; padding: 15px; position: relative; display: none;">
+                            <pre id="codeBlock">
+@article{gd_archive_20231225232137,
+  author = {Cheng, Weilin and Liu, Hengyuan and Mo, Kathy and Tian, Sida and Yuan, Li},
+  month = {12},
+  title = {Predictive Modeling of H5N1 Bird Flu in United States of America: A 2022-2023 Analysis},
+  url = {https://archive.gd.edu.kg/20231224042259/v3},
+  volume = {2023},
+  year = {2023},
+  journal = {GitData Archive}
+}</pre>
+                            <button onclick="copyCode()" class="fulltext" style="position: absolute; top: 15px; right: 15px;">Copy</button>
+                        </div>
                         <p>Cheng, W. et al. "Predictive Modeling of H5N1 Bird Flu in United States of America: A 2022-2023 Analysis." <i>GitData Archive</i>, vol. 2023, no. 12, Dec. 2023, <a href="https://archive.gd.edu.kg/20231224042259/v3">https://archive.gd.edu.kg/20231224042259/v3</a>
                         </p>
                     </div>
