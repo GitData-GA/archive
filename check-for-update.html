@@ -54,7 +54,7 @@
             const isLatest = latestVersion.version === version;
             const updateMessage = isLatest 
                 ? 'You are viewing the latest version of the document.' 
-                : `You are viewing ${version} of the document, which is not the latest version.`;
+                : `You are viewing ${version.toLowerCase()} of the document, which is not the latest version.`;
 
             // Display the update message
             document.getElementById('update-message').textContent = updateMessage;
