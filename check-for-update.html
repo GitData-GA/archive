@@ -86,13 +86,6 @@
                     return match ? match[1] : null;
                 }
 
-                // Function to extract preprintID from a given URL
-                function extractVersion(Json) {
-                    // Use regex to extract the numeric ID at the beginning of the URL
-                    const match = Json.match(/https:\/\/archive\.gd\.edu\.kg\/(\d+)/);
-                    return match ? match[1] : null;
-                }
-
                 // Function to check and display version info
                 async function checkForUpdate() {
                     const { preprintID, version } = getQueryParams();
@@ -152,9 +145,9 @@
               <br>
               <center>
                   <div style="text-align: left; max-width: 75%; margin: auto;">
-                    <div style="font-family: Afacad" id="update-message"></div>
-                    <div style="font-family: Afacad" id="versions-list"></div>
-                    <div style="font-family: Afacad" id="latest-authors"></div>
+                    <div id="update-message"></div>
+                    <div id="versions-list"></div>
+                    <div id="latest-authors"></div>
                   </div>
               </center>
               <br><br><br><br><br><br><br><br><br><br><br><br>
