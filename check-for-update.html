@@ -45,8 +45,8 @@
             // Sort versions by publication date in descending order (latest first)
             matchedVersions.sort((a, b) => new Date(b.publication_date) - new Date(a.publication_date));
 
-            if (matchedVersions.length === 0) {
-                document.getElementById('update-message').textContent = 'No document found for the specified preprintID.';
+            if (matchedVersions.length === 0 || matchedVersions.length < parseInt(version.match(/(\d+)$/)) || parseInt(version.match(/(\d+)$/)) < 1) {
+                document.getElementById('update-message').textContent = 'No document found. Please double-check your query.';
                 return;
             }
 
