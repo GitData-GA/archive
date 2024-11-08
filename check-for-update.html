@@ -112,15 +112,38 @@
                     // Display the update message
                     document.getElementById('update-message').textContent = updateMessage;
 
+                    var resultsContainer = document.getElementById('searchResults');
+                    resultsContainer.innerHTML = ''; 
+
+                    matchedPreprints.forEach(function (paper) {
+                        var truncatedAbstract = paper.abstract.split(' ').slice(0, 75).join(' ');
+                        truncatedAbstract += truncatedAbstract.length < paper.abstract.length ? '...' : '';
+                        var preprintID = paper.url.substring(8);
+                        var resultDiv = document.createElement('li');
+                        var authorsString = paper.authors.join(', ');
+                        resultDiv.innerHTML = `
+                            <p>
+                            <a href="${paper.url}">${preprintID}</a>&nbsp;&nbsp;
+                            <span class="article-tag">${paper.subject}</span> (${paper.version})
+                            </p>
+                            <b><p>${paper.title}</p></b>
+                            <p><b>Submission date</b>: ${paper.publication_date}</p>
+                            <p><b>Author</b>: ${authorsString}</p> 
+                            <p><b>Abstract</b>: ${truncatedAbstract}</p>
+                            <hr>
+                        `;
+                        resultsContainer.appendChild(resultDiv);
+                    });
+
                     // Display list of all versions from latest to oldest
-                    const versionsList = document.getElementById('versions-list');
-                    versionsList.innerHTML = '<p>For more details, see the versions below:</p><ul>' +
-                        matchedPreprints.map(v => `<li><a href="${v.url}">${v.version} - ${v.publication_date}</a></li>`).join('') +
-                        '</ul>';
+                    // const versionsList = document.getElementById('versions-list');
+                    // versionsList.innerHTML = '<p>For more details, see the versions below:</p><ul>' +
+                    //     matchedPreprints.map(v => `<li><a href="${v.url}">${v.version} - ${v.publication_date}</a></li>`).join('') +
+                    //     '</ul>';
 
                     // Display authors of the latest version
-                    const latestAuthors = document.getElementById('latest-authors');
-                    latestAuthors.innerHTML = `<p>Authors of the latest version:</p><p>${latestVersion.authors.join(', ')}</p>`;
+                    // const latestAuthors = document.getElementById('latest-authors');
+                    // latestAuthors.innerHTML = `<p>Authors of the latest version:</p><p>${latestVersion.authors.join(', ')}</p>`;
                 }
 
                 // Run the check on page load
@@ -146,8 +169,13 @@
               <center>
                   <div style="text-align: left; max-width: 75%; margin: auto;">
                     <div id="update-message"></div>
-                    <div id="versions-list"></div>
-                    <div id="latest-authors"></div>
+                    <div class="container">
+                        <ol>
+                            <div id="searchResults"></div>
+                        </ol>
+                    </div>
+                    <!-- <div id="versions-list"></div>
+                    <div id="latest-authors"></div> -->
                   </div>
               </center>
               <br><br><br><br><br><br><br><br><br><br><br><br>
