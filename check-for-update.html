@@ -45,7 +45,10 @@
             // Sort versions by publication date in descending order (latest first)
             matchedVersions.sort((a, b) => new Date(b.publication_date) - new Date(a.publication_date));
 
-            if (matchedVersions.length === 0 || matchedVersions.length < parseInt(version.match(/(\d+)$/)) || parseInt(version.match(/(\d+)$/)) < 1) {
+            const versionMatch = version.match(/^(\d+)$/);
+            const versionNumber = versionMatch ? parseInt(versionMatch[1], 10) : NaN;
+
+            if (matchedVersions.length === 0 || matchedVersions.length < versionNumber || versionNumber < 1) {
                 document.getElementById('update-message').textContent = 'No document found. Please double-check your query.';
                 return;
             }
