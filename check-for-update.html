@@ -34,26 +34,31 @@
             return match ? match[1] : null;
         }
 
+        // Function to extract preprintID from a given URL
+        function extractVersion(Json) {
+            // Use regex to extract the numeric ID at the beginning of the URL
+            const match = Json.match(/https:\/\/archive\.gd\.edu\.kg\/(\d+)/);
+            return match ? match[1] : null;
+        }
+
         // Function to check and display version info
         async function checkForUpdate() {
             const { preprintID, version } = getQueryParams();
             const data = await fetchJSONData();
             
             // Filter entries matching the preprintID from the URL
-            const matchedVersions = data.filter(item => extractPreprintID(item.url) === preprintID);
+            const matchedPreprints = data.filter(item => extractPreprintID(item.url) === preprintID);
+            const matchingVersion = matchedPreprints.find(item => item.version === version);
             
             // Sort versions by publication date in descending order (latest first)
-            matchedVersions.sort((a, b) => new Date(b.publication_date) - new Date(a.publication_date));
+            matchedPreprints.sort((a, b) => new Date(b.publication_date) - new Date(a.publication_date));
 
-            const versionMatch = version.match(/^Version ([1-9]\d*)$/)
-            const versionNumber = versionMatch ? parseInt(versionMatch[1]) : NaN;
-
-            if (matchedVersions.length === 0 || matchedVersions.length < versionNumber || versionNumber < 1 || version === "Version -1" || version === "Version -2") {
+            if (matchedPreprints.length === 0 || !matchingVersion) {
                 document.getElementById('update-message').textContent = 'No document found. Please double-check your query.';
                 return;
             }
 
-            const latestVersion = matchedVersions[0];
+            const latestVersion = matchedPreprints[0];
             const isLatest = latestVersion.version === version;
             const updateMessage = isLatest 
                 ? 'You are viewing the latest version of the document.' 
@@ -65,7 +70,7 @@
             // Display list of all versions from latest to oldest
             const versionsList = document.getElementById('versions-list');
             versionsList.innerHTML = '<p>For more details, see the versions below:</p><ul>' +
-                matchedVersions.map(v => `<li><a href="${v.url}">${v.version} - ${v.publication_date}</a></li>`).join('') +
+                matchedPreprints.map(v => `<li><a href="${v.url}">${v.version} - ${v.publication_date}</a></li>`).join('') +
                 '</ul>';
 
             // Display authors of the latest version
