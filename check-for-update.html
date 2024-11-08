@@ -45,7 +45,7 @@
             // Sort versions by publication date in descending order (latest first)
             matchedVersions.sort((a, b) => new Date(b.publication_date) - new Date(a.publication_date));
 
-            const versionMatch = version.match(/^(\d+)$/);
+            const versionMatch = version.match(/^Version (\d+)$/);
             const versionNumber = versionMatch ? parseInt(versionMatch[1], 10) : NaN;
 
             if (matchedVersions.length === 0 || matchedVersions.length < versionNumber || versionNumber < 1 || version === "Version -1" || version === "Version -2") {
