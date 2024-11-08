@@ -119,7 +119,7 @@
                     document.getElementById('statusImg').innerHTML = updateStatusImg;
 
                     var resultsContainer = document.getElementById('searchResults');
-                    resultsContainer.innerHTML = ''; 
+                    resultsContainer.innerHTML = `<p>For more details, see all the available versions below:</p>`; 
 
                     matchedPreprints.forEach(function (paper) {
                         var truncatedAbstract = paper.abstract.split(' ').slice(0, 75).join(' ');
