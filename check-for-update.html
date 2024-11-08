@@ -27,13 +27,20 @@
             return await response.json();
         }
 
+        // Function to extract preprintID from a given URL
+        function extractPreprintID(url) {
+            // Use regex to extract the numeric ID at the beginning of the URL
+            const match = url.match(/https:\/\/archive\.gd\.edu\.kg\/(\d+)/);
+            return match ? match[1] : null;
+        }
+
         // Function to check and display version info
         async function checkForUpdate() {
             const { preprintID, version } = getQueryParams();
             const data = await fetchJSONData();
             
-            // Filter all entries matching the preprintID
-            const matchedVersions = data.filter(item => item.jsonID === preprintID);
+            // Filter entries matching the preprintID from the URL
+            const matchedVersions = data.filter(item => extractPreprintID(item.url) === preprintID);
             
             // Sort versions by publication date in descending order (latest first)
             matchedVersions.sort((a, b) => new Date(b.publication_date) - new Date(a.publication_date));
