@@ -89,6 +89,12 @@
                 // Function to check and display version info
                 async function checkForUpdate() {
                     const { preprintID, version } = getQueryParams();
+
+                    if (preprintID === null & version === null) {
+                        document.getElementById('update-message').innerHTML = `<h2 style="font-family: Afacad_Bold; font-size: 20px; text-align: center;">This page allows you to verify the latest available version of a specific preprint document by entering two key pieces of information: the preprint ID and the version number.<br>Example: https://archive.gd.edu.kg/check-for-update?preprintID=yyyymmddhhmmss&version=Version 1</h2>`;
+                        return;
+                    }
+                    
                     const data = await fetchJSONData();
                     
                     // Filter entries matching the preprintID from the URL
