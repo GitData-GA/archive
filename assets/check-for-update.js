@@ -49,7 +49,7 @@ async function checkForUpdate() {
     document.getElementById('update-message').innerHTML = updateMessage;
     document.getElementById('statusImg').innerHTML = updateStatusImg;
     const queryTime = new Date();
-    document.getElementById('query-time').textContent = `Query executed at: ${formatDateTime(queryTime)}`;
+    document.getElementById('query-time').innerHTML = `<center><p>Query executed at: ${formatDateTime(queryTime)}</p></center>`;
     var resultsContainer = document.getElementById('searchResults');
     resultsContainer.innerHTML = `<p>For more details, see all the available version(s) below:</p>`; 
     matchedPreprints.forEach(function (paper) {
