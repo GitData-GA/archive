@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
     };
     var msalApplication = new Msal.UserAgentApplication(msalConfig);
 
-    console.log(msalApplication);
-
     document.getElementById('loginMobileLink').addEventListener('click', function(event) {
         event.preventDefault();
         msalApplication.loginRedirect();
