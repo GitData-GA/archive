@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GitData Archive - Analysis of Shot Marilyns by Andy Warhol</title>
+        <link rel="icon" type="image/x-icon" href="https://static.gd.edu.kg/images/logo.svg">
+        <link rel="canonical" href="https://archive.gd.edu.kg/20231224043044/" />
+        <meta name="version" content="Version 1">
+        <meta name="jsonID" content="20231224043044">
+        <meta name="keywords" content="shot marilyns,marilyn monroe,andy warhol,python">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELSZ3SFQ2D"></script>
+        <script>
+            function gtag() {
+                dataLayer.push(arguments)
+            }
+            window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", "G-ELSZ3SFQ2D")
+        </script>
+        <!-- Citation -->
+        <meta name="citation_title" content="Analysis of Shot Marilyns by Andy Warhol">
+        <meta name="citation_author" content="Liu, Hengyuan">
+        <meta name="citation_author" content="Luo, Xinhui">
+        <meta name="citation_author" content="Cheng, Weilin">
+        <meta name="citation_author" content="Arenas, Erick">
+        <meta name="citation_publication_date" content="2023/12/24">
+        <meta name="citation_journal_title" content="GitData Archive">
+        <meta name="citation_volume" content="2023">
+        <meta name="citation_issue" content="12">
+        <meta name="citation_gd_archive_id" content="20231224043044"> 
+        <meta name="citation_gd_archive_id_version" content="1">
+        <meta name="citation_pdf_url" content="https://archive.gd.edu.kg/20231224043044/v1.pdf">
+        <meta name="citation_abstract" content="This paper explores the differences and commons between five different versions of Shot Marilyns done by  Andy Warhol. We conducted a comprehensive analysis of color composition and distribution in a set of art pieces. Using various methods such as relative conditional entropy, we explored the distinct color distributions and correlations within each image. By clustering the images and examining specific regions of interest (ROIs), including backgrounds, hair, eyeshadow, and face, we gained detailed insights into the construction and differences of each image. We also observed that initial expectations of uniform colors for certain elements were not met, highlighting the complexity and deceptive nature of color perception in art. ">
+
+        <!-- Google / Search Engine Tags -->
+        <meta itemprop="name" content="GitData Archive - Analysis of Shot Marilyns by Andy Warhol">
+        <meta name="description" content="This paper explores the differences and commons between five different versions of Shot Marilyns done by  Andy Warhol. We conducted a comprehensive analysis of color composition and distribution in a set of art pieces. Using various methods such as relative conditional entropy, we explored the distinct color distributions and correlations within each image. By clustering the images and examining specific regions of interest (ROIs), including backgrounds, hair, eyeshadow, and face, we gained detailed insights into the construction and differences of each image. We also observed that initial expectations of uniform colors for certain elements were not met, highlighting the complexity and deceptive nature of color perception in art. ">
+        <meta itemprop="image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://archive.gd.edu.kg/20231224043044/v1">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="GitData Archive - Analysis of Shot Marilyns by Andy Warhol">
+        <meta property="og:description" content="This paper explores the differences and commons between five different versions of Shot Marilyns done by  Andy Warhol. We conducted a comprehensive analysis of color composition and distribution in a set of art pieces. Using various methods such as relative conditional entropy, we explored the distinct color distributions and correlations within each image. By clustering the images and examining specific regions of interest (ROIs), including backgrounds, hair, eyeshadow, and face, we gained detailed insights into the construction and differences of each image. We also observed that initial expectations of uniform colors for certain elements were not met, highlighting the complexity and deceptive nature of color perception in art. ">
+        <meta property="og:image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="GitData Archive - Analysis of Shot Marilyns by Andy Warhol">
+        <meta name="twitter:description" content="This paper explores the differences and commons between five different versions of Shot Marilyns done by  Andy Warhol. We conducted a comprehensive analysis of color composition and distribution in a set of art pieces. Using various methods such as relative conditional entropy, we explored the distinct color distributions and correlations within each image. By clustering the images and examining specific regions of interest (ROIs), including backgrounds, hair, eyeshadow, and face, we gained detailed insights into the construction and differences of each image. We also observed that initial expectations of uniform colors for certain elements were not met, highlighting the complexity and deceptive nature of color perception in art. ">
+        <meta name="twitter:image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+        <!-- Style -->
+        <link href="https://archive.gd.edu.kg/assets/app.css" rel="stylesheet">
+        <link href="https://archive.gd.edu.kg/assets/bootstrap.min.css" rel="stylesheet">
+        <link href="https://archive.gd.edu.kg/assets/custom.css" rel="stylesheet">
+        <!-- JavaScript -->
+        <script src="https://archive.gd.edu.kg/assets/jquery.min.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/footerMenu.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/headMenu.js" type="text/javascript"></script>
+        <script src="https://alcdn.msauth.net/lib/1.4.18/js/msal.min.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/auth.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/pdf-lib.min.js" async></script>
+        <script src="https://archive.gd.edu.kg/assets/pdfDownload.js" async></script>
+        <script src="https://archive.gd.edu.kg/assets/showBibtex.js" async></script>
+        <script src="https://mathjax.gd.edu.kg/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" async></script>
+        <script type="text/x-mathjax-config"> init_mathjax = function() {
+                    if (window.MathJax) {
+                    // MathJax loaded
+                        MathJax.Hub.Config({
+                            TeX: {
+                                equationNumbers: {
+                                autoNumber: "AMS",
+                                useLabelIds: true
+                                }
+                            },
+                            tex2jax: {
+                                inlineMath: [ ['$','$'] ],
+                                displayMath: [ ['$$','$$'] ],
+                                processEscapes: true,
+                                processEnvironments: true
+                            },
+                            displayAlign: 'center',
+                            CommonHTML: {
+                                linebreaks: {
+                                automatic: true
+                                }
+                            }
+                        });
+                
+                        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                    }
+                }
+                init_mathjax();
+            </script>
+    </head>
+    <body>
+        <nav role="navigation" class="mobile-menu">
+            <div class="burger_container" id="burger">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div id="mobileMenu" class="mobile-back menu_off"></div>
+            <div class="logo-mobile">
+                <a href="https://archive.gd.edu.kg/">
+                    <img src="https://archive.gd.edu.kg/assets/logo.svg" width="150px" alt="logo">
+                </a>
+            </div>
+            <script>
+                $('#burger').click(function(e) {
+                    e.preventDefault();
+                    $(this).toggleClass('change');
+                    $('.mobile-menu').toggleClass('mobile-menu-open');
+                    $('.mobile-back').toggleClass('menu_on');
+                    $('.mobile-back').toggleClass('menu_off');
+                })
+            </script>
+        </nav>
+        <nav class="pre-navbar">
+            <div class="logo-background" style="display: flex; justify-content: center">
+                <a href="https://archive.gd.edu.kg/" style="display: flex; align-items: center">
+                    <img src="https://archive.gd.edu.kg/assets/logo.svg" width="170px" alt="logo">
+                </a>
+            </div>
+            <div id="normalMenu" class="items-container"></div>
+        </nav>
+        <nav class="post-navbar"></nav>
+        <div class="app" id="app">
+            <div class="grid article-page d-flex">
+                <div class="article-content col main-block">
+                    <div class="title">
+                        <b>
+                            <h1>Analysis of Shot Marilyns by Andy Warhol</h1>
+                        </b>
+                    </div>
+                    <div class="notation">This article is a preprint and has not been peer-reviewed.</div>
+                    <br>
+                    <div class="doi" style="margin-bottom: 10px">
+                        <span>
+                            <b>For citation: </b>
+                        </span>
+                        <br>
+                        <a href="javascript:void(0);" id="show-bibtex" onclick="openBibTex()">Show BibTeX format</a>
+                        <div id="bibtexDiv" style="background-color: #C6E6F5; padding: 15px; position: relative; display: none;">
+                            <pre id="codeBlock">
+@article{gd_archive_20231224043044,
+  author = {Liu, Hengyuan and Luo, Xinhui and Cheng, Weilin and Arenas, Erick},
+  month = {12},
+  title = {Analysis of Shot Marilyns by Andy Warhol},
+  url = {https://archive.gd.edu.kg/20231224043044/v1},
+  volume = {2023},
+  year = {2023},
+  journal = {GitData Archive}
+}</pre>
+                            <button onclick="copyCode()" class="fulltext" style="position: absolute; top: 15px; right: 15px;">Copy</button>
+                        </div>
+                        <p>Liu, H. et al. "Analysis of Shot Marilyns by Andy Warhol." <i>GitData Archive</i>, vol. 2023, no. 12, Dec. 2023, <a href="https://archive.gd.edu.kg/20231224043044/v1">https://archive.gd.edu.kg/20231224043044/v1</a>
+                        </p>
+                    </div>
+                    <div class="abstract">
+                        <span>
+                            <b>Abstract: </b>
+                        </span>
+                        <br>
+                        <p>This paper explores the differences and commons between five different versions of Shot Marilyns done by Andy Warhol. We conducted a comprehensive analysis of color composition and distribution in a set of art pieces. Using various methods such as relative conditional entropy, we explored the distinct color distributions and correlations within each image. By clustering the images and examining specific regions of interest (ROIs), including backgrounds, hair, eyeshadow, and face, we gained detailed insights into the construction and differences of each image. We also observed that initial expectations of uniform colors for certain elements were not met, highlighting the complexity and deceptive nature of color perception in art. </p>
+                    </div>
+                    <div class="preview">
+                        <span>
+                            <b>Preview: </b>
+                        </span>
+                        <br>
+                        <a href="https://pdfviewer.gd.edu.kg/web/viewer?file=https://archive.gd.edu.kg/20231224043044/v1.pdf" target="_blank">Preview in a new window</a>
+                        </br>
+                        <iframe src="https://pdfviewer.gd.edu.kg/web/viewer?file=https://archive.gd.edu.kg/20231224043044/v1.pdf" loading="lazy" width="100%" height="500" frameBorder="0" alt="pdf preview"></iframe>
+                    </div>
+                    <div class="license">
+                        <span>
+                            <b>License: </b>
+                        </span>
+                        <br>
+                        <p xmlns:cc="http://creativecommons.org/ns#"> This work is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0</a>. </p>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+                <div class="article-info col side-block">
+                    <div class="block-head">
+                        <h2>Information</h2>
+                    </div>
+                    <div class="side-block_container">
+                        
+                        <div id="versionInfo" class="side-block_section">
+                            <span class="head">Version</span>
+                            <ul>
+                    
+                                <li>
+                                    <a href="https://archive.gd.edu.kg/20231224043044/">Version 2</a>
+                                </li>
+                                
+                                <li>
+                                    <span>Version 1</span>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    
+                        <div class="side-block_section">
+                            <span class="head">Submission Date (yyyy/mm/dd)</span>
+                            <p>2023/12/24</p>
+                        </div>
+                        <div class="side-block_section">
+                            <span class="head">Author</span>
+                            <ul>
+                                <li>
+                                    <a href="https://orcid.org/0009-0007-3162-2071" target="_blank" class="object-link">
+                                        <span>
+                                            <object type="image/svg+xml" data="https://archive.gd.edu.kg/assets/ID.svg" width="15px" height="15px" alt="ORCID"></object>
+                                        </span>
+                                    </a>
+                                    <span>Hengyuan&nbsp;Liu</span>
+                                </li>
+                                <li>
+                                    <span>Xinhui&nbsp;Luo</span>
+                                </li>
+                                <li>
+                                    <span>Weilin&nbsp;Cheng</span>
+                                </li>
+                                <li>
+                                    <span>Erick&nbsp;Arenas</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="side-block_section">
+                            <span class="head">Subject</span>
+                            <ul>
+                                <li>Data Science / Statistics (Applications)</li>
+                            </ul>
+                        </div>
+                        <div class="side-block_section">
+                            <span class="head">Keywords</span>
+                            <ul>
+                                <li> shot marilyns <br>marilyn monroe <br>andy warhol <br>python </li>
+                            </ul>
+                        </div>
+                        <div class="side-block_section">
+                            <span class="head">Download</span>
+                            <ul>
+                                <li>
+                                    <a id="downloadLink" onclick="downloadFile('https://archive.gd.edu.kg/20231224043044/v1.pdf')">
+                                        <button id="downloadButton" class="fulltext">
+                                            <span class="ext">PDF</span>
+                                            <span class="label">Full Text</span>
+                                        </button>
+                                    </a>
+                                    <img src="https://archive.gd.edu.kg/assets/loading.gif" alt="loading" width="20px" style="visibility: hidden;" id="downloadLoading"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div id="footerMenu" class="container"></div>
+                <div class="col-5 np"> &copy; <script type="text/JavaScript"> document.write(new Date().getFullYear()) </script> GitData Archive </div>
+            </div>
+        </div>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8dc670fb4828f0d3","version":"2024.10.4","r":1,"token":"e255c5fb9a754434ba2354caa2d83484","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+</body>
+</html>
