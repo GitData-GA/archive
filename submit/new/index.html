@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GitData Archive - Submit a new preprint to GitData Archive</title>
+        <link rel="canonical" href="https://archive.gd.edu.kg/submit/new/" />
+        <meta name="description" content="Submit a new preprint to GitData Archive">
+        <!-- Google / Search Engine Tags -->
+        <meta itemprop="name" content="GitData Archive - Submit a new preprint to GitData Archive">
+        <meta itemprop="description" content="Submit a new preprint to GitData Archive">
+        <meta itemprop="image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://archive.gd.edu.kg/submit/new/">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="GitData Archive - Submit a new preprint to GitData Archive">
+        <meta property="og:description" content="Submit a new preprint to GitData Archive">
+        <meta property="og:image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="GitData Archive - Submit a new preprint to GitData Archive">
+        <meta name="twitter:description" content="Submit a new preprint to GitData Archive">
+        <meta name="twitter:image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+        <link rel="icon" type="image/x-icon" href="https://static.gd.edu.kg/images/logo.svg">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELSZ3SFQ2D"></script>
+        <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-ELSZ3SFQ2D")</script>
+        <!-- Style -->
+        <link href="https://archive.gd.edu.kg/assets/app.css" rel="stylesheet">
+        <link href="https://archive.gd.edu.kg/assets/bootstrap.min.css" rel="stylesheet">
+        <link href="https://archive.gd.edu.kg/assets/custom.css" rel="stylesheet">
+        <style>
+            .imageContainer > img:hover {
+            width: 100%;;
+            }
+        </style>
+        <!-- Javascript -->
+        <script src="https://archive.gd.edu.kg/assets/jquery.min.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/footerMenu.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/headMenu.js" type="text/javascript"></script>
+        <script src="https://alcdn.msauth.net/lib/1.4.18/js/msal.min.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/auth.js" type="text/javascript"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var msalConfig = {
+                    auth: {
+                        clientId: atob('MjdkNDIyYTctMGY4OS00MTQ0LWI4NGItNGU5ZmRmMzU0Yzdi'),                    
+                        authority: 'https://login.microsoftonline.com/gd.edu.kg',
+                        redirectUri: window.location.origin
+                    }
+                };
+                var msalApplication = new Msal.UserAgentApplication(msalConfig);
+                if (!msalApplication.getAccount()) {
+                    window.location.href = 'https://archive.gd.edu.kg/submit/';
+                }
+            });
+        </script>
+        <script src="https://archive.gd.edu.kg/assets/download.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/pdf-lib.min.js" type="text/javascript"></script>
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+        <script src="https://mathjax.gd.edu.kg/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" async></script>
+        <script type="text/x-mathjax-config">
+            init_mathjax = function() {
+                if (window.MathJax) {
+                // MathJax loaded
+                    MathJax.Hub.Config({
+                        TeX: {
+                            equationNumbers: {
+                            autoNumber: "AMS",
+                            useLabelIds: true
+                            }
+                        },
+                        tex2jax: {
+                            inlineMath: [ ['$','$'] ],
+                            displayMath: [ ['$$','$$'] ],
+                            processEscapes: true,
+                            processEnvironments: true
+                        },
+                        displayAlign: 'center',
+                        CommonHTML: {
+                            linebreaks: {
+                            automatic: true
+                            }
+                        }
+                    });
+            
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                }
+            }
+            init_mathjax();
+        </script>
+        <!-- JavaScript to generate HTML -->
+        <script>
+            function previewHtml() {
+                const outputCodeContent = document.getElementById('outputCode').value;
+                const previewHtmlContent = `
+                    <center>
+                        <h1 style="color:red;font-size:15px;">
+                        This preview is for visual reference only. Links, PDF, and MathJax functionality may not work as this page hasn't been published. If you spot errors, please revise and regenerate the HTML code.
+                        </h1>
+                    </center>
+                    ${outputCodeContent}
+                `;
+                const previewWindow = window.open();
+                previewWindow.document.write(previewHtmlContent);
+            }
+            
+            function downloadHtml() {
+                const outputCodeContent = document.getElementById('outputCode').value;
+                const blob = new Blob([outputCodeContent], { type: 'text/html' });
+                const a = document.createElement('a');
+                a.href = window.URL.createObjectURL(blob);
+                a.download = 'index.html';
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+            
+            function limitTextareaLength(textarea, maxLength) {
+                var text = textarea.value;
+                var words = text.split(/\s+/);
+            
+                if (words.length > maxLength) {
+                    // Truncate the text to the specified number of words
+                    var truncatedText = words.slice(0, maxLength).join(" ");
+                    textarea.value = truncatedText;
+                }
+            }
+            
+            function setID() {
+                const date = new Date();
+                const formattedTime = date.toISOString().replace(/[-T:Z.]/g, '').slice(0, 14);
+                return formattedTime;
+            }
+            
+            function getAuthors() {
+                var authorsTextArea = document.getElementById('authorToFill');
+                var authorsText = authorsTextArea.value.trim();
+                var authorLines = authorsText.split('\n');
+                var authors = [];
+                for (var i = 0; i < authorLines.length; i++) {
+                    var authorDetails = authorLines[i].split(',').map(function (item) {
+                        return item.trim();
+                    });
+                    var lastName = authorDetails[0] || '';
+                    var firstName = authorDetails[1] || '';
+                    var orcid = authorDetails[2] || '';
+                    if (lastName || firstName || orcid) {
+                        authors.push({
+                            lastName: lastName,
+                            firstName: firstName,
+                            orcid: orcid
+                        });
+                    }
+                }
+                return authors;
+            }
+            
+            function printAuthorsInfo() {
+                var authors = getAuthors();
+                var resultContainer = document.getElementById('resultContainer');
+                resultContainer.innerHTML = '';
+                for (var i = 0; i < authors.length; i++) {
+                    var authorInfo = 'Author ' + (i + 1) + ': ' +
+                        authors[i].firstName + ' ' + authors[i].lastName +
+                        ', ORCID: ' + authors[i].orcid;
+                    var paragraph = document.createElement('p');
+                    paragraph.textContent = authorInfo;
+                    resultContainer.appendChild(paragraph);
+                }
+            }
+            
+            function generateCitationAuthor() {
+                var authors = getAuthors();
+                var citationMeta = '';
+                for (var i = 0; i < authors.length; i++) {
+                    citationMeta += `            <meta name="citation_author" content="${authors[i].lastName}, ${authors[i].firstName}">`;
+                    if (authors.length > 1 && i < authors.length - 1) {
+                        citationMeta += '\n';
+                    }
+                }
+                return citationMeta;
+            }
+
+            function generateBibtexAuthor() {
+                var authors = getAuthors();
+                var bibtexAuthor = "";
+                for (var i = 0; i < authors.length; i++) {
+                    bibtexAuthor += authors[i].lastName + ', ' + authors[i].firstName;
+                    if (authors.length > 1 && i < authors.length - 1) {
+                        bibtexAuthor += ' and ';
+                    }
+                }
+                return bibtexAuthor;
+            }
+            
+            function generateInfoAuthor() {
+                var authors = getAuthors();
+                var infoAuthor = '';
+                for (var i = 0; i < authors.length; i++) {
+                    if (authors[i].orcid != 'NA' && authors[i].orcid != null && authors[i].orcid != '') {
+                        infoAuthor += 
+                               `<li>
+                                    <a href="https://orcid.org/${authors[i].orcid}" target="_blank" class="object-link">
+                                    <span>
+                                    <object type="image/svg+xml" data="https://archive.gd.edu.kg/assets/ID.svg" width="15px" height="15px" alt="ORCID"></object>
+                                    </span>
+                                    </a>
+                                    <span>${authors[i].firstName}&nbsp;${authors[i].lastName}</span>
+                                </li>`
+                    }
+                    else {
+                        infoAuthor += `
+                                <li>
+                                    <span>${authors[i].firstName}&nbsp;${authors[i].lastName}</span>
+                                </li>`
+                    }
+                    if (authors.length > 1 && i < authors.length - 1) {
+                        infoAuthor += '\n';
+                    }
+                }
+                return infoAuthor;
+            }
+
+            function generateAPAReference() {
+                var authors = getAuthors();
+                var infoAuthor = '';
+                if (authors.length >= 3) {
+                    infoAuthor += `${authors[0].lastName}, ${authors[0].firstName.charAt(0)}. et al.`;
+                } else if (authors.length === 2) {
+                    infoAuthor += `${authors[0].lastName}, ${authors[0].firstName.charAt(0)}. and ${authors[1].lastName}, ${authors[1].firstName.charAt(0)}.`;
+                } else if (authors.length === 1) {
+                    infoAuthor += `${authors[0].lastName}, ${authors[0].firstName.charAt(0)}.`;
+                }
+                return infoAuthor;
+            }
+
+            function getMonthAbbreviation(monthString) {
+                switch (monthString) {
+                    case "01":
+                        return "Jan.";
+                    case "02":
+                        return "Feb.";
+                    case "03":
+                        return "Mar.";
+                    case "04":
+                        return "Apr.";
+                    case "05":
+                        return "May";
+                    case "06":
+                        return "Jun.";
+                    case "07":
+                        return "Jul.";
+                    case "08":
+                        return "Aug.";
+                    case "09":
+                        return "Sep.";
+                    case "10":
+                        return "Oct.";
+                    case "11":
+                        return "Nov.";
+                    case "12":
+                        return "Dec.";
+                    default:
+                        return "Invalid month";
+                }
+            }
+            
+            function copyToClipboard() {
+                var textarea = document.getElementById('outputCode');
+                textarea.select();
+                textarea.setSelectionRange(0, 9999999999999999999);
+                document.execCommand('copy');
+                textarea.setSelectionRange(0, 0);
+                alert('Text copied to clipboard!');
+            }
+            
+            function existingJournal() {
+                var journalBookName = "";
+                var journalBookURL = "";
+                if (document.getElementById('journalBookName').value !== null && 
+                    document.getElementById('journalBookName').value !== "" && 
+                    document.getElementById('journalBookURL').value !== null &&
+                    document.getElementById('journalBookURL').value !== "") {
+                    journalBookName = document.getElementById('journalBookName').value;
+                    journalBookURL = document.getElementById('journalBookURL').value;
+                    var journalHTML = `
+                        <p>${journalBookName}: <a href="${journalBookURL}" target="_blank">${journalBookURL}</a></p>
+                    `;
+                    return journalHTML;
+                }
+                else {
+                    return ``;
+                }
+            }
+            
+            function multimediaToFill() {
+                var relatedURL = "";
+                if (document.getElementById('relatedURL').value !== null && 
+                    document.getElementById('relatedURL').value !== "") {
+                    relatedURL = document.getElementById('relatedURL').value;
+                    var relatedURLHTML = `
+                        <div class="side-block_section">
+                            <span class="head">Related Link</span>
+                            <ul>
+                                <li>
+                                <a href="${relatedURL}" target="_blank">${relatedURL}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    `;
+                    return relatedURLHTML;
+                }
+                else {
+                    return ``;
+                }
+            }
+            
+            function commentToFill() {
+                var comment = "";
+                if (document.getElementById('comment').value !== null && 
+                    document.getElementById('comment').value !== "") {
+                    comment = document.getElementById('comment').value;
+                    var commentHTML = `
+                        <div class="side-block_section">
+                            <span class="head">Comment</span>
+                            <ul>
+                                <li>
+                                <p>${comment}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    `;
+                    return commentHTML;
+                }
+                else {
+                    return ``;
+                }
+            }
+            
+            function getLicense() {
+                var license = document.getElementById('licenseSelect').value;
+                if (license == "CC BY") {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 4.0</a>.
+                        </p>
+                    `
+                }
+                else if (license == "CC BY-SA") {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 4.0</a>.
+                        </p>
+                    `
+                }
+                else if (license == "CC BY-NC") {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 4.0</a>.
+                        </p>
+                    `
+                }
+                else if (license == "CC BY-NC-SA") {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 4.0</a>.
+                        </p>
+                    `
+                }
+                else if (license == "CC BY-ND") {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/licenses/by-nd/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 4.0</a>.
+                        </p>
+                    `
+                }
+                else if (license == "CC BY-NC-ND") {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 4.0</a>.
+                        </p>
+                    `
+                }
+                else {
+                    return `
+                        <p xmlns:cc="http://creativecommons.org/ns#" >
+                        This work is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">${license} 1.0</a>.
+                        </p>
+                    `
+                }
+            }
+        </script>
+        <script>
+            const preprintID = setID();
+            const { degrees, PDFDocument, PDFName, rgb, StandardFonts, PDFString } = PDFLib;
+            async function modifyPdf() {
+                var year = parseInt(preprintID.slice(0, 4), 10);
+                var month = parseInt(preprintID.slice(4, 6), 10) - 1; 
+                var day = parseInt(preprintID.slice(6, 8), 10);
+                var hours = parseInt(preprintID.slice(8, 10), 10);
+                var minutes = parseInt(preprintID.slice(10, 12), 10);
+                var seconds = parseInt(preprintID.slice(12, 14), 10);
+                var date = new Date(Date.UTC(year, month, day, hours, minutes, seconds));
+                var formattedDate = date.toISOString();
+                var keywordBag = [];
+                for (var i = 1; i <= 8; i++) {
+                    var keyword = document.getElementById('keyword' + i).value;
+                    if (keyword !== null && keyword !== "") {
+                        keywordBag.push(keyword);
+                    }
+                }
+                var authorPDFMeta = [];
+                var authorRaw = getAuthors();
+                for (var i = 0; i < authorRaw.length; i++) {
+                    authorPDFMeta.push(authorRaw[i].firstName + " " + authorRaw[i].lastName);
+                }
+                var authorPDF = authorPDFMeta.join(", ")
+                const fileInput = document.getElementById('fileInput');
+                const selectedFile = fileInput.files[0];
+                if (!selectedFile) {
+                    alert('Please select a PDF file before clicking "Process PDF".');
+                    return;
+                }
+                const existingPdfBytes = await selectedFile.arrayBuffer();
+                const pdfDoc = await PDFDocument.load(existingPdfBytes);
+                const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
+                const pages = pdfDoc.getPages();
+                const firstPage = pages[0];
+                const { width, height } = firstPage.getSize();
+                firstPage.drawText(`archive.gd.edu.kg/${preprintID}/`, {
+                    x: width / 16,
+                    y: height / 3.75,
+                    size: 23,
+                    font: timesRomanFont,
+                    color: rgb(0.6, 0.6, 0.6),
+                    rotate: degrees(90),
+                });
+                const imageUpdate = await pdfDoc.embedPng('data:image/png;base64,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');
+                const annotations = firstPage.node.Annots();
+                const linkAnnotation = pdfDoc.context.obj({
+                  Type: 'Annot',
+                  Subtype: 'Link',
+                  Rect: [0, height - 40, 32, height],
+                  Border: [0, 0, 0],
+                  A: {
+                    Type: 'Action',
+                    S: 'URI',
+                    URI: PDFString.of(`https://archive.gd.edu.kg/check-for-update?preprintID=${preprintID}&version=Version%201`),
+                  },
+                });
+                const linkAnnotationRef = pdfDoc.context.register(linkAnnotation);
+                annotations.push(linkAnnotationRef);
+                firstPage.node.set(
+                  PDFName.of('Annots'),
+                  pdfDoc.context.obj(annotations)
+                );
+                firstPage.drawImage(imageUpdate, {
+                  x: 0,
+                  y: height - 59.6,
+                  width: 32,
+                  height: 59.6,
+                });
+                pdfDoc.setTitle(document.getElementById('titleToFill').value)
+                pdfDoc.setAuthor(authorPDF)
+                pdfDoc.setSubject(document.getElementById('subjectSelect').value)
+                pdfDoc.setKeywords(keywordBag)
+                pdfDoc.setProducer('GitData Archive')
+                pdfDoc.setCreator(`GitData Archive (https://archive.gd.edu.kg/${preprintID}/)`)
+                pdfDoc.setCreationDate(new Date(formattedDate))
+                pdfDoc.setModificationDate(new Date(formattedDate))
+                const pdfBytes = await pdfDoc.save();
+                download(pdfBytes, "v1.pdf", "application/pdf");
+            }
+            
+            // Download PDF
+            function download(data, filename, type) {
+                const file = new Blob([data], { type: type });
+                const a = document.createElement("a");
+                const url = URL.createObjectURL(file);
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                }, 0);
+            }
+
+            function escapeHtml(text) {
+              return text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+            }
+            
+            function generateHtmlCode() {
+                // Get user input value
+                var titleToFill = document.getElementById('titleToFill').value;
+                var abstractToFill = document.getElementById('abstractToFill').value;
+                var citationAuthor = generateCitationAuthor();
+                var bibtexAuthor = generateBibtexAuthor();
+                var subjectToFill = document.getElementById('subjectSelect').value;
+                var infoAuthor = generateInfoAuthor();
+                var keywordBag = [];
+                for (var i = 1; i <= 8; i++) {
+                    var keyword = document.getElementById('keyword' + i).value;
+                    if (keyword !== null && keyword !== "") {
+                        keywordBag.push(keyword);
+                    }
+                }
+                var apaAuthors = generateAPAReference();
+                var keywordsString = keywordBag.join("<br>");
+                var citationFill = existingJournal();
+                var multimediaFill = multimediaToFill();
+                var commentFill = commentToFill();
+                var licenseFill = getLicense();
+                // Generate HTML code
+                var generatedHtml = 
+                    `<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>GitData Archive - ${escapeHtml(titleToFill)}</title> <link rel="icon" type="image/x-icon" href="https://static.gd.edu.kg/images/logo.svg"> <link rel="canonical" href="https://archive.gd.edu.kg/${preprintID}/" /> <meta name="version" content="Version 1"> <meta name="jsonID" content="${preprintID}"> <meta name="keywords" content="${keywordBag}"> <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELSZ3SFQ2D"><\/script> <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-ELSZ3SFQ2D")<\/script> <!-- Citation --> <meta name="citation_title" content="${escapeHtml(titleToFill)}"> ${citationAuthor} <meta name="citation_publication_date" content="${preprintID.substring(0, 4)}/${preprintID.substring(4, 6)}/${preprintID.substring(6, 8)}"> <meta name="citation_journal_title" content="GitData Archive"> <meta name="citation_volume" content="${preprintID.substring(0, 4)}"> <meta name="citation_issue" content="${preprintID.substring(4, 6)}"> <meta name="citation_gd_archive_id" content="${preprintID}"> <meta name="citation_gd_archive_id_version" content="1"> <meta name="citation_pdf_url" content="https://archive.gd.edu.kg/${preprintID}/v1.pdf"> <meta name="citation_abstract" content="${escapeHtml(abstractToFill)}"> <!-- Google / Search Engine Tags --> <meta itemprop="name" content="GitData Archive - ${escapeHtml(titleToFill)}"> <meta name="description" content="${escapeHtml(abstractToFill)}"> <meta itemprop="image" content="https://archive.gd.edu.kg/assets/bg.jpg"> <!-- Facebook Meta Tags --> <meta property="og:url" content="https://archive.gd.edu.kg/${preprintID}/"> <meta property="og:type" content="website"> <meta property="og:title" content="GitData Archive - ${escapeHtml(titleToFill)}"> <meta property="og:description" content="${escapeHtml(abstractToFill)}"> <meta property="og:image" content="https://archive.gd.edu.kg/assets/bg.jpg"> <!-- Twitter Meta Tags --> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="GitData Archive - ${escapeHtml(titleToFill)}"> <meta name="twitter:description" content="${escapeHtml(abstractToFill)}"> <meta name="twitter:image" content="https://archive.gd.edu.kg/assets/bg.jpg"> <!-- Style --> <link href="https://archive.gd.edu.kg/assets/app.css" rel="stylesheet"> <link href="https://archive.gd.edu.kg/assets/bootstrap.min.css" rel="stylesheet"> <link href="https://archive.gd.edu.kg/assets/custom.css" rel="stylesheet"> <!-- JavaScript --> <script src="https://archive.gd.edu.kg/assets/jquery.min.js" type="text/javascript"><\/script> <script src="https://archive.gd.edu.kg/assets/footerMenu.js" type="text/javascript"><\/script> <script src="https://archive.gd.edu.kg/assets/headMenu.js" type="text/javascript"><\/script> <script src="https://alcdn.msauth.net/lib/1.4.18/js/msal.min.js" type="text/javascript"><\/script> <script src="https://archive.gd.edu.kg/assets/auth.js" type="text/javascript"><\/script> <script src="https://archive.gd.edu.kg/assets/pdf-lib.min.js" async><\/script> <script src="https://archive.gd.edu.kg/assets/pdfDownload.js" async><\/script> <script src="https://archive.gd.edu.kg/assets/showBibtex.js" async><\/script> <script src="https://mathjax.gd.edu.kg/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" async><\/script> <script type="text/x-mathjax-config"> init_mathjax = function() { if (window.MathJax) { // MathJax loaded MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS", useLabelIds: true } }, tex2jax: { inlineMath: [ ['$','$'] ], displayMath: [ ['$$','$$'] ], processEscapes: true, processEnvironments: true }, displayAlign: 'center', CommonHTML: { linebreaks: { automatic: true } } }); MathJax.Hub.Queue(["Typeset", MathJax.Hub]); } } init_mathjax(); <\/script> </head> <body> <nav role="navigation" class="mobile-menu"> <div class="burger_container" id="burger"> <div class="bar1"></div> <div class="bar2"></div> <div class="bar3"></div> </div> <div id="mobileMenu" class="mobile-back menu_off"> </div> <div class="logo-mobile"> <a href="https://archive.gd.edu.kg/"> <img src="https://archive.gd.edu.kg/assets/logo.svg" width="150px" alt="logo"> </a> </div> <script> $('#burger').click(function (e) { e.preventDefault(); $(this).toggleClass('change'); $('.mobile-menu').toggleClass('mobile-menu-open'); $('.mobile-back').toggleClass('menu_on'); $('.mobile-back').toggleClass('menu_off'); }) <\/script> </nav> <nav class="pre-navbar"> <div class="logo-background" style="display: flex; justify-content: center"> <a href="https://archive.gd.edu.kg/" style="display: flex; align-items: center"> <img src="https://archive.gd.edu.kg/assets/logo.svg" width="170px" alt="logo"> </a> </div> <div id="normalMenu" class="items-container"> </div> </nav> <nav class="post-navbar"> </nav> <div class="app" id="app"> <div class="grid article-page d-flex"> <div class="article-content col main-block"> <div class="title"> <b><h1>${titleToFill}</h1></b> </div> <div class="notation">This article is a preprint and has not been peer-reviewed.</div> <br> <div class="doi" style="margin-bottom: 10px"> <span><b>For citation: </b></span><br> <a href="javascript:void(0);" id="show-bibtex" onclick="openBibTex()">Show BibTeX format</a> <div id="bibtexDiv" style="background-color: #C6E6F5; padding: 15px; position: relative; display: none;"> <pre id="codeBlock">@article{gd_archive_${preprintID},
+  author = {${bibtexAuthor}},
+  month = {${preprintID.substring(4, 6)}},
+  title = {${titleToFill}},
+  url = {https://archive.gd.edu.kg/${preprintID}/},
+  volume = {${preprintID.substring(0, 4)}},
+  year = {${preprintID.substring(0, 4)}},
+  journal = {GitData Archive}
+}</pre> <button onclick="copyCode()" class="fulltext" style="position: absolute; top: 15px; right: 15px;">Copy</button> </div> <p>${apaAuthors} "${titleToFill}." <i>GitData Archive</i>, vol. ${preprintID.substring(0, 4)}, no. ${preprintID.substring(4, 6)}, ${getMonthAbbreviation(preprintID.substring(4, 6))} ${preprintID.substring(0, 4)}, <a href="https://archive.gd.edu.kg/${preprintID}/">https://archive.gd.edu.kg/${preprintID}/</a></p> ${citationFill} </div> <div class="abstract"> <span><b>Abstract: </b></span><br> <p>${abstractToFill}</p> </div> <div class="preview"> <span><b>Preview: </b></span><br> <a href="https://pdfviewer.gd.edu.kg/web/viewer?file=https://archive.gd.edu.kg/${preprintID}/v1.pdf" target="_blank">Preview in a new window</a></br> <iframe src="https://pdfviewer.gd.edu.kg/web/viewer?file=https://archive.gd.edu.kg/${preprintID}/v1.pdf" loading="lazy" width="100%" height="500" frameBorder="0" alt="pdf preview"></iframe> </div> <div class="license"> <span><b>License: </b></span><br> ${licenseFill} </div> <br><br> </div> <div class="article-info col side-block"> <div class="block-head"> <h2>Information</h2> </div> <div class="side-block_container"> <div id="versionInfo" class="side-block_section"> <span class="head">Version</span> <ul> <li> <p>Version 1</p> </li> </ul> </div> <div class="side-block_section"> <span class="head">Submission Date (yyyy/mm/dd)</span> <p>${preprintID.substring(0, 4)}/${preprintID.substring(4, 6)}/${preprintID.substring(6, 8)}</p> </div> <div class="side-block_section"> <span class="head">Author</span> <ul> ${infoAuthor} </ul> </div> <div class="side-block_section"> <span class="head">Subject</span> <ul> <li>${subjectToFill}</li> </ul> </div> <div class="side-block_section"> <span class="head">Keywords</span> <ul> <li> ${keywordsString} </li> </ul> </div> ${multimediaFill} ${commentFill} <div class="side-block_section"> <span class="head">Download</span> <ul> <li> <a id="downloadLink" onclick="downloadFile('https://archive.gd.edu.kg/${preprintID}/v1.pdf')"> <button id="downloadButton" class="fulltext"><span class="ext">PDF</span><span class="label">Full Text</span></button> </a> <img src="https://archive.gd.edu.kg/assets/loading.gif" alt="loading" width="20px" style="visibility: hidden;" id="downloadLoading"/> </li> </ul> </div> </div> </div> </div> <div class="footer"> <div id="footerMenu" class="container"></div> <div class="col-5 np"> &copy; <script type="text/JavaScript"> document.write(new Date().getFullYear()) <\/script> GitData Archive </div> </div> </div> </body> </html>`;
+                document.getElementById('outputCode').value = generatedHtml;
+            }
+            
+            var findSimilar = false;
+            // Function to check similarity based on abstract
+            function checkSimilarity() {
+                const abstract = document.getElementById('abstractToFill').value;
+                const similarityResult = document.getElementById('similarityResult');
+                
+                // Fetch JSON from the URL
+                fetchJSON('https://archive.gd.edu.kg/info.json')
+                  .then(publications => {
+                    if (publications && publications.length > 0) {
+                      const similarityThreshold = 65; // Adjust the threshold as needed
+                
+                      // Calculate similarity scores and find top two
+                      const similarityScores = publications.map(publication => ({
+                        url: publication.url,
+                        score: calculateSimilarity(abstract.toLowerCase(), publication.abstract.toLowerCase())
+                      }));
+                
+                      // Sort by score in descending order
+                      similarityScores.sort((a, b) => b.score - a.score);
+                      if (similarityScores.length > 0 && similarityScores[0].score >= similarityThreshold) {
+                        // Display the top two similar URLs
+                        const topTwoSimilar = similarityScores.slice(0, 2);
+                        setResult(similarityResult, topTwoSimilar);
+                        findSimilar = true;
+                      } else {
+                        setResult(similarityResult, { message: 'No similar preprint found, please proceed to step 2.' });
+                        modifyPdf();
+                        generateHtmlCode();
+                      }
+                    } else {
+                      setResult(similarityResult, { message: 'Invalid JSON data structure.' });
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Error fetching JSON:', error);
+                    setResult(similarityResult, { message: 'Error fetching JSON data.' });
+                  });
+            }
+            
+            // Function to set the result in the result container
+            function setResult(container, result) {
+                if (result.length > 1) {
+                  container.innerHTML = '<p style="color: red; font-size: 20px;">Seems there is / are similar preprint(s) on GitData Archive. You cannot proceed to step 2. Please double check your paper.</p>';
+                  result.forEach((item, index) => {
+                    container.innerHTML += `<p style="color: red;">Simiar preprint ${index + 1}. <a href="${item.url}" target="_blank">${item.url}</a> (Similarity Score: ${item.score.toFixed(2)}%)</p>`;
+                  });
+                } else {
+                    container.innerHTML = `<p style="color: green; font-size: 20px;">${result.message}</p>`;
+                }
+            }
+            
+            // Function to calculate similarity between two strings
+            function calculateSimilarity(text1, text2) {
+            const wordsInText1 = text1.split(/\s+/);
+            const wordsInText2 = text2.split(/\s+/);
+            
+            const commonWords = wordsInText1.filter(word => wordsInText2.includes(word));
+            const similarityPercentage = (commonWords.length / wordsInText1.length) * 100;
+            
+            return similarityPercentage;
+            }
+            
+            // Function to fetch JSON from a URL
+            async function fetchJSON(url) {
+            try {
+              const response = await fetch(url);
+              const jsonData = await response.json();
+              return jsonData;
+            } catch (error) {
+              console.error('Error fetching JSON:', error);
+              return null;
+            }
+            }
+
+            //function generateReference() {
+            //    
+            //    document.getElementById('APAReference').value = authors;
+            //}
+        </script>
+    </head>
+    <body>
+        <nav role="navigation" class="mobile-menu">
+            <div class="burger_container" id="burger">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div id="mobileMenu" class="mobile-back menu_off">
+            </div>
+            <div class="logo-mobile">
+                <a href="https://archive.gd.edu.kg/">
+                <img src="https://archive.gd.edu.kg/assets/logo.svg" width="150px" alt="logo">
+                </a>
+            </div>
+            <script>
+                $('#burger').click(function (e) {
+                    e.preventDefault();
+                    $(this).toggleClass('change');
+                    $('.mobile-menu').toggleClass('mobile-menu-open');
+                    $('.mobile-back').toggleClass('menu_on');
+                    $('.mobile-back').toggleClass('menu_off');
+                })
+            </script>
+        </nav>
+        <nav class="pre-navbar">
+            <div class="logo-background" style="display: flex; justify-content: center">
+                <a href="https://archive.gd.edu.kg/" style="display: flex; align-items: center">
+                <img src="https://archive.gd.edu.kg/assets/logo.svg" width="170px" alt="logo">
+                </a>
+            </div>
+            <div id="normalMenu" class="items-container">
+            </div>
+        </nav>
+        <nav class="post-navbar">
+        </nav>
+        <div class="app" id="app">
+            <div class="grid article-page d-flex">
+                <div class="article-content col main-block">
+                    <div class="title">
+                        <b>
+                            <h1>Submit a new preprint to GitData Archive</h1>
+                        </b>
+                        <p style="font-size: 20px;">By submitting a preprint to GitData Archive, you implicitly consent to adhere to our <a href="https://archive.gd.edu.kg/terms/">terms</a>.</p>
+                    </div>
+                    <i>
+                        <p style="font-size: 20px;">Required information are marked by (<span style="color: red;">*</span>).</p>
+                    </i>
+                    <b>
+                        <u>
+                            <h2 id="s1" style="font-size: 23px;">Step 1: Gather Metadata</h2>
+                        </u>
+                    </b>
+                    <form onsubmit="event.preventDefault(); checkSimilarity();">
+                        <div id="s1-1">
+                            <b>
+                                <p style="font-size: 20px;">1. Title (30 words maximum)<span style="color: red;">*</span>:</p>
+                            </b>
+                            <input style="width: 100%;" type="text" id="titleToFill" required oninput="limitTextareaLength(this, 30)">
+                            <br><br>
+                        </div>
+                        <div id="s1-2">
+                            <b>
+                                <p style="font-size: 20px;">2. Author(s)<span style="color: red;">*</span>:</p>
+                            </b>
+                            <div class="row">
+                                <div class="col" style="border-right:1px solid #000;">
+                                    If there is <b>only 1 author</b>, please follow the format:<br>
+                                    <code>Last name, First name, ORCID</code><br><br><br><br>
+                                    <i>Example</i>:<br>
+                                    - If the ORCID is <b>known</b>, type the correct ORCID:<br>
+                                    &nbsp;<code>Einstein, Albert, 0000-0000-0000-0000</code><br><br><br><br>
+                                    - If the ORCID is <b>unknown</b>, simply type <code>NA</code> there:<br>
+                                    &nbsp;<code>Mendeleev, Dmitri, NA</code><br>
+                                </div>
+                                <div class="col" style="border-left:1px solid #000;">
+                                    If there are <b>multiple authors</b>, please follow the format:<br>
+                                    <code>Last name 1, First name 1, ORCID</code><br>
+                                    <code>Last name 2, First name 2, ORCID</code><br>
+                                    <code>Last name 3, First name 3, ORCID</code><br><br>
+                                    <i>Example</i>:<br>
+                                    - If the ORCID is <b>known</b>, type the correct ORCID:<br>
+                                    &nbsp;<code>Einstein, Albert, 0000-0000-0000-0000</code><br>
+                                    &nbsp;<code>Newton, Isaac, 1111-1111-1111-1111</code><br>
+                                    &nbsp;<code>Darwin, Charles, 2222-2222-2222-2222</code><br><br>
+                                    - If the ORCID is <b>unknown</b>, simply type <code>NA</code> there:<br>
+                                    &nbsp;<code>Einstein, Albert, 0000-0000-0000-0000</code><br>
+                                    &nbsp;<code>Mendeleev, Dmitri, NA</code><br>
+                                    &nbsp;<code>Newton, Isaac, 1111-1111-1111-1111</code><br>
+                                </div>
+                            </div>
+                            <textarea style="width:100%;height:200px;" type="text" id="authorToFill" required></textarea>
+                            <br>
+                            <p>Click the following button to see if the author information is correct.</p>
+                            <button class="fulltext" type="button" onclick="printAuthorsInfo()">Verify author input</button>
+                            <div id="resultContainer"></div>
+                            <br>
+                        </div>
+                        <div id="s1-3">
+                            <b>
+                                <p style="font-size: 20px;">3. Abstract (300 words maximum)<span style="color: red;">*</span>:</p>
+                            </b>
+                            <p>If you want to include math notations in the abstract, please wrap them with "\$ \$" or "\$\$ \$\$". Moreover, if you want to include dollar sign (\$) in the abstract, please type "\\$" here.</p>
+                            <i>Example:</i><br>
+                            Typing "\$y = \frac{1}{x}\$" here in the abstract will lead to $y = \frac{1}{x}$ when it is published. Typing "\\$ 200" here in the abstract will lead to "\$ 200" when it is published.<br><br>
+                            <textarea style="width:100%;height:200px;" type="text" id="abstractToFill" required oninput="limitTextareaLength(this, 300)"></textarea>
+                            <br><br>
+                        </div>
+                        <div id="s1-4">
+                            <b>
+                                <p style="font-size: 20px;">4. Subject<span style="color: red;">*</span>:</p>
+                            </b>
+                            <p>For more information about subjects, please refer to <a href="https://archive.gd.edu.kg/about/#subjects" target="_blank">about page</a>.</p>
+                            <select id="subjectSelect" name="subject" required>
+                                <option></option>
+                                <optgroup label="Data Science / Statistics">
+                                    <option value="Data Science / Statistics (Applications)">Applications</option>
+                                    <option value="Data Science / Statistics (Computation)">Computation</option>
+                                    <option value="Data Science / Statistics (Machine Learning)">Machine Learning</option>
+                                    <option value="Data Science / Statistics (Methodology)">Methodology</option>
+                                    <option value="Data Science / Statistics (Other Statistics)">Other Statistics</option>
+                                    <option value="Data Science / Statistics (Statistics Theory)">Statistics Theory</option>
+                                </optgroup>
+                                <optgroup label="Electrical Engineering / Computer Science">
+                                    <option value="Electrical Engineering / Computer Science (Artificial Intelligence)">Artificial Intelligence</option>
+                                    <option value="Electrical Engineering / Computer Science (Audio and Speech Processing)">Audio and Speech Processing</option>
+                                    <option value="Electrical Engineering / Computer Science (Computation and Language)">Computation and Language</option>
+                                    <option value="Electrical Engineering / Computer Science (Computational Complexity)">Computational Complexity</option>
+                                    <option value="Electrical Engineering / Computer Science (Computational Engineering, Finance, and Science)">Computational Engineering, Finance, and Science</option>
+                                    <option value="Electrical Engineering / Computer Science (Computational Geometry)">Computational Geometry</option>
+                                    <option value="Electrical Engineering / Computer Science (Computer Science and Game Theory)">Computer Science and Game Theory</option>
+                                    <option value="Electrical Engineering / Computer Science (Computer Vision and Pattern Recognition)">Computer Vision and Pattern Recognition</option>
+                                    <option value="Electrical Engineering / Computer Science (Computers and Society)">Computers and Society</option>
+                                    <option value="Electrical Engineering / Computer Science (Cryptography and Security)">Cryptography and Security</option>
+                                    <option value="Electrical Engineering / Computer Science (Data Structures and Algorithms)">Data Structures and Algorithms</option>
+                                    <option value="Electrical Engineering / Computer Science (Image and Video Processing)">Image and Video Processing</option>
+                                    <option value="Electrical Engineering / Computer Science (Signal Processing)">Signal Processing</option>
+                                    <option value="Electrical Engineering / Computer Science (Systems and Control)">Systems and Control</option>
+                                </optgroup>
+                            </select>
+                            <br><br>
+                        </div>
+                        <div id="s1-5">
+                            <b>
+                                <p style="font-size: 20px;">5. Keywords (3 keywords minimum, 8 keywords maximum)<span style="color: red;">*</span>:</p>
+                            </b>
+                            <p>Keyword 1<span style="color: red;">*</span>: <input style="width: 20%;" type="text" id="keyword1" required oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 2<span style="color: red;">*</span>: <input style="width: 20%;" type="text" id="keyword2" required oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 3<span style="color: red;">*</span>: <input style="width: 20%;" type="text" id="keyword3" required oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 4: <input style="width: 20%;" type="text" id="keyword4" oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 5: <input style="width: 20%;" type="text" id="keyword5" oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 6: <input style="width: 20%;" type="text" id="keyword6" oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 7: <input style="width: 20%;" type="text" id="keyword7" oninput="limitTextareaLength(this, 10)"></p>
+                            <p>Keyword 8: <input style="width: 20%;" type="text" id="keyword8" oninput="limitTextareaLength(this, 10)"></p>
+                            <br><br>
+                        </div>
+                        <div id="s1-6">
+                            <b>
+                                <p style="font-size: 20px;">6. Related Publishment (optional):</p>
+                            </b>
+                            <p>If this work has been published on a journal or book, please indicate.</p>
+                            <p>Journal / Book name: <input style="width: 50%;" type="text" id="journalBookName"></p>
+                            <p>DOI / Official URL: <input style="width: 75%;" type="text" id="journalBookURL"></p>
+                            <br><br>
+                        </div>
+                        <div id="s1-7">
+                            <b>
+                                <p style="font-size: 20px;">7. Related Link (optional):</p>
+                            </b>
+                            <p>If this work is related to a multimedia material (e.g. code, video, showcase website), please indicate the URL:</p>
+                            <input style="width: 75%;" type="text" id="relatedURL">
+                            <br><br>
+                        </div>
+                        <div id="s1-8">
+                            <b>
+                                <p style="font-size: 20px;">8. Comment (optional):</p>
+                            </b>
+                            <p>Leave a short comment on your preprint information page (20 words maximum).</p>
+                            <textarea style="width:100%;height:100px;" type="text" id="comment" oninput="limitTextareaLength(this, 20)"></textarea>
+                            <br><br>
+                        </div>
+                        <div id="s1-9">
+                            <b>
+                                <p style="font-size: 20px;">9. License<span style="color: red;">*</span>:</p>
+                            </b>
+                            <p>For more information about licenses, please refer to <a href="https://creativecommons.org/share-your-work/cclicenses/" target="_blank">Creative Commons</a>.</p>
+                            <select id="licenseSelect" name="license" required>
+                                <option></option>
+                                <option value="CC BY">CC BY</option>
+                                <option value="CC BY-SA">CC BY-SA</option>
+                                <option value="CC BY-NC">CC BY-NC</option>
+                                <option value="CC BY-NC-SA">CC BY-NC-SA</option>
+                                <option value="CC BY-ND">CC BY-ND</option>
+                                <option value="CC BY-NC-ND">CC BY-NC-ND</option>
+                                <option value="CC0">CC0</option>
+                            </select>
+                            <br><br>
+                        </div>
+                        <div id="s1-10">
+                            <b>
+                                <p style="font-size: 20px;">10. Process PDF<span style="color: red;">*</span>:</p>
+                            </b>
+                            <p>Before publishing your work as a preprint, your PDF must be processed - adding metadata you provided above. Please select your PDF from your device.</p>
+                            <input type="file" id="fileInput" required/>
+                            <br><br>
+                        </div>
+                        <div id="s1-11">
+                            <b>
+                                <p style="font-size: 20px;">11. Submit Metadata and Save Processed PDF<span style="color: red;">*</span>:</p>
+                            </b>
+                            <p>Upon submitting metadata, the HTML code will be generated and the processed PDF will be downloaded. Make sure the PDF file name is <code>v1.pdf</code>.</p>
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAABt_pRJnW48F_dm"></div>
+                            <button class="fulltext" type="submit">Submit Metadata</button><br><br>
+                            <div id="similarityResult"></div>
+                            <br><br>
+                        </div>
+                    </form>
+                    <HR>
+                    <b>
+                        <u>
+                            <h2 id="s2" style="font-size: 23px;">Step 2: Get the HTML</h2>
+                        </u>
+                    </b>
+                    <b>
+                        <p style="font-size: 20px;">HTML Code Should be Shown Below. If you find any incorrect information, please go back to corresponding sections in step 1 and correct them. Remember to submit metadata after modification.</p>
+                    </b>
+                    <button class="fulltext" onclick="previewHtml()">Preview the Webpage</button>&nbsp;&nbsp;<button class="fulltext" onclick="downloadHtml()">Download HTML</button>&nbsp;&nbsp;<button class="fulltext" onclick="copyToClipboard()">Copy HTML</button><br><br>
+                    <textarea style="width:100%;height:400px;" id="outputCode" readonly></textarea>
+                    <br><br>
+                    <HR>
+                    <b>
+                        <u>
+                            <h2 id="s3" style="font-size: 23px;">Step 3: Submit HTML and PDF to the Preprint Server</h2>
+                        </u>
+                    </b>
+                    <b>
+                        <p style="font-size: 20px;">
+                            1. In your browser, navigate to <a href="https://github.com/GitData-GA/archive" target="_blank">https://github.com/GitData-GA/archive</a>.
+                        </p>
+                    </b>
+                    <b>
+                        <p style="font-size: 20px;">
+                            2. Click on "<i>Add file</i>", then select "<i>Create new file</i>".<br>
+                        <div class="imageContainer">
+                            <img src ="https://archive.gd.edu.kg/assets/submit_new_1.png" width="250" alt="guide image 1"/>
+                        </div>
+                        </p>
+                    </b>
+                    <b>
+                        <p style="font-size: 20px;">
+                            3. Copy the following text to the blank "<i>Name your file...</i>". The number (<script>document.write (`<code style="font-size: 20px;">${preprintID}</code>`)</script>) is your preprint ID, which is unique.
+                            <script>document.write (`<p><code style="font-size: 20px;">${preprintID}/index.html</code></p>`)</script>
+                        <div class="imageContainer">
+                            <img src ="https://archive.gd.edu.kg/assets/submit_new_2.png" width="250" alt="guide image 2"/>
+                        </div>
+                        </p>
+                    </b>
+                    <b>
+                        <p style="font-size: 20px;">
+                            4. Go back to <a href="#s2">Step 2: Get the HTML</a>. Click on "<i>Copy HTML</i>". Make sure the metadata are correct before copying.<br>
+                        <div class="imageContainer">
+                            <img src ="https://archive.gd.edu.kg/assets/submit_new_3.png" width="250" alt="guide image 3"/>
+                        </div>
+                        </p>
+                    </b>
+                    <b>
+                        <p style="font-size: 20px;">
+                            5. Paste the HTML code you just copied to Github. Then click on "<i>Commit changes...</i>".<br>
+                        <div class="imageContainer">
+                            <img src ="https://archive.gd.edu.kg/assets/submit_new_4.png" width="250" alt="guide image 4"/>
+                        </div>
+                        </p>
+                    </b>
+                    <b>
+                        <p style="font-size: 20px;">
+                            6. In the Github folder you just created and modified (<script>document.write (`<a href="https://github.com/GitData-GA/archive/tree/main/${preprintID}" target="_blank">https://github.com/GitData-GA/archive/tree/main/${preprintID}</a>`)</script>), click on "<i>Add file</i>", then click on "<i>Upload files</i>".<br>
+                        <div class="imageContainer">
+                            <img src ="https://archive.gd.edu.kg/assets/submit_new_5.png" width="250" alt="guide image 5"/>
+                        </div>
+                        </p>
+                    </b>
+                    <b>
+                        <p style="font-size: 20px;">
+                            7. Upload the PDF file to Github. After it is successfully uploaded, click on "<i>Commit changes</i>" at the bottom left.<br>
+                        <div class="imageContainer">
+                            <img src ="https://archive.gd.edu.kg/assets/submit_new_6.png" width="250" alt="guide image 6"/>
+                        </div>
+                        </p>
+                    </b>
+                    <b>
+                        <p style="font-size: 20px;">
+                            8. You are all set! You should be able to see your preprint in around 30 minutes using the following url.<br>
+                            <script>document.write (`<a href="https://archive.gd.edu.kg/${preprintID}/" target="_blank">https://archive.gd.edu.kg/${preprintID}/</a>`)</script>
+                        </p>
+                    </b>
+                    <br><br>
+                </div>
+                <div class="article-info col side-block">
+                    <div class="block-head">
+                        <h2>Guide</h2>
+                    </div>
+                    <div class="side-block_container">
+                        <div class="side-block_section">
+                            <a href="#s1"><span class="head">Step 1: Gather Metadata</span></a>
+                            <ul>
+                                <li><a href="#s1-1">1.1. Title</a></li>
+                                <li><a href="#s1-2">1.2. Author(s)</a></li>
+                                <li><a href="#s1-3">1.3. Abstract</a></li>
+                                <li><a href="#s1-4">1.4. Subject</a></li>
+                                <li><a href="#s1-5">1.5. Keywords</a></li>
+                                <li><a href="#s1-6">1.6. Related Publishment</a></li>
+                                <li><a href="#s1-7">1.7. Related Link</a></li>
+                                <li><a href="#s1-8">1.8. Comment</a></li>
+                                <li><a href="#s1-9">1.9. License</a></li>
+                                <li><a href="#s1-10">1.10. Process PDF</a></li>
+                                <li><a href="#s1-11">1.11. Submit Metadata and Save Processed PDF</a></li>
+                            </ul>
+                        </div>
+                        <div class="side-block_section">
+                            <a href="#s2"><span class="head">Step 2: Get the HTML</span></a>
+                        </div>
+                        <div class="side-block_section">
+                            <a href="#s3"><span class="head">Step 3: Submit HTML and PDF to the Preprint Server</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div id="footerMenu" class="container"></div>
+                <div class="col-5 np">
+                    &copy; <script type="text/JavaScript"> document.write(new Date().getFullYear()) </script> GitData Archive
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

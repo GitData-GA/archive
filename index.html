@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GitData Archive - Open Access Preprints</title>
+        <link rel="icon" type="image/x-icon" href="https://static.gd.edu.kg/images/logo.svg">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELSZ3SFQ2D"></script>
+        <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-ELSZ3SFQ2D")</script>
+        <!-- Google / Search Engine Tags -->
+        <meta itemprop="name" content="GitData Archive - Open Access Preprints">
+        <meta name="description" content="Discover cutting-edge research in Data Science, Statistics, and Computer Science at GitData Archive. Explore an open-access archive of unreviewed scholarly articles, fostering innovation and exploration in these dynamic fields.">
+        <meta itemprop="image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://archive.gd.edu.kg/">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="GitData Archive - Open Access Preprints">
+        <meta property="og:description" content="Discover cutting-edge research in Data Science, Statistics, and Computer Science at GitData Archive. Explore an open-access archive of unreviewed scholarly articles, fostering innovation and exploration in these dynamic fields.">
+        <meta property="og:image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="GitData Archive - Open Access Preprints">
+        <meta name="twitter:description" content="Discover cutting-edge research in Data Science, Statistics, and Computer Science at GitData Archive. Explore an open-access archive of unreviewed scholarly articles, fostering innovation and exploration in these dynamic fields.">
+        <meta name="twitter:image" content="https://archive.gd.edu.kg/assets/bg.jpg">
+        <!-- Style -->
+        <link href="https://archive.gd.edu.kg/assets/app.css" rel="stylesheet">
+        <link href="https://archive.gd.edu.kg/assets/bootstrap.min.css" rel="stylesheet">
+        <link href="https://archive.gd.edu.kg/assets/custom.css" rel="stylesheet">
+        <style>@font-face{font-family:Afacad;src:url(https://archive.gd.edu.kg/assets/Afacad-Regular.ttf);font-weight:400}</style>
+        <style>@font-face{font-family:Afacad_Bold;src:url(https://archive.gd.edu.kg/assets/Afacad-Bold.ttf);font-weight:500}</style>
+        <!-- JavaScript -->
+        <script src="https://archive.gd.edu.kg/assets/jquery.min.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/index.js" type="text/javascript"></script>
+        <script src="https://alcdn.msauth.net/lib/1.4.18/js/msal.min.js" type="text/javascript"></script>
+        <script src="https://archive.gd.edu.kg/assets/auth.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <nav role="navigation" class="mobile-menu">
+            <div class="burger_container" id="burger">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div class="mobile-back menu_off">
+                <ul>
+                    <li><a href="https://archive.gd.edu.kg/about/">About</a></li>
+                    <li><a href="https://archive.gd.edu.kg/terms/">Terms</a></li>
+                    <li><a href="https://archive.gd.edu.kg/submit/">Submit</a></li>
+                    <li id="loginMobile">
+                        <a href="#" id="loginMobileLink">
+                            <img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login
+                        </a>
+                    </li>
+                    <li id="logoutMobile" style="display: none;">
+                        <a href="#" id="logoutMobileLink">
+                            <img src="https://archive.gd.edu.kg/assets/logout.svg" alt="logout_img" height="16px" />&nbsp;Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logo-mobile">
+                <a href="https://archive.gd.edu.kg/">
+                <img src="https://archive.gd.edu.kg/assets/logo.svg" width="150px" alt="logo">
+                </a>
+            </div>
+            <script>
+                $('#burger').click(function (e) {
+                    e.preventDefault();
+                    $(this).toggleClass('change');
+                    $('.mobile-menu').toggleClass('mobile-menu-open');
+                    $('.mobile-back').toggleClass('menu_on');
+                    $('.mobile-back').toggleClass('menu_off');
+                })
+            </script>
+        </nav>
+        <nav class="pre-navbar">
+            <div class="logo-background" style="display: flex; justify-content: center">
+                <a href="https://archive.gd.edu.kg/" style="display: flex; align-items: center">
+                <img src="https://archive.gd.edu.kg/assets/logo.svg" width="170px" alt="logo">
+                </a>
+            </div>
+            <div class="items-container">
+                <div class="menu-holder">
+                    <a class="nav-menu" href="https://archive.gd.edu.kg/about/">About</a>
+                    <a class="nav-menu" href="https://archive.gd.edu.kg/terms/">Terms</a>
+                    <a class="nav-menu" href="https://archive.gd.edu.kg/submit/">Submit</a>
+                    <div id="loginDesktop" style="display: inline-block;">
+                        <a class="nav-menu" href="#" id="loginDesktopLink" style="display: flex; align-items: center;">
+                            <img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" height="16px" />&nbsp;Login
+                        </a>
+                    </div>
+                    <div id="logoutDesktop" style="display: none;">
+                        <a class="nav-menu" href="#" id="logoutDesktopLink" style="display: flex; align-items: center;">
+                            <img src="https://archive.gd.edu.kg/assets/logout.svg" alt="logout_img" height="16px" />&nbsp;Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="post-navbar">
+        </nav>
+        <div class="app" id="app">
+            <div class="grid home d-flex">
+                <div class="container" style="max-width: 2000px;">
+                    <div class="row">
+                    <div class="intro col np">
+                        <div class="title">
+                            <h1 style="font-family: Afacad_Bold; font-size: 55px">GitData <span style="color: #1b86b9;">Archive</span></h1>
+                            <p style="font-family: Afacad; font-size: 20px">
+                                Unlocking the World of Data Science, Statistics, and Computer Science: Explore GitData Archive, Your Gateway to Unreviewed Scholarly Insights and Research Archives! As of today, there are <span style="font-family: Afacad; color: #1b86b9;" id="preprint_count"></span> preprints available on GitData Archive.
+                            </p>
+                        </div>
+                        <div id="main-body">
+                            <div class="search col main-block">
+                                <div class="col-12 d-flex np">
+                                    <div class="block-head">
+                                        <h2>Search <span style="color: #1b86b9;">Preprints</span></h2>
+                                        <br>
+                                    </div>
+                                </div>
+                                <div class="search-panel">
+                                    <form id="searchForm" onsubmit="showInput(); return false;">
+                                        <br>
+                                        <div class="container">
+                                            <div class="search-field">
+                                                <input type="text" placeholder="Search for a preprint (e.g. title, ID, keyword, etc.)" id="searchQuery">
+                                                <button type="submit">Search</button>
+                                            </div>
+                                            <div class="search-parameters">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="form-group col np">
+                                                            <label for="subject">Subject</label>
+                                                            <select id="subject">
+                                                                <option></option>
+                                                                <optgroup label="Data Science / Statistics">
+                                                                    <option value="Data Science / Statistics (Applications)">Applications</option>
+                                                                    <option value="Data Science / Statistics (Computation)">Computation</option>
+                                                                    <option value="Data Science / Statistics (Machine Learning)">Machine Learning</option>
+                                                                    <option value="Data Science / Statistics (Methodology)">Methodology</option>
+                                                                    <option value="Data Science / Statistics (Other Statistics)">Other Statistics</option>
+                                                                    <option value="Data Science / Statistics (Statistics Theory)">Statistics Theory</option>
+                                                                </optgroup>
+                                                                <optgroup label="Electrical Engineering / Computer Science">
+                                                                    <option value="Electrical Engineering / Computer Science (Artificial Intelligence)">Artificial Intelligence</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Audio and Speech Processing)">Audio and Speech Processing</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computation and Language)">Computation and Language</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computational Complexity)">Computational Complexity</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computational Engineering, Finance, and Science)">Computational Engineering, Finance, and Science</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computational Geometry)">Computational Geometry</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computer Science and Game Theory)">Computer Science and Game Theory</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computer Vision and Pattern Recognition)">Computer Vision and Pattern Recognition</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Computers and Society)">Computers and Society</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Cryptography and Security)">Cryptography and Security</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Data Structures and Algorithms)">Data Structures and Algorithms</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Image and Video Processing)">Image and Video Processing</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Signal Processing)">Signal Processing</option>
+                                                                    <option value="Electrical Engineering / Computer Science (Systems and Control)">Systems and Control</option>
+                                                                </optgroup>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col np">
+                                                            <label for="author">Author</label>
+                                                            <input type="text" id="author">
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="form-group col np">
+                                                            <label for="startDate">Date from:</label>
+                                                            <input type="date" id="startDate">
+                                                        </div>
+                                                        <div class="form-group col np">
+                                                            <label for="endDate">Date to:</label>
+                                                            <input type="date" id="endDate">
+                                                        </div>
+                                                        <div class="form-group col np">
+                                                            <label for="sortOption">Sort by date:</label>
+                                                            <select id="sortOption" name="sortOption">
+                                                                <option value="desc">Newest first</option>
+                                                                <option value="asc">Oldest first</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col np">
+                                                            <label for="versionOption">Version:</label>
+                                                            <select id="versionOption" name="sortOption">
+                                                                <option value="latest">Latest version</option>
+                                                                <option value="all">All versions</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </form>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="container">
+                                <ol>
+                                    <div id="searchResults"></div>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feed d-flex col np side-block">
+                        <div class="feed-articles col np">
+                            <div class="block-head">
+                                <h2>Recent <span style="color: #1b86b9;">Preprints</span></h2>
+                                <br>
+                            </div>
+                            <div class="feed-article col np" id="researchPapersContainer">
+                            </div>
+                            <br><br>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col" style="text-align: left; font-size:12px;">
+                            <p>API</p>
+                            <a href="https://archive.gd.edu.kg/sitemap.xml">Sitemap</a><br>
+                            <a href="https://archive.gd.edu.kg/check-for-update">Check for update</a><br>
+                            <a href="https://archive.gd.edu.kg/info.json">Feed</a><br>
+                        </div>
+                        <div class="col" style="text-align: left; font-size:12px;">
+                            <p>Policy</p>
+                            <a href="https://www.gd.edu.kg/privacy-policy/" target="_blank">Privacy Policy</a><br>
+                            <a href="https://www.gd.edu.kg/cookie-policy/" target="_blank">Cookie Policy</a><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 np">
+                    &copy; <script type="text/JavaScript"> document.write(new Date().getFullYear()) </script> GitData Archive
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
