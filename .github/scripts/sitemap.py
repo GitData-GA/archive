@@ -41,10 +41,6 @@ def generate_sitemap():
                 if file.endswith('index.html') and file_url != 'https://archive.gd.edu.kg/':
                     file_url += '/'
 
-                # Include only the latest PDF in each preprint ID
-                if file.endswith('.pdf') and file != latest_pdfs.get(root):
-                    continue
-
                 level = file_path.count(os.sep)
                 file_priority = calculate_priority(level)
                 if file.endswith('.pdf') and file == latest_pdfs.get(root):
