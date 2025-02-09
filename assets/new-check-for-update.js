@@ -1,6 +1,6 @@
 function loadOboe(callback) {
     const script = document.createElement("script");
-    script.src = "./oboe-browser.min.js";  // Load from the same folder
+    script.src = "./assets/oboe-browser.min.js";  // Load from the same folder
     script.onload = callback;
     script.onerror = function () {
         console.error("Failed to load Oboe.js. Make sure oboe-browser.min.js is in the correct directory.");
