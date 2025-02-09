@@ -37,23 +37,6 @@
         <script src="https://archive.gd.edu.kg/assets/jquery.min.js" type="text/javascript"></script>
         <script src="https://archive.gd.edu.kg/assets/footerMenu.js" type="text/javascript"></script>
         <script src="https://archive.gd.edu.kg/assets/headMenu.js" type="text/javascript"></script>
-        <script src="https://alcdn.msauth.net/lib/1.4.18/js/msal.min.js" type="text/javascript"></script> 
-        <script src="https://archive.gd.edu.kg/assets/auth.js" type="text/javascript"></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var msalConfig = {
-                    auth: {
-                        clientId: atob('MjdkNDIyYTctMGY4OS00MTQ0LWI4NGItNGU5ZmRmMzU0Yzdi'),                    
-                        authority: 'https://login.microsoftonline.com/gd.edu.kg',
-                        redirectUri: window.location.origin
-                    }
-                };
-                var msalApplication = new Msal.UserAgentApplication(msalConfig);
-                if (!msalApplication.getAccount()) {
-                    window.location.href = 'https://archive.gd.edu.kg/submit/';
-                }
-            });
-        </script>
         <script src="https://archive.gd.edu.kg/assets/download.js" type="text/javascript"></script>
         <script src="https://archive.gd.edu.kg/assets/pdf-lib.min.js" type="text/javascript"></script>
         <script src="https://archive.gd.edu.kg/assets/jszip.min.js" type="text/javascript"></script>
