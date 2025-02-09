@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div id="normalMenu" class="menu-holder">
                         <a class="nav-menu" href="https://archive.gd.edu.kg/about/">About</a>
                         <a class="nav-menu" href="https://archive.gd.edu.kg/terms/">Terms</a>
-                        <a class="nav-menu" href="https://archive.gd.edu.kg/submit/">Submit</a>
+                        <a class="nav-menu" href="https://archive.gd.edu.kg/support/">Support</a>
                         <a class="nav-menu" href="https://portal.archive.gd.edu.kg/"><img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" width="16px" height="16px" />&nbsp;Portal & Submit</a>
                     </div>
         `;
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 <ul>
                     <li><a href="https://archive.gd.edu.kg/about/">About</a></li>
                     <li><a href="https://archive.gd.edu.kg/terms/">Terms</a></li>
-                    <li><a href="https://archive.gd.edu.kg/submit/">Submit</a></li>
-                    <li><a class="nav-menu" href="https://portal.archive.gd.edu.kg/"><img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" width="16px" height="16px" />&nbsp;Portal & Submit</a></li>
+                    <li><a href="https://archive.gd.edu.kg/support/">Support</a></li>
+                    <li><a href="https://portal.archive.gd.edu.kg/"><img src="https://archive.gd.edu.kg/assets/lock.svg" alt="lock_img" width="16px" height="16px" />&nbsp;Portal & Submit</a></li>
                 </ul>
         `;
         mobile.innerHTML = content;
