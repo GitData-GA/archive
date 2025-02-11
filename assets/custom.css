@@ -40,6 +40,11 @@ body a:hover{
     color: #0045a2 !important;
 }
 
+body a[target="_blank"]::after {
+    content: url('https://www.gd.edu.kg/images/external_link.svg');
+    margin-left: 5px; 
+}
+
 select, input, textarea{
     padding-left: 15px;
 }
