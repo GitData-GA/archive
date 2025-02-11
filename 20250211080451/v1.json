@@ -1,0 +1,31 @@
+{
+  "20250211080451/v1": {
+    "title": "Data Efficient Dense Cross-Lingual Information Retrieval",
+    "subject": "Computer Science (Computation and Language)",
+    "license": "CC BY",
+    "predecessor": null,
+    "successor": null,
+    "submissionDate": "2025/02/11",
+    "keywords": [
+      "LLMs",
+      "Cross-Lingual Information Retrieval (CIR)",
+      "Translation"
+    ],
+    "author": [
+      {
+        "firstName": "Luc",
+        "lastName": "Chen"
+      },
+      {
+        "firstName": "Yinan",
+        "lastName": "He"
+      },
+      {
+        "firstName": "Alayna",
+        "lastName": "Nguyen"
+      }
+    ],
+    "abstract": "Cross-Lingual Information Retrieval (CIR) remains challenging due to limited annotated data and linguistic diversity, especially for low-resource languages. While dense retrieval models have significantly advanced retrieval performance, their reliance on large-scale training datasets hampers their effectiveness in multilingual settings. In this work, we propose two complementary strategies to improve data efficiency and robustness in CIR model fine- tuning. First, we introduce a paraphrase-based query augmentation pipeline leveraging large language models &quot;LLMs&quot; to enrich scarce training data, thereby promoting more robust and language-agnostic representations. Second, we present a weighted InfoNCE loss that emphasizes underrepresented languages, ensuring balanced optimization across heterogeneous linguistic inputs. Experiments on cross-lingual benchmark datasets demonstrate that our combined approaches yield substantial gains in retrieval quality, outperforming standard training protocols on small and imbalanced datasets. These results underscore the potential of targeted data augmentation and reweighted objectives to build more inclusive and effective CIR systems, even under resource constraints.",
+    "submitterID": "user_2so35E0TC4NHXAlQhQuJPswIJSD"
+  }
+}
