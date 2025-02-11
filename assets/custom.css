@@ -41,7 +41,7 @@ body a:hover{
 }
 
 body a[target="_blank"]::after {
-    content: url('https://www.gd.edu.kg/images/external_link.svg');
+    content: url('https://archive.gd.edu.kg/assets/external_link.svg');
     margin-left: 5px; 
 }
 
