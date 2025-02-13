@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: 'https://archive.gd.edu.kg/info.json',
+        url: 'https://backup.archive.gd.edu.kg/info.json',
         type: 'GET',
         dataType: 'json',
         success: function(jsonData) {
@@ -84,7 +84,7 @@ async function showInput() {
     var startDate = document.getElementById('startDate').value;
     var endDate = document.getElementById('endDate').value;
     try {
-        var response = await fetch('https://archive.gd.edu.kg/info.json');
+        var response = await fetch('https://backup.archive.gd.edu.kg/info.json');
         var jsonData = await response.json();
     } catch (error) {
         console.error('Error fetching JSON data:', error);
