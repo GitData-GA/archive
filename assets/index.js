@@ -32,7 +32,7 @@ $(document).ready(function() {
                         </div>
                     </div>
                     <div class="article-title col-12 np">
-                        <a href="${url}">
+                        <a href="${url.replace("https://archive.gd.edu.kg/", "https://archive.gd.edu.kg/abs/")}">
                             ${title}
                         </a>
                     </div>
@@ -128,7 +128,7 @@ async function showInput() {
             var authorsString = paper.authors.join(', ');
             resultDiv.innerHTML = `
                 <p>
-                <a href="${paper.url}">${preprintID}</a>&nbsp;&nbsp;
+                <a href="${paper.url.replace("https://archive.gd.edu.kg/", "https://archive.gd.edu.kg/abs/")}">${preprintID}</a>&nbsp;&nbsp;
                 <span class="article-tag">${paper.subject}</span> (${paper.version})
                 </p>
                 <b><p>${paper.title}</p></b>
